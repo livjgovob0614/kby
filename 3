@@ -1,0 +1,1154 @@
+################################################################
+##                       KICKASS DISASS                       ##
+##                                                            ##
+##                                    Powered by Capstone 4.0 ##
+################################################################
+
+Successfully loaded /home/jg/sample/arm_64 using loader ELF
+Analyzing...
+Adding proc at address 0x400890 (found by loader), type: <class 'int'>
+Found proc at 0x400890
+Adding funcion call_weak_fn from .symtab at 0x4008d8
+   size 20
+Adding funcion deregister_tm_clones from .symtab at 0x4008f0
+Adding funcion register_tm_clones from .symtab at 0x400930
+Adding funcion __do_global_dtors_aux from .symtab at 0x400970
+Adding funcion frame_dummy from .symtab at 0x4009a0
+Adding funcion __libc_csu_fini from .symtab at 0x400d40
+   size 4
+Adding funcion _start from .symtab at 0x400890
+Adding funcion _ZN6CClock4StopEv from .symtab at 0x400ba4
+   size 32
+Adding funcion _fini from .symtab at 0x400d44
+Adding funcion _ZN6CClock19SetCallbackFunctionEPFvvE from .symtab at 0x400bc4
+   size 36
+Adding funcion _ZN6CClockC2Ev from .symtab at 0x400b00
+   size 40
+Adding funcion _ZN6CClockD1Ev from .symtab at 0x400b28
+   size 20
+Adding funcion _Z7OnTimerPv from .symtab at 0x400be8
+   size 220
+Adding funcion __libc_csu_init from .symtab at 0x400cc8
+   size 120
+Adding funcion _ZN6CClock5StartEv from .symtab at 0x400b3c
+   size 104
+Adding funcion _ZN6CClockD2Ev from .symtab at 0x400b28
+   size 20
+Adding funcion _ZN6CClockC1Ev from .symtab at 0x400b00
+   size 40
+Adding funcion _Z7OnAlarmv from .symtab at 0x400ad4
+   size 44
+Adding funcion main from .symtab at 0x4009e0
+   size 244
+Adding funcion _init from .symtab at 0x4007a8
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400890 ,end: 0x4008d8 )
+      0x400890 movz
+      0x400894 movz
+      0x400898 mov
+      0x40089c ldr
+      0x4008a0 add
+      0x4008a4 mov
+      0x4008a8 ldr
+      0x4008ac ldr
+      0x4008b0 ldr
+      0x4008b4 bl
+Found proc at 0x4007e0
+Go to br target --> 0x4007e0
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4007e0 ,end: 0x400890 )
+      0x4007e0 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x4007e4 ldr
+      0x4007e8 add
+      0x4007ec br
+      0x4007f0 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x4007f4 ldr
+      0x4007f8 add
+      0x4007fc br
+      0x400800 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400804 ldr
+      0x400808 add
+      0x40080c br
+      0x400810 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400814 ldr
+      0x400818 add
+      0x40081c br
+      0x400820 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400824 ldr
+      0x400828 add
+      0x40082c br
+      0x400830 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400834 ldr
+      0x400838 add
+      0x40083c br
+      0x400840 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400844 ldr
+      0x400848 add
+      0x40084c br
+      0x400850 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400854 ldr
+      0x400858 add
+      0x40085c br
+      0x400860 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400864 ldr
+      0x400868 add
+      0x40086c br
+      0x400870 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400874 ldr
+      0x400878 add
+      0x40087c br
+      0x400880 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400884 ldr
+      0x400888 add
+      0x40088c br
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4008d8 ,end: 0x4008f0 )
+      0x4008d8 adrp
+ ADRP!
+REG
+IMM: 0x411000
+      0x4008dc ldr
+      0x4008e0 cbz
+      0x4008e4 b
+Go to br target --> 0x400810
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400810 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4008f0 ,end: 0x400930 )
+      0x4008f0 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x4008f4 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x4008f8 add
+      0x4008fc add
+      0x400900 add
+      0x400904 sub
+      0x400908 cmp
+      0x40090c b.ls
+Adding br target : 0x400920
+      0x400910 ldr
+      0x400914 cbz
+      0x400918 br
+      0x40091c nop
+      0x400920 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400930 ,end: 0x400970 )
+      0x400930 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400934 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400938 add
+      0x40093c add
+      0x400940 sub
+      0x400944 asr
+      0x400948 add
+      0x40094c asr
+      0x400950 cbz
+      0x400954 ldr
+      0x400958 cbz
+      0x40095c br
+      0x400960 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400970 ,end: 0x4009a0 )
+      0x400970 stp
+      0x400974 mov
+      0x400978 str
+      0x40097c adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400980 ldrb
+      0x400984 cbnz
+      0x400988 bl
+Found proc at 0x4008f0
+Go to br target --> 0x4008f0
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4008f0 ,end: 0x400930 )
+      0x400924 nop
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4009a0 ,end: 0x4009e0 )
+      0x4009a0 adrp
+ ADRP!
+REG
+IMM: 0x411000
+      0x4009a4 add
+      0x4009a8 ldr
+      0x4009ac cbnz
+      0x4009b0 b
+Go to br target --> 0x400930
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400930 ,end: 0x400970 )
+      0x400964 nop
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400d40 ,end: 0x400d44 )
+      0x400d40 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400890 ,end: 0x4008d8 )
+      0x4008b8 bl
+Found proc at 0x400830
+StopIteration at 0x4008b8
+Go to br target --> 0x400830
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400830 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ba4 ,end: 0x400bc4 )
+      0x400ba4 sub
+      0x400ba8 str
+      0x400bac ldr
+      0x400bb0 movz
+      0x400bb4 str
+      0x400bb8 nop
+      0x400bbc add
+      0x400bc0 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400d44 ,end: 0x400d54 )
+      0x400d44 stp
+      0x400d48 mov
+      0x400d4c ldp
+      0x400d50 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400bc4 ,end: 0x400be8 )
+      0x400bc4 sub
+      0x400bc8 str
+      0x400bcc str
+      0x400bd0 ldr
+      0x400bd4 ldr
+      0x400bd8 str
+      0x400bdc nop
+      0x400be0 add
+      0x400be4 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b00 ,end: 0x400b28 )
+      0x400b00 sub
+      0x400b04 str
+      0x400b08 ldr
+      0x400b0c movz
+      0x400b10 str
+      0x400b14 ldr
+      0x400b18 str
+      0x400b1c nop
+      0x400b20 add
+      0x400b24 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b28 ,end: 0x400b3c )
+      0x400b28 sub
+      0x400b2c str
+      0x400b30 nop
+      0x400b34 add
+      0x400b38 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400be8 ,end: 0x400cc8 )
+      0x400be8 stp
+      0x400bec mov
+      0x400bf0 str
+      0x400bf4 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400bf8 add
+      0x400bfc ldr
+      0x400c00 str
+      0x400c04 movz
+      0x400c08 ldr
+      0x400c0c str
+      0x400c10 ldr
+      0x400c14 ldr
+      0x400c18 cmp
+      0x400c1c b.eq
+Adding br target : 0x400c98
+      0x400c20 movz
+      0x400c24 bl
+Found proc at 0x400820
+Go to br target --> 0x400820
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400820 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400cc8 ,end: 0x400d40 )
+      0x400cc8 stp
+      0x400ccc mov
+      0x400cd0 stp
+      0x400cd4 adrp
+ ADRP!
+REG
+IMM: 0x411000
+      0x400cd8 stp
+      0x400cdc adrp
+ ADRP!
+REG
+IMM: 0x411000
+      0x400ce0 add
+      0x400ce4 add
+      0x400ce8 sub
+      0x400cec stp
+      0x400cf0 mov
+      0x400cf4 mov
+      0x400cf8 mov
+      0x400cfc bl
+Found proc at 0x4007a8
+Go to br target --> 0x4007a8
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4007a8 ,end: 0x400890 )
+      0x4007a8 stp
+      0x4007ac mov
+      0x4007b0 bl
+Found proc at 0x4008d8
+Go to br target --> 0x4008d8
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4008d8 ,end: 0x4008f0 )
+      0x4008e8 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b3c ,end: 0x400ba4 )
+      0x400b3c stp
+      0x400b40 mov
+      0x400b44 str
+      0x400b48 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400b4c add
+      0x400b50 ldr
+      0x400b54 str
+      0x400b58 movz
+      0x400b5c adrp
+ ADRP!
+REG
+IMM: 0x400000
+      0x400b60 add
+      0x400b64 add
+      0x400b68 ldr
+      0x400b6c mov
+      0x400b70 movz
+      0x400b74 bl
+Found proc at 0x400850
+Go to br target --> 0x400850
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400850 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b28 ,end: 0x400b3c )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b00 ,end: 0x400b28 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ad4 ,end: 0x400b00 )
+      0x400ad4 stp
+      0x400ad8 mov
+      0x400adc adrp
+ ADRP!
+REG
+IMM: 0x400000
+      0x400ae0 add
+      0x400ae4 bl
+Found proc at 0x400860
+Go to br target --> 0x400860
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400860 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4009e0 ,end: 0x400ad4 )
+      0x4009e0 stp
+      0x4009e4 mov
+      0x4009e8 str
+      0x4009ec str
+      0x4009f0 str
+      0x4009f4 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x4009f8 add
+      0x4009fc ldr
+      0x400a00 str
+      0x400a04 movz
+      0x400a08 add
+      0x400a0c bl
+Found proc at 0x400b00
+Go to br target --> 0x400b00
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b00 ,end: 0x400b28 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4007a8 ,end: 0x400890 )
+      0x4007b4 ldp
+      0x4007b8 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4008b8 ,end: 0x4008d8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400920 ,end: 0x400930 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x40098c ,end: 0x4009a0 )
+      0x40098c movz
+      0x400990 strb
+      0x400994 ldr
+      0x400998 ldp
+      0x40099c ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c98 ,end: 0x400cc8 )
+      0x400c98 nop
+      0x400c9c adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400ca0 add
+      0x400ca4 ldr
+      0x400ca8 ldr
+      0x400cac eor
+      0x400cb0 cmp
+      0x400cb4 b.eq
+Adding br target : 0x400cbc
+      0x400cb8 bl
+Found proc at 0x400840
+Go to br target --> 0x400840
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400840 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c28 ,end: 0x400cc8 )
+      0x400c28 movz
+      0x400c2c bl
+Found proc at 0x400800
+Go to br target --> 0x400800
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400800 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400d00 ,end: 0x400d40 )
+      0x400d00 asr
+      0x400d04 cbz
+      0x400d08 movz
+      0x400d0c ldr
+      0x400d10 mov
+      0x400d14 mov
+      0x400d18 mov
+      0x400d1c add
+      0x400d20 blr
+      0x400d24 cmp
+      0x400d28 b.ne
+Adding br target : 0x400d0c
+      0x400d2c ldp
+      0x400d30 ldp
+      0x400d34 ldp
+      0x400d38 ldp
+      0x400d3c ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4007b4 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b78 ,end: 0x400ba4 )
+      0x400b78 nop
+      0x400b7c adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400b80 add
+      0x400b84 ldr
+      0x400b88 ldr
+      0x400b8c eor
+      0x400b90 cmp
+      0x400b94 b.eq
+Adding br target : 0x400b9c
+      0x400b98 bl
+Found proc at 0x400840
+Go to br target --> 0x400840
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400840 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ae8 ,end: 0x400b00 )
+      0x400ae8 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400aec add
+      0x400af0 str
+      0x400af4 nop
+      0x400af8 ldp
+      0x400afc ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a10 ,end: 0x400ad4 )
+      0x400a10 add
+      0x400a14 bl
+Found proc at 0x400b3c
+Go to br target --> 0x400b3c
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b3c ,end: 0x400ba4 )
+      0x400b9c ldp
+      0x400ba0 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400cbc ,end: 0x400cc8 )
+      0x400cbc ldp
+      0x400cc0 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400cbc ,end: 0x400cc8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c30 ,end: 0x400cc8 )
+      0x400c30 str
+      0x400c34 add
+      0x400c38 bl
+Found proc at 0x4007f0
+Go to br target --> 0x4007f0
+****************************
+Starting at new disasm_point!
+get_range (start: 0x4007f0 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400d0c ,end: 0x400d40 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b9c ,end: 0x400ba4 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b9c ,end: 0x400ba4 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a18 ,end: 0x400ad4 )
+      0x400a18 adrp
+ ADRP!
+REG
+IMM: 0x400000
+      0x400a1c add
+      0x400a20 add
+      0x400a24 bl
+Found proc at 0x400bc4
+Go to br target --> 0x400bc4
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400bc4 ,end: 0x400be8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c3c ,end: 0x400cc8 )
+      0x400c3c mov
+      0x400c40 ldr
+      0x400c44 add
+      0x400c48 ldp
+      0x400c4c stp
+      0x400c50 ldp
+      0x400c54 stp
+      0x400c58 ldp
+      0x400c5c stp
+      0x400c60 ldr
+      0x400c64 str
+      0x400c68 ldr
+      0x400c6c ldr
+      0x400c70 cmp
+      0x400c74 b.ne
+Adding br target : 0x400c10
+      0x400c78 ldr
+      0x400c7c ldr
+      0x400c80 cmp
+      0x400c84 b.eq
+Adding br target : 0x400c10
+      0x400c88 ldr
+      0x400c8c ldr
+      0x400c90 blr
+      0x400c94 b
+Go to br target --> 0x400c10
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c10 ,end: 0x400cc8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a28 ,end: 0x400ad4 )
+      0x400a28 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400a2c add
+      0x400a30 movz
+      0x400a34 str
+      0x400a38 adrp
+ ADRP!
+REG
+IMM: 0x400000
+      0x400a3c add
+      0x400a40 bl
+Found proc at 0x400860
+Go to br target --> 0x400860
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400860 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c10 ,end: 0x400cc8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400c10 ,end: 0x400cc8 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a44 ,end: 0x400ad4 )
+      0x400a44 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400a48 add
+      0x400a4c ldr
+      0x400a50 cmp
+      0x400a54 b.eq
+Adding br target : 0x400a64
+      0x400a58 movz
+      0x400a5c bl
+Found proc at 0x400820
+Go to br target --> 0x400820
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400820 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a64 ,end: 0x400ad4 )
+      0x400a64 add
+      0x400a68 bl
+Found proc at 0x400ba4
+Go to br target --> 0x400ba4
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ba4 ,end: 0x400bc4 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a60 ,end: 0x400ad4 )
+      0x400a60 b
+Go to br target --> 0x400a44
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a44 ,end: 0x400ad4 )
+      0x400a6c adrp
+ ADRP!
+REG
+IMM: 0x400000
+      0x400a70 add
+      0x400a74 bl
+Found proc at 0x400860
+Go to br target --> 0x400860
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400860 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a6c ,end: 0x400ad4 )
+      0x400a78 movz
+      0x400a7c bl
+Found proc at 0x400820
+Go to br target --> 0x400820
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400820 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a78 ,end: 0x400ad4 )
+      0x400a80 movz
+      0x400a84 add
+      0x400a88 bl
+Found proc at 0x400b28
+Go to br target --> 0x400b28
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b28 ,end: 0x400b3c )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a80 ,end: 0x400ad4 )
+      0x400a8c mov
+      0x400a90 adrp
+ ADRP!
+REG
+IMM: 0x412000
+      0x400a94 add
+      0x400a98 ldr
+      0x400a9c ldr
+      0x400aa0 eor
+      0x400aa4 cmp
+      0x400aa8 b.eq
+Adding br target : 0x400ac8
+      0x400aac b
+Go to br target --> 0x400ac4
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ac4 ,end: 0x400ad4 )
+      0x400ac4 bl
+Found proc at 0x400840
+Go to br target --> 0x400840
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400840 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400a8c ,end: 0x400ad4 )
+      0x400ab0 mov
+      0x400ab4 add
+      0x400ab8 bl
+Found proc at 0x400b28
+Go to br target --> 0x400b28
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400b28 ,end: 0x400b3c )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ac8 ,end: 0x400ad4 )
+      0x400ac8 ldr
+      0x400acc ldp
+      0x400ad0 ret
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ac8 ,end: 0x400ad4 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400abc ,end: 0x400ad4 )
+      0x400abc mov
+      0x400ac0 bl
+Found proc at 0x400880
+Go to br target --> 0x400880
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400880 ,end: 0x400890 )
+****************************
+Starting at new disasm_point!
+get_range (start: 0x400ac4 ,end: 0x400ad4 )
+Used 3 document pages for analysis
+Analysis complete
+Found 25 procedures:
+start,end adr: 0x4007a8 0x400d50
+
+Start function:
+      0x4007a8 stp
+      0x4007ac mov
+      0x4007b0 bl
+      0x4007b4 ldp
+      0x4007b8 ret
+
+Start function:
+      0x4007e0 adrp
+      0x4007e4 ldr
+      0x4007e8 add
+      0x4007ec br
+
+Start function:
+      0x4007f0 adrp
+      0x4007f4 ldr
+      0x4007f8 add
+      0x4007fc br
+
+Start function:
+      0x400800 adrp
+      0x400804 ldr
+      0x400808 add
+      0x40080c br
+      0x400810 adrp
+      0x400814 ldr
+      0x400818 add
+      0x40081c br
+
+Start function:
+      0x400820 adrp
+      0x400824 ldr
+      0x400828 add
+      0x40082c br
+
+Start function:
+      0x400830 adrp
+      0x400834 ldr
+      0x400838 add
+      0x40083c br
+
+Start function:
+      0x400840 adrp
+      0x400844 ldr
+      0x400848 add
+      0x40084c br
+
+Start function:
+      0x400850 adrp
+      0x400854 ldr
+      0x400858 add
+      0x40085c br
+
+Start function:
+      0x400860 adrp
+      0x400864 ldr
+      0x400868 add
+      0x40086c br
+      0x400870 adrp
+      0x400874 ldr
+      0x400878 add
+      0x40087c br
+
+Start function:
+      0x400880 adrp
+      0x400884 ldr
+      0x400888 add
+      0x40088c br
+
+Start function:
+      0x400890 movz
+      0x400894 movz
+      0x400898 mov
+      0x40089c ldr
+      0x4008a0 add
+      0x4008a4 mov
+      0x4008a8 ldr
+      0x4008ac ldr
+      0x4008b0 ldr
+      0x4008b4 bl
+      0x4008b8 bl
+
+Start function:
+      0x4008d8 adrp
+      0x4008dc ldr
+      0x4008e0 cbz
+      0x4008e4 b
+      0x4008e8 ret
+
+Start function:
+      0x4008f0 adrp
+      0x4008f4 adrp
+      0x4008f8 add
+      0x4008fc add
+      0x400900 add
+      0x400904 sub
+      0x400908 cmp
+      0x40090c b.ls
+      0x400910 ldr
+      0x400914 cbz
+      0x400918 br
+      0x40091c nop
+      0x400920 ret
+      0x400924 nop
+      0x400930 adrp
+      0x400934 adrp
+      0x400938 add
+      0x40093c add
+      0x400940 sub
+      0x400944 asr
+      0x400948 add
+      0x40094c asr
+      0x400950 cbz
+      0x400954 ldr
+      0x400958 cbz
+      0x40095c br
+      0x400960 ret
+      0x400964 nop
+      0x400970 stp
+      0x400974 mov
+      0x400978 str
+      0x40097c adrp
+      0x400980 ldrb
+      0x400984 cbnz
+      0x400988 bl
+      0x40098c movz
+      0x400990 strb
+      0x400994 ldr
+      0x400998 ldp
+      0x40099c ret
+      0x4009a0 adrp
+      0x4009a4 add
+      0x4009a8 ldr
+      0x4009ac cbnz
+      0x4009b0 b
+      0x4009e0 stp
+      0x4009e4 mov
+      0x4009e8 str
+      0x4009ec str
+      0x4009f0 str
+      0x4009f4 adrp
+      0x4009f8 add
+      0x4009fc ldr
+      0x400a00 str
+      0x400a04 movz
+      0x400a08 add
+      0x400a0c bl
+      0x400a10 add
+      0x400a14 bl
+      0x400a18 adrp
+      0x400a1c add
+      0x400a20 add
+      0x400a24 bl
+      0x400a28 adrp
+      0x400a2c add
+      0x400a30 movz
+      0x400a34 str
+      0x400a38 adrp
+      0x400a3c add
+      0x400a40 bl
+      0x400a44 adrp
+      0x400a48 add
+      0x400a4c ldr
+      0x400a50 cmp
+      0x400a54 b.eq
+      0x400a58 movz
+      0x400a5c bl
+      0x400a60 b
+      0x400a64 add
+      0x400a68 bl
+      0x400a6c adrp
+      0x400a70 add
+      0x400a74 bl
+      0x400a78 movz
+      0x400a7c bl
+      0x400a80 movz
+      0x400a84 add
+      0x400a88 bl
+      0x400a8c mov
+      0x400a90 adrp
+      0x400a94 add
+      0x400a98 ldr
+      0x400a9c ldr
+      0x400aa0 eor
+      0x400aa4 cmp
+      0x400aa8 b.eq
+      0x400aac b
+      0x400ab0 mov
+      0x400ab4 add
+      0x400ab8 bl
+      0x400abc mov
+      0x400ac0 bl
+      0x400ac4 bl
+      0x400ac8 ldr
+      0x400acc ldp
+      0x400ad0 ret
+      0x400ad4 stp
+      0x400ad8 mov
+      0x400adc adrp
+      0x400ae0 add
+      0x400ae4 bl
+      0x400ae8 adrp
+      0x400aec add
+      0x400af0 str
+      0x400af4 nop
+      0x400af8 ldp
+      0x400afc ret
+
+Start function:
+      0x400b00 sub
+      0x400b04 str
+      0x400b08 ldr
+      0x400b0c movz
+      0x400b10 str
+      0x400b14 ldr
+      0x400b18 str
+      0x400b1c nop
+      0x400b20 add
+      0x400b24 ret
+
+Start function:
+      0x400b28 sub
+      0x400b2c str
+      0x400b30 nop
+      0x400b34 add
+      0x400b38 ret
+
+Start function:
+      0x400b3c stp
+      0x400b40 mov
+      0x400b44 str
+      0x400b48 adrp
+      0x400b4c add
+      0x400b50 ldr
+      0x400b54 str
+      0x400b58 movz
+      0x400b5c adrp
+      0x400b60 add
+      0x400b64 add
+      0x400b68 ldr
+      0x400b6c mov
+      0x400b70 movz
+      0x400b74 bl
+      0x400b78 nop
+      0x400b7c adrp
+      0x400b80 add
+      0x400b84 ldr
+      0x400b88 ldr
+      0x400b8c eor
+      0x400b90 cmp
+      0x400b94 b.eq
+      0x400b98 bl
+      0x400b9c ldp
+      0x400ba0 ret
+
+Start function:
+      0x400ba4 sub
+      0x400ba8 str
+      0x400bac ldr
+      0x400bb0 movz
+      0x400bb4 str
+      0x400bb8 nop
+      0x400bbc add
+      0x400bc0 ret
+
+Start function:
+      0x400bc4 sub
+      0x400bc8 str
+      0x400bcc str
+      0x400bd0 ldr
+      0x400bd4 ldr
+      0x400bd8 str
+      0x400bdc nop
+      0x400be0 add
+      0x400be4 ret
+      0x400be8 stp
+      0x400bec mov
+      0x400bf0 str
+      0x400bf4 adrp
+      0x400bf8 add
+      0x400bfc ldr
+      0x400c00 str
+      0x400c04 movz
+      0x400c08 ldr
+      0x400c0c str
+      0x400c10 ldr
+      0x400c14 ldr
+      0x400c18 cmp
+      0x400c1c b.eq
+      0x400c20 movz
+      0x400c24 bl
+      0x400c28 movz
+      0x400c2c bl
+      0x400c30 str
+      0x400c34 add
+      0x400c38 bl
+      0x400c3c mov
+      0x400c40 ldr
+      0x400c44 add
+      0x400c48 ldp
+      0x400c4c stp
+      0x400c50 ldp
+      0x400c54 stp
+      0x400c58 ldp
+      0x400c5c stp
+      0x400c60 ldr
+      0x400c64 str
+      0x400c68 ldr
+      0x400c6c ldr
+      0x400c70 cmp
+      0x400c74 b.ne
+      0x400c78 ldr
+      0x400c7c ldr
+      0x400c80 cmp
+      0x400c84 b.eq
+      0x400c88 ldr
+      0x400c8c ldr
+      0x400c90 blr
+      0x400c94 b
+      0x400c98 nop
+      0x400c9c adrp
+      0x400ca0 add
+      0x400ca4 ldr
+      0x400ca8 ldr
+      0x400cac eor
+      0x400cb0 cmp
+      0x400cb4 b.eq
+      0x400cb8 bl
+      0x400cbc ldp
+      0x400cc0 ret
+      0x400cc8 stp
+      0x400ccc mov
+      0x400cd0 stp
+      0x400cd4 adrp
+      0x400cd8 stp
+      0x400cdc adrp
+      0x400ce0 add
+      0x400ce4 add
+      0x400ce8 sub
+      0x400cec stp
+      0x400cf0 mov
+      0x400cf4 mov
+      0x400cf8 mov
+      0x400cfc bl
+      0x400d00 asr
+      0x400d04 cbz
+      0x400d08 movz
+      0x400d0c ldr
+      0x400d10 mov
+      0x400d14 mov
+      0x400d18 mov
+      0x400d1c add
+      0x400d20 blr
+      0x400d24 cmp
+      0x400d28 b.ne
+      0x400d2c ldp
+      0x400d30 ldp
+      0x400d34 ldp
+      0x400d38 ldp
+      0x400d3c ret
+      0x400d40 ret
+      0x400d44 stp
+      0x400d48 mov
+      0x400d4c ldp
+      0x400d50 ret

@@ -1,0 +1,560 @@
+################################################################
+##                       KICKASS DISASS                       ##
+##                                                            ##
+##                                    Powered by Capstone 4.0 ##
+################################################################
+
+Successfully loaded /home/jg/sample/libarac.so using loader ELF
+Analyzing...
+Adding proc at address 0x1b000 (found by loader)
+Found proc at 0x1b000
+Adding X funcion aracd_vps_alloc2 from .dynsym at 0x50238
+Adding X funcion eco_mv_inter_p from .dynsym at 0x5a9f0
+Adding X funcion arac_df_scu_ver_l_dqp_16 from .dynsym at 0x259d8
+Adding X funcion arac_df_get_bs_inter from .dynsym at 0x223b8
+Adding X funcion aracd_eco_sh_end from .dynsym at 0x55170
+Adding X funcion aracd_vps_dec from .dynsym at 0x50388
+Adding X funcion aracd_cabac_flush from .dynsym at 0x5c3d8
+Adding X funcion arac_mc_wp from .dynsym at 0x38360
+Adding X funcion aracd_cabac_cpy_ctx from .dynsym at 0x5c450
+Adding X funcion aracd_eco_split_flag from .dynsym at 0x57f80
+Adding X funcion arac_sao_eo_1_ms from .dynsym at 0x3b720
+Adding X funcion aracd_pull_frm from .dynsym at 0x46850
+Adding X funcion aracd_get_qt_tu_log2_min_size from .dynsym at 0x522f8
+Adding X funcion arac_dq_16x16_sl from .dynsym at 0x20a10
+Adding X funcion aracd_task_df_hor from .dynsym at 0x3ff00
+Adding X funcion aracd_platform_deinit from .dynsym at 0x47458
+Adding X funcion arac_picbuf_free from .dynsym at 0x1d8a8
+Adding X funcion arac_filt_hor_l_dqp from .dynsym at 0x252a8
+Adding X funcion aracd_cabac_reset from .dynsym at 0x565d0
+Adding X funcion aracd_eco_sh_beg from .dynsym at 0x55108
+Adding X funcion aracd_md5_check_16 from .dynsym at 0x53bf0
+Adding X funcion arac_ipred_prepare_16 from .dynsym at 0x1d010
+Adding X funcion arac_picbuf_clr from .dynsym at 0x1d9d8
+Adding X funcion aracd_bsr_clone from .dynsym at 0x5db48
+Adding X funcion aracd_md5_16 from .dynsym at 0x537b8
+Adding X funcion arac_df_scu_ver_c_16 from .dynsym at 0x24af8
+Adding X funcion aracd_pps_dec from .dynsym at 0x51b48
+Adding X funcion aracd_set_ipm_pu from .dynsym at 0x53e70
+Adding X funcion aracd_md5 from .dynsym at 0x535f8
+Adding X funcion arac_ipred_planar_16 from .dynsym at 0x1c978
+Adding X funcion aracd_pull_frm_index from .dynsym at 0x46a48
+Adding X funcion arac_ipred_dc_filtering from .dynsym at 0x1c1b8
+Adding X funcion arac_df_scu_ver_c_dqp from .dynsym at 0x27c58
+Adding X funcion aracd_get_inter_mrg_cand from .dynsym at 0x52480
+Adding X funcion arac_ipred_smoothing_16 from .dynsym at 0x1cc38
+Adding X funcion arac_filt_ver_l_16 from .dynsym at 0x23a10
+Adding X funcion aracd_post_proc from .dynsym at 0x3f4b8
+Adding X funcion arac_it_8x8 from .dynsym at 0x1f230
+Adding X funcion aracd_task_df_ver_dqp from .dynsym at 0x405b0
+Adding X funcion arac_filt_ver_l_dqp_16 from .dynsym at 0x25b40
+Adding X funcion arac_mc_l_10 from .dynsym at 0x29a70
+Adding X funcion aracd_pps_free_all from .dynsym at 0x51ad8
+Adding X funcion arac_platform_deinit from .dynsym at 0x1b028
+Adding X funcion arac_mc_l_11 from .dynsym at 0x2a7f8
+Adding X funcion aracd_task_df_ver_dqp_16 from .dynsym at 0x40978
+Adding X funcion arac_ipred_strong_smoothing_16 from .dynsym at 0x1ce38
+Adding X funcion arac_mc_l_12 from .dynsym at 0x2b308
+Adding X funcion aracd_dec_slice from .dynsym at 0x42668
+Adding X funcion aracd_copy_sao_lcu_param from .dynsym at 0x53318
+Adding X funcion arac_get_coef_scan_idx from .dynsym at 0x1eef0
+Adding X funcion arac_mc_l_13 from .dynsym at 0x2bf78
+Adding X funcion aracd_eco_transform_tree from .dynsym at 0x58b28
+Adding X funcion aracd_platform_init from .dynsym at 0x473f8
+Adding X funcion aracd_pull_index from .dynsym at 0x48308
+Adding X funcion aracd_vps_free_from_list from .dynsym at 0x502b8
+Adding X funcion arac_get_avail_ipm from .dynsym at 0x1e088
+Adding X funcion arac_picbuf_clr_16 from .dynsym at 0x1da58
+Adding X funcion arac_picman_get_empty_pic from .dynsym at 0x39200
+Adding X funcion arac_sao_eo_2_ms from .dynsym at 0x3b7a0
+Adding X funcion arac_mc_l_nn_16 from .dynsym at 0x323a0
+Adding X funcion aracd_set_cu_map from .dynsym at 0x5c1f8
+Adding X funcion arac_picbuf_cpy from .dynsym at 0x1d940
+Adding X funcion arac_filt_ver_c_dqp from .dynsym at 0x277e8
+Adding X funcion arac_mc_bi_avg_wp from .dynsym at 0x386f0
+Adding X funcion arac_picman_out_pic from .dynsym at 0x39b10
+Adding X funcion aracd_deblock_scu_dqp from .dynsym at 0x3d350
+Adding X funcion aracd_sps_put from .dynsym at 0x508f8
+Adding X funcion aracd_bsr_is_more_rbsp_data from .dynsym at 0x52110
+Adding X funcion arac_picman_out_pic_index from .dynsym at 0x39de0
+Adding X funcion aracd_set_ppi from .dynsym at 0x46de8
+Adding X funcion aracd_sao_ms from .dynsym at 0x3e5f0
+Adding X funcion arac_deinit from .dynsym at 0x1b058
+Adding X funcion arac_mc_c_n0_16 from .dynsym at 0x36608
+Adding X funcion aracd_delete from .dynsym at 0x476f8
+Adding X funcion aracd_set_cui_qp from .dynsym at 0x53f38
+Adding X funcion aracd_sps_get from .dynsym at 0x509b8
+Adding X funcion arac_sao_eo_0_16 from .dynsym at 0x3abd0
+Adding X funcion arac_get_mvp_cand from .dynsym at 0x1e690
+Adding X funcion aracd_task_df_hor_16 from .dynsym at 0x40240
+Adding X funcion arac_ipred_dc_filtering_16 from .dynsym at 0x1d328
+Adding X funcion arac_ipred_planar from .dynsym at 0x1b648
+Adding X funcion arac_picman_reset from .dynsym at 0x3a610
+Adding X funcion arac_mc_bi_avg_l_16 from .dynsym at 0x38118
+Adding X funcion arac_mc_c_00_uv_16 from .dynsym at 0x35e78
+Adding X funcion arac_scale_mv from .dynsym at 0x1e228
+Adding X funcion arac_mc_l_00_16 from .dynsym at 0x34228
+Adding X funcion aracd_bsr_annexb_to_ebsp from .dynsym at 0x521f8
+Adding X funcion aracd_sps_free_all from .dynsym at 0x50a28
+Adding X funcion aracd_task_df_ver from .dynsym at 0x3fa58
+Adding X funcion aracd_sps_peek_paramset_id from .dynsym at 0x50a60
+Adding X funcion aracd_eco_init from .dynsym at 0x564d0
+Adding X funcion aracd_md5_check from .dynsym at 0x539b8
+Adding X funcion pred_intra_l_16 from .dynsym at 0x4b228
+Adding X funcion arac_mc_c_00 from .dynsym at 0x31130
+Adding X funcion arac_init from .dynsym at 0x1b030
+Adding X funcion arac_df_scu_hor_c from .dynsym at 0x23978
+Adding X funcion arac_filt_hor_c_dqp from .dynsym at 0x279b8
+Adding X funcion arac_mc_bi_avg_l from .dynsym at 0x321c8
+Adding X funcion aracd_eco_ipcm from .dynsym at 0x5a770
+Adding X funcion arac_df_get_bs_intra from .dynsym at 0x21b88
+Adding X funcion arac_filt_ver_c_dqp_16 from .dynsym at 0x26d48
+Adding X funcion aracd_md5_plane_16 from .dynsym at 0x53548
+Adding X funcion arac_sao_bo_16 from .dynsym at 0x3b458
+Adding X funcion arac_sao_eo_3_ms from .dynsym at 0x3bbc0
+Adding X funcion aracd_picbuf_expand from .dynsym at 0x51ea8
+Adding X funcion aracd_picbuf_clr from .dynsym at 0x51ec0
+Adding X funcion aracd_eco_st_rps from .dynsym at 0x54da8
+Adding X funcion arac_ipred_strong_smoothing from .dynsym at 0x1bcb8
+Adding X funcion aracd_eco_cabac_dec_bin from .dynsym at 0x564e8
+Adding X funcion arac_picbuf_alloc from .dynsym at 0x1d728
+Adding X funcion aracd_get_neb_spua_sn from .dynsym at 0x52398
+Adding X funcion arac_mc_l_20 from .dynsym at 0x29ee0
+Adding X funcion aracd_pic_alloc from .dynsym at 0x51ed0
+Adding X funcion aracd_pred_intra_16 from .dynsym at 0x4c890
+Adding X funcion aracd_ready from .dynsym at 0x466e0
+Adding X funcion arac_df_scu_hor_l from .dynsym at 0x237f0
+Adding X funcion arac_mc_l_21 from .dynsym at 0x2cab8
+Adding X funcion aracd_vps_alloc from .dynsym at 0x50160
+Adding X funcion aracd_copy_sao_lcu_param_16 from .dynsym at 0x533d8
+Adding X funcion arac_df_scu_hor_c_16 from .dynsym at 0x24bd8
+Adding X funcion arac_mc_l_22 from .dynsym at 0x2d620
+Adding X funcion aracd_deblock_scu_16 from .dynsym at 0x3d010
+Adding X funcion aracd_sps_alloc from .dynsym at 0x50888
+Adding X funcion arac_mc_l_23 from .dynsym at 0x2e278
+Adding X funcion arac_sao_eo_1_16 from .dynsym at 0x3acc8
+Adding X funcion aracd_pps_alloc from .dynsym at 0x51938
+Adding X funcion aracd_pull_info from .dynsym at 0x482c0
+Adding X funcion pred_intra_c from .dynsym at 0x4b540
+Adding X funcion arac_filt_hor_l_16 from .dynsym at 0x23e98
+Adding X funcion aracd_sps_free_from_list from .dynsym at 0x509e0
+Adding X funcion aracd_clone_frm_16 from .dynsym at 0x46ca0
+Adding X funcion aracd_mt_post_proc from .dynsym at 0x414a8
+Adding X funcion aracd_deblock_scu from .dynsym at 0x3ccd8
+Adding X funcion arac_ipred_prepare_rqt_16 from .dynsym at 0x4ac30
+Adding X funcion arac_mc_c_nn from .dynsym at 0x31d60
+Adding X funcion arac_mc_l_01_16 from .dynsym at 0x34460
+Adding X funcion aracd_dec_nal from .dynsym at 0x43cd0
+Adding X funcion aracd_bsr_flush from .dynsym at 0x51fc8
+Adding X funcion arac_picman_ref_list_init from .dynsym at 0x38b70
+Adding X funcion aracd_pred_ipcm from .dynsym at 0x4fd98
+Adding X funcion arac_dq_32x32_sl from .dynsym at 0x21010
+Adding X funcion arac_sao_eo_0 from .dynsym at 0x3a668
+Adding X funcion get_avail_tu_intra_rqt_422 from .dynsym at 0x497f0
+Adding X funcion arac_ipred_ang_16 from .dynsym at 0x1c320
+Adding X funcion aracd_eco_filler_data from .dynsym at 0x55db0
+Adding X funcion aracd_pic_free from .dynsym at 0x51ef8
+Adding X funcion aracd_picbuf_cpy from .dynsym at 0x51eb8
+Adding X funcion arac_get_ref_qp_for_dqp from .dynsym at 0x1e1a8
+Adding X funcion arac_df_scu_ver_c from .dynsym at 0x238b8
+Adding X funcion arac_sao_eo_2 from .dynsym at 0x3a720
+Adding X funcion pred_intra_l from .dynsym at 0x4af50
+Adding X funcion arac_mc_c_0n_16 from .dynsym at 0x36af0
+Adding X funcion arac_sao_eo_3 from .dynsym at 0x3a948
+Adding X funcion arac_get_coef_scan_idx_rqt from .dynsym at 0x1ef90
+Adding X funcion arac_mc_c_nn_uv_16 from .dynsym at 0x37180
+Adding X funcion aracd_bsr_cpy from .dynsym at 0x5dbe0
+Adding X funcion arac_recon_16 from .dynsym at 0x1d460
+Adding X funcion aracd_set_ppi_by_bit_depth from .dynsym at 0x460e0
+Adding X funcion aracd_pred_inter from .dynsym at 0x4d220
+Adding X funcion eco_mv_merge_b from .dynsym at 0x5c178
+Adding X funcion arac_picman_init from .dynsym at 0x39f10
+Adding X funcion aracd_deblock_scu_dqp_16 from .dynsym at 0x3d8d0
+Adding X funcion aracd_pic_push from .dynsym at 0x51f00
+Adding X funcion aracd_sps_dec from .dynsym at 0x50ab0
+Adding X funcion arac_get_neb_spua_inter from .dynsym at 0x1de30
+Adding X funcion arac_dq_4x4_sl from .dynsym at 0x204f8
+Adding X funcion aracd_clone from .dynsym at 0x48350
+Adding X funcion arac_platform_init from .dynsym at 0x1b020
+Adding X funcion arac_df_scu_hor_c_dqp_16 from .dynsym at 0x26fd8
+Adding X funcion arac_picman_get_maps from .dynsym at 0x39ff8
+Adding X funcion arac_df_scu_ver_l from .dynsym at 0x23738
+Adding X funcion arac_filt_ver_c_16 from .dynsym at 0x24400
+Adding X funcion aracd_eco_end_of_slice from .dynsym at 0x57ef0
+Adding X funcion aracd_pred_intra_rqt from .dynsym at 0x4bc48
+Adding X funcion aracd_pps_peek_paramset_id from .dynsym at 0x51b10
+Adding X funcion arac_sao_eo_2_16 from .dynsym at 0x3aec0
+Adding X funcion aracd_eco_cu_mode from .dynsym at 0x58518
+Adding X funcion aracd_eco_sei_data from .dynsym at 0x55e28
+Adding X funcion aracd_bsr_rbsp_slice_segment_trailing_bits from .dynsym at 0x522a8
+Adding X funcion aracd_bsr_byte_alignment from .dynsym at 0x52260
+Adding X funcion arac_mc_bi_avg_wp_16 from .dynsym at 0x388f0
+Adding X funcion arac_mc_l_n0_16 from .dynsym at 0x33cc0
+Adding X funcion aracd_dec_slice_mt_delayed_post from .dynsym at 0x41f48
+Adding X funcion arac_filt_hor_c from .dynsym at 0x23550
+Adding X funcion arac_df_scu_ver_l_16 from .dynsym at 0x24918
+Adding X funcion arac_mc_l_02_16 from .dynsym at 0x34cb0
+Adding X funcion arac_df_scu_hor_l_dqp from .dynsym at 0x27690
+Adding X funcion arac_df_scu_hor_l_dqp_16 from .dynsym at 0x26230
+Adding X funcion aracd_sao_16 from .dynsym at 0x3eca8
+Adding X funcion eco_mv_merge_p from .dynsym at 0x5bf40
+Adding X funcion aracd_dec_sao_lcu_interleaving from .dynsym at 0x5c510
+Adding X funcion arac_ipred_prepare_rqt_422_16 from .dynsym at 0x49d98
+Adding X funcion arac_get_cabac_sig_ctx_idx from .dynsym at 0x1ee00
+Adding X funcion arac_mc_l_30 from .dynsym at 0x2a378
+Adding X funcion aracd_clone_frm from .dynsym at 0x46b58
+Adding X funcion arac_mc_l_31 from .dynsym at 0x2ee30
+Adding X funcion aracd_picbuf_alloc from .dynsym at 0x51e78
+Adding X funcion aracd_vps_free from .dynsym at 0x501c0
+Adding X funcion aracd_vps_put from .dynsym at 0x501d0
+Adding X funcion arac_mc_l_32 from .dynsym at 0x2f950
+Adding X funcion arac_filt_hor_l from .dynsym at 0x22f60
+Adding X funcion arac_mc_l_33 from .dynsym at 0x30600
+Adding X funcion arac_filt_hor_c_dqp_16 from .dynsym at 0x27158
+Adding X funcion aracd_task_df_hor_dqp from .dynsym at 0x40cd8
+Adding X funcion aracd_vps_get from .dynsym at 0x50290
+Adding X funcion arac_ipred_prepare_rqt_422 from .dynsym at 0x49ad8
+Adding X funcion arac_get_avail_cu from .dynsym at 0x1dfd8
+Adding X funcion arac_get_ref_qp from .dynsym at 0x1e110
+Adding X funcion aracd_blk_itdq_sl from .dynsym at 0x3c6e0
+Adding X funcion aracd_eco_nh from .dynsym at 0x54d60
+Adding X funcion aracd_task_df_hor_dqp_16 from .dynsym at 0x410e8
+Adding X funcion aracd_pps_free_from_list from .dynsym at 0x51a90
+Adding X funcion aracd_vps_peek_paramset_id from .dynsym at 0x50338
+Adding X funcion arac_picman_rps_marking from .dynsym at 0x3a058
+Adding X funcion aracd_md5_plane from .dynsym at 0x534a0
+Adding X funcion arac_get_avail_pu_intra from .dynsym at 0x1dae8
+Adding X funcion aracd_pps_alloc2 from .dynsym at 0x51a10
+Adding X funcion arac_ipred_prepare from .dynsym at 0x1bf30
+Adding X funcion arac_get_neb_scua from .dynsym at 0x1dd18
+Adding X funcion aracd_sps_free from .dynsym at 0x508e8
+Adding X funcion arac_picbuf_expand from .dynsym at 0x1d8e0
+Adding X funcion aracd_vps_free_all from .dynsym at 0x50300
+Adding X funcion arac_get_tmv from .dynsym at 0x1e300
+Adding X funcion arac_sao_eo_3_16 from .dynsym at 0x3b140
+Adding X funcion aracd_pps_put from .dynsym at 0x519a8
+Adding X funcion aracd_cabac_deinit from .dynsym at 0x5c4b8
+Adding X funcion arac_filt_hor_l_dqp_16 from .dynsym at 0x263b8
+Adding X funcion arac_picman_deinit from .dynsym at 0x39e28
+Adding X funcion aracd_pull from .dynsym at 0x48278
+Adding X funcion pred_intra_c_16 from .dynsym at 0x4b8c8
+Adding X funcion arac_filt_ver_c from .dynsym at 0x23428
+Adding X funcion aracd_blk_itdq from .dynsym at 0x3c078
+Adding X funcion aracd_picbuf_clr_16 from .dynsym at 0x51ec8
+Adding X funcion aracd_pps_get from .dynsym at 0x51a68
+Adding X funcion arac_mc_l_03_16 from .dynsym at 0x35610
+Adding X funcion arac_picman_put_pic from .dynsym at 0x39730
+Adding X funcion aracd_set_complexity from .dynsym at 0x47480
+Adding X funcion arac_get_num_rps_cur_temp_list from .dynsym at 0x1f028
+Adding X funcion arac_df_scu_ver_l_dqp from .dynsym at 0x27558
+Adding X funcion aracd_picbuf_free from .dynsym at 0x51ea0
+Adding X funcion arac_mc_wp_16 from .dynsym at 0x384f0
+Adding X funcion aracd_pps_free from .dynsym at 0x51998
+Adding X funcion arac_mc_c_0n from .dynsym at 0x31740
+Adding X funcion arac_mc_c_nn_16 from .dynsym at 0x37250
+Adding X funcion aracd_pull_frm_info from .dynsym at 0x46960
+Adding X funcion arac_ipred_ang from .dynsym at 0x1b070
+Adding X funcion arac_sao_eo_0_ms from .dynsym at 0x3b660
+Adding X funcion arac_picman_out_pic_info from .dynsym at 0x39c80
+Adding X funcion aracd_sps_alloc2 from .dynsym at 0x50960
+Adding X funcion arac_filt_ver_l from .dynsym at 0x22b38
+Adding X funcion arac_mc_c_0n_uv_16 from .dynsym at 0x36a28
+Adding X funcion eco_mv_inter_b from .dynsym at 0x5b438
+Adding X funcion arac_it_32x32 from .dynsym at 0x1f8d0
+Adding X funcion arac_mc_l_01 from .dynsym at 0x27ef8
+Adding X funcion arac_get_cabac_pattern_sig_ctx from .dynsym at 0x1ee98
+Adding X funcion arac_mc_l_02 from .dynsym at 0x287c0
+Adding X funcion arac_mc_l_0n_16 from .dynsym at 0x330f0
+Adding X funcion aracd_sao from .dynsym at 0x3de98
+Adding X funcion arac_mc_l_03 from .dynsym at 0x29198
+Adding X funcion aracd_pred_intra from .dynsym at 0x4bfb8
+Adding X funcion aracd_cabac_init from .dynsym at 0x56408
+Adding X funcion arac_pu_set_mv from .dynsym at 0x1f0c0
+Adding X funcion arac_filt_hor_c_16 from .dynsym at 0x245e0
+Adding X funcion arac_picman_ref_list_reorder from .dynsym at 0x391f8
+Adding X funcion aracd_task_df_ver_16 from .dynsym at 0x3fca0
+Adding X funcion arac_df_get_bs_inter_ms from .dynsym at 0x225b8
+Adding X funcion arac_df_scu_ver_c_dqp_16 from .dynsym at 0x26bb8
+Adding X funcion arac_filt_ver_l_dqp from .dynsym at 0x24c88
+Adding X funcion aracd_bsr_get_byte_pos from .dynsym at 0x520b8
+Adding X funcion aracd_config from .dynsym at 0x47d28
+Adding X funcion arac_mc_c_00_16 from .dynsym at 0x362f8
+Adding X funcion arac_df_scu_hor_c_dqp from .dynsym at 0x27db0
+Adding X funcion arac_ipred_prepare_rqt from .dynsym at 0x4a088
+Adding X funcion arac_dq_8x8_sl from .dynsym at 0x206d0
+Adding X funcion arac_mc_c_n0_uv_16 from .dynsym at 0x36540
+Adding X funcion aracd_flush from .dynsym at 0x46820
+Adding X funcion arac_df_scu_hor_l_16 from .dynsym at 0x24a00
+Adding X funcion arac_sao_bo_ms from .dynsym at 0x3c028
+Adding X funcion aracd_create from .dynsym at 0x474b8
+Adding X funcion aracd_decode from .dynsym at 0x48230
+Adding X funcion arac_ipred_smoothing from .dynsym at 0x1ba38
+Adding X funcion arac_mc_c_n0 from .dynsym at 0x31328
+Adding X funcion aracd_eco_aud_data from .dynsym at 0x55df8
+Adding X funcion arac_mc_bi_avg_16 from .dynsym at 0x37a40
+****************************
+Starting at new disasm_point!
+contains_vaddr in .text
+0x1b000
+contains_alter_vaddr in .text
+0x66ac0
+get_range (start: 0x1b000 ,end: 0x66ac4 )
+      0x1b000 adrp
+ ADRP!
+REG
+IMM: 0x67000
+      0x1b004 add
+      0x1b008 b
+Go to br target --> 0x66af0
+****************************
+Starting at new disasm_point!
+contains_vaddr in .plt
+0x66af0
+contains_alter_vaddr in .plt
+0x66d0c
+get_range (start: 0x66af0 ,end: 0x66d10 )
+      0x66af0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66af4 ldr
+      0x66af8 add
+      0x66afc br
+      0x66b00 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b04 ldr
+      0x66b08 add
+      0x66b0c br
+      0x66b10 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b14 ldr
+      0x66b18 add
+      0x66b1c br
+      0x66b20 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b24 ldr
+      0x66b28 add
+      0x66b2c br
+      0x66b30 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b34 ldr
+      0x66b38 add
+      0x66b3c br
+      0x66b40 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b44 ldr
+      0x66b48 add
+      0x66b4c br
+      0x66b50 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b54 ldr
+      0x66b58 add
+      0x66b5c br
+      0x66b60 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b64 ldr
+      0x66b68 add
+      0x66b6c br
+      0x66b70 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b74 ldr
+      0x66b78 add
+      0x66b7c br
+      0x66b80 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b84 ldr
+      0x66b88 add
+      0x66b8c br
+      0x66b90 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66b94 ldr
+      0x66b98 add
+      0x66b9c br
+      0x66ba0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66ba4 ldr
+      0x66ba8 add
+      0x66bac br
+      0x66bb0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66bb4 ldr
+      0x66bb8 add
+      0x66bbc br
+      0x66bc0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66bc4 ldr
+      0x66bc8 add
+      0x66bcc br
+      0x66bd0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66bd4 ldr
+      0x66bd8 add
+      0x66bdc br
+      0x66be0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66be4 ldr
+      0x66be8 add
+      0x66bec br
+      0x66bf0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66bf4 ldr
+      0x66bf8 add
+      0x66bfc br
+      0x66c00 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c04 ldr
+      0x66c08 add
+      0x66c0c br
+      0x66c10 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c14 ldr
+      0x66c18 add
+      0x66c1c br
+      0x66c20 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c24 ldr
+      0x66c28 add
+      0x66c2c br
+      0x66c30 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c34 ldr
+      0x66c38 add
+      0x66c3c br
+      0x66c40 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c44 ldr
+      0x66c48 add
+      0x66c4c br
+      0x66c50 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c54 ldr
+      0x66c58 add
+      0x66c5c br
+      0x66c60 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c64 ldr
+      0x66c68 add
+      0x66c6c br
+      0x66c70 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c74 ldr
+      0x66c78 add
+      0x66c7c br
+      0x66c80 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c84 ldr
+      0x66c88 add
+      0x66c8c br
+      0x66c90 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66c94 ldr
+      0x66c98 add
+      0x66c9c br
+      0x66ca0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66ca4 ldr
+      0x66ca8 add
+      0x66cac br
+      0x66cb0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66cb4 ldr
+      0x66cb8 add
+      0x66cbc br
+      0x66cc0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66cc4 ldr
+      0x66cc8 add
+      0x66ccc br
+      0x66cd0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66cd4 ldr
+      0x66cd8 add
+      0x66cdc br
+      0x66ce0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66ce4 ldr
+      0x66ce8 add
+      0x66cec br
+      0x66cf0 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66cf4 ldr
+      0x66cf8 add
+      0x66cfc br
+      0x66d00 adrp
+ ADRP!
+REG
+IMM: 0x6a000
+      0x66d04 ldr
+      0x66d08 add
+      0x66d0c br
+Used 107 document pages for analysis
+Analysis complete
+Found 1 procedures:
+Disassembly of 0x1b000
+0x1b000	60020090	adrp 	x0, #0x67000               
+0x1b004	00000091	add 	x0, x0, #0                  
+0x1b008	ba2e0114	b 	#0x66af0                      

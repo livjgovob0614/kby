@@ -1,0 +1,164 @@
+################################################################
+##                       KICKASS DISASS                       ##
+##                                                            ##
+##                                    Powered by Capstone 4.0 ##
+################################################################
+
+Successfully loaded /home/jg/sample/FP_src/PIE_main using loader ELF
+Analyzing...
+Adding proc at address 0x850 (found by loader)
+Found proc at 0x850
+Adding 0x850 movz
+Adding 0x854 movz
+Adding 0x858 mov
+Adding 0x85c ldr
+Adding 0x860 add
+Adding 0x864 mov
+Adding 0x868 adrp
+ ADRP!
+REG
+IMM: 0x10000
+Adding 0x86c ldr
+Adding 0x870 adrp
+ ADRP!
+REG
+IMM: 0x10000
+Adding 0x874 ldr
+Adding 0x878 adrp
+ ADRP!
+REG
+IMM: 0x10000
+Adding 0x87c ldr
+Adding 0x880 bl
+check -1: True , 0: True
+--> ins.operands[0].imm:  0x810
+Found proc at 0x810
+Adding 0x884 bl
+check -1: True , 0: True
+--> ins.operands[0].imm:  0x830
+Found proc at 0x830
+Adding 0x888 adrp
+ ADRP!
+REG
+IMM: 0x10000
+Adding 0x88c ldr
+Adding 0x890 cbz
+Adding 0x894 b
+check -1: True , 0: True
+--> ins.operands[0].imm:  0x820
+Adding 0x898 ret
+Adding 0x810 adrp
+ ADRP!
+REG
+IMM: 0x11000
+Adding 0x814 ldr
+Adding 0x818 add
+Adding 0x81c br
+Adding 0x820 adrp
+ ADRP!
+REG
+IMM: 0x11000
+Adding 0x824 ldr
+Adding 0x828 add
+Adding 0x82c br
+Adding 0x830 adrp
+ ADRP!
+REG
+IMM: 0x11000
+Adding 0x834 ldr
+Adding 0x838 add
+Adding 0x83c br
+Adding 0x840 adrp
+ ADRP!
+REG
+IMM: 0x11000
+Adding 0x844 ldr
+Adding 0x848 add
+Adding 0x84c br
+Used 3 document pages for analysis
+Analysis complete
+Found 3 procedures:
+Disassembly of 0x810
+0x810	900000b0	adrp 	x16, #0x11000                
+0x814	110640f9	ldr 	x17, [x16, #8]                
+0x818	10220091	add 	x16, x16, #8                  
+0x81c	20021fd6	br 	x17                            
+0x820	900000b0	adrp 	x16, #0x11000                
+0x824	110a40f9	ldr 	x17, [x16, #0x10]             
+0x828	10420091	add 	x16, x16, #0x10               
+0x82c	20021fd6	br 	x17                            
+0x830	900000b0	adrp 	x16, #0x11000                
+0x834	110e40f9	ldr 	x17, [x16, #0x18]             
+0x838	10620091	add 	x16, x16, #0x18               
+0x83c	20021fd6	br 	x17                            
+0x840	900000b0	adrp 	x16, #0x11000                
+0x844	111240f9	ldr 	x17, [x16, #0x20]             
+0x848	10820091	add 	x16, x16, #0x20               
+0x84c	20021fd6	br 	x17                            
+0x850	1d0080d2	movz 	x29, #0                      
+0x854	1e0080d2	movz 	x30, #0                      
+0x858	e50300aa	mov 	x5, x0                        
+0x85c	e10340f9	ldr 	x1, [sp]                      
+0x860	e2230091	add 	x2, sp, #8                    
+0x864	e6030091	mov 	x6, sp                        
+0x868	80000090	adrp 	x0, #0x10000                 
+0x86c	00e847f9	ldr 	x0, [x0, #0xfd0]              
+0x870	83000090	adrp 	x3, #0x10000                 
+0x874	63e447f9	ldr 	x3, [x3, #0xfc8]              
+0x878	84000090	adrp 	x4, #0x10000                 
+0x87c	84d447f9	ldr 	x4, [x4, #0xfa8]              
+0x880	e4ffff97	bl 	#0x810                         
+0x884	ebffff97	bl 	#0x830                         
+0x888	80000090	adrp 	x0, #0x10000                 
+0x88c	00e047f9	ldr 	x0, [x0, #0xfc0]              
+0x890	400000b4	cbz 	x0, #0x898                    
+0x894	e3ffff17	b 	#0x820                          
+0x898	c0035fd6	ret 	                              
+Disassembly of 0x830
+0x830	900000b0	adrp 	x16, #0x11000                
+0x834	110e40f9	ldr 	x17, [x16, #0x18]             
+0x838	10620091	add 	x16, x16, #0x18               
+0x83c	20021fd6	br 	x17                            
+0x840	900000b0	adrp 	x16, #0x11000                
+0x844	111240f9	ldr 	x17, [x16, #0x20]             
+0x848	10820091	add 	x16, x16, #0x20               
+0x84c	20021fd6	br 	x17                            
+0x850	1d0080d2	movz 	x29, #0                      
+0x854	1e0080d2	movz 	x30, #0                      
+0x858	e50300aa	mov 	x5, x0                        
+0x85c	e10340f9	ldr 	x1, [sp]                      
+0x860	e2230091	add 	x2, sp, #8                    
+0x864	e6030091	mov 	x6, sp                        
+0x868	80000090	adrp 	x0, #0x10000                 
+0x86c	00e847f9	ldr 	x0, [x0, #0xfd0]              
+0x870	83000090	adrp 	x3, #0x10000                 
+0x874	63e447f9	ldr 	x3, [x3, #0xfc8]              
+0x878	84000090	adrp 	x4, #0x10000                 
+0x87c	84d447f9	ldr 	x4, [x4, #0xfa8]              
+0x880	e4ffff97	bl 	#0x810                         
+0x884	ebffff97	bl 	#0x830                         
+0x888	80000090	adrp 	x0, #0x10000                 
+0x88c	00e047f9	ldr 	x0, [x0, #0xfc0]              
+0x890	400000b4	cbz 	x0, #0x898                    
+0x894	e3ffff17	b 	#0x820                          
+0x898	c0035fd6	ret 	                              
+Disassembly of 0x850
+0x850	1d0080d2	movz 	x29, #0                      
+0x854	1e0080d2	movz 	x30, #0                      
+0x858	e50300aa	mov 	x5, x0                        
+0x85c	e10340f9	ldr 	x1, [sp]                      
+0x860	e2230091	add 	x2, sp, #8                    
+0x864	e6030091	mov 	x6, sp                        
+0x868	80000090	adrp 	x0, #0x10000                 
+0x86c	00e847f9	ldr 	x0, [x0, #0xfd0]              
+0x870	83000090	adrp 	x3, #0x10000                 
+0x874	63e447f9	ldr 	x3, [x3, #0xfc8]              
+0x878	84000090	adrp 	x4, #0x10000                 
+0x87c	84d447f9	ldr 	x4, [x4, #0xfa8]              
+0x880	e4ffff97	bl 	#0x810                         
+0x884	ebffff97	bl 	#0x830                         
+0x888	80000090	adrp 	x0, #0x10000                 
+0x88c	00e047f9	ldr 	x0, [x0, #0xfc0]              
+0x890	400000b4	cbz 	x0, #0x898                    
+0x894	e3ffff17	b 	#0x820                          
+0x898	c0035fd6	ret 	                              

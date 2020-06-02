@@ -1,0 +1,597 @@
+################################################################
+##                       KICKASS DISASS                       ##
+##                                                            ##
+##                                    Powered by Capstone 4.0 ##
+################################################################
+
+Successfully loaded /home/jg/sample/libarac.so using loader ELF
+Analyzing...
+Adding proc at address 0x1b000 (found by loader), type: <class 'int'>
+
+
+
+Adding funcion aracd_vps_alloc2 from .dynsym at 0x50238
+   size 88
+Adding funcion eco_mv_inter_p from .dynsym at 0x5a9f0
+   size 1332
+Adding funcion arac_df_scu_ver_l_dqp_16 from .dynsym at 0x259d8
+   size 356
+Adding funcion arac_df_get_bs_inter from .dynsym at 0x223b8
+   size 508
+Adding funcion aracd_eco_sh_end from .dynsym at 0x55170
+   size 3132
+Adding funcion aracd_vps_dec from .dynsym at 0x50388
+   size 832
+Adding funcion aracd_cabac_flush from .dynsym at 0x5c3d8
+   size 116
+Adding funcion arac_mc_wp from .dynsym at 0x38360
+   size 396
+Adding funcion aracd_cabac_cpy_ctx from .dynsym at 0x5c450
+   size 100
+Adding funcion aracd_eco_split_flag from .dynsym at 0x57f80
+   size 1432
+Adding funcion arac_sao_eo_1_ms from .dynsym at 0x3b720
+   size 128
+Adding funcion aracd_pull_frm from .dynsym at 0x46850
+   size 272
+Adding funcion aracd_get_qt_tu_log2_min_size from .dynsym at 0x522f8
+   size 156
+Adding funcion arac_dq_16x16_sl from .dynsym at 0x20a10
+   size 1532
+Adding funcion aracd_task_df_hor from .dynsym at 0x3ff00
+   size 828
+Adding funcion aracd_platform_deinit from .dynsym at 0x47458
+   size 40
+Adding funcion arac_picbuf_free from .dynsym at 0x1d8a8
+   size 52
+Adding funcion arac_filt_hor_l_dqp from .dynsym at 0x252a8
+   size 1836
+Adding funcion aracd_cabac_reset from .dynsym at 0x565d0
+   size 6428
+Adding funcion aracd_eco_sh_beg from .dynsym at 0x55108
+   size 100
+Adding funcion aracd_md5_check_16 from .dynsym at 0x53bf0
+   size 640
+Adding funcion arac_ipred_prepare_16 from .dynsym at 0x1d010
+   size 792
+Adding funcion arac_picbuf_clr from .dynsym at 0x1d9d8
+   size 124
+Adding funcion aracd_bsr_clone from .dynsym at 0x5db48
+   size 148
+Adding funcion aracd_md5_16 from .dynsym at 0x537b8
+   size 512
+Adding funcion arac_df_scu_ver_c_16 from .dynsym at 0x24af8
+   size 224
+Adding funcion aracd_pps_dec from .dynsym at 0x51b48
+   size 816
+Adding funcion aracd_set_ipm_pu from .dynsym at 0x53e70
+   size 200
+Adding funcion aracd_md5 from .dynsym at 0x535f8
+   size 448
+Adding funcion arac_ipred_planar_16 from .dynsym at 0x1c978
+   size 704
+Adding funcion aracd_pull_frm_index from .dynsym at 0x46a48
+   size 272
+Adding funcion arac_ipred_dc_filtering from .dynsym at 0x1c1b8
+   size 356
+Adding funcion arac_df_scu_ver_c_dqp from .dynsym at 0x27c58
+   size 344
+Adding funcion aracd_get_inter_mrg_cand from .dynsym at 0x52480
+   size 3732
+Adding funcion arac_ipred_smoothing_16 from .dynsym at 0x1cc38
+   size 512
+Adding funcion arac_filt_ver_l_16 from .dynsym at 0x23a10
+   size 1156
+Adding funcion aracd_post_proc from .dynsym at 0x3f4b8
+   size 268
+Adding funcion arac_it_8x8 from .dynsym at 0x1f230
+   size 1692
+Adding funcion aracd_task_df_ver_dqp from .dynsym at 0x405b0
+   size 964
+Adding funcion arac_filt_ver_l_dqp_16 from .dynsym at 0x25b40
+   size 1772
+Adding funcion arac_mc_l_10 from .dynsym at 0x29a70
+   size 1136
+Adding funcion aracd_pps_free_all from .dynsym at 0x51ad8
+   size 56
+Adding funcion arac_platform_deinit from .dynsym at 0x1b028
+   size 4
+Adding funcion arac_mc_l_11 from .dynsym at 0x2a7f8
+   size 2832
+Adding funcion aracd_task_df_ver_dqp_16 from .dynsym at 0x40978
+   size 860
+Adding funcion arac_ipred_strong_smoothing_16 from .dynsym at 0x1ce38
+   size 472
+Adding funcion arac_mc_l_12 from .dynsym at 0x2b308
+   size 3184
+Adding funcion aracd_dec_slice from .dynsym at 0x42668
+   size 568
+Adding funcion aracd_copy_sao_lcu_param from .dynsym at 0x53318
+   size 188
+Adding funcion arac_get_coef_scan_idx from .dynsym at 0x1eef0
+   size 160
+Adding funcion arac_mc_l_13 from .dynsym at 0x2bf78
+   size 2876
+Adding funcion aracd_eco_transform_tree from .dynsym at 0x58b28
+   size 536
+Adding funcion aracd_platform_init from .dynsym at 0x473f8
+   size 96
+Adding funcion aracd_pull_index from .dynsym at 0x48308
+   size 68
+Adding funcion aracd_vps_free_from_list from .dynsym at 0x502b8
+   size 68
+Adding funcion arac_get_avail_ipm from .dynsym at 0x1e088
+   size 132
+Adding funcion arac_picbuf_clr_16 from .dynsym at 0x1da58
+   size 140
+Adding funcion arac_picman_get_empty_pic from .dynsym at 0x39200
+   size 1328
+Adding funcion arac_sao_eo_2_ms from .dynsym at 0x3b7a0
+   size 1052
+Adding funcion arac_mc_l_nn_16 from .dynsym at 0x323a0
+   size 3408
+Adding funcion aracd_set_cu_map from .dynsym at 0x5c1f8
+   size 480
+Adding funcion arac_picbuf_cpy from .dynsym at 0x1d940
+   size 148
+Adding funcion arac_filt_ver_c_dqp from .dynsym at 0x277e8
+   size 464
+Adding funcion arac_mc_bi_avg_wp from .dynsym at 0x386f0
+   size 512
+Adding funcion arac_picman_out_pic from .dynsym at 0x39b10
+   size 364
+Adding funcion aracd_deblock_scu_dqp from .dynsym at 0x3d350
+   size 1408
+Adding funcion aracd_sps_put from .dynsym at 0x508f8
+   size 100
+Adding funcion aracd_bsr_is_more_rbsp_data from .dynsym at 0x52110
+   size 228
+Adding funcion arac_picman_out_pic_index from .dynsym at 0x39de0
+   size 72
+Adding funcion aracd_set_ppi from .dynsym at 0x46de8
+   size 1548
+Adding funcion aracd_sao_ms from .dynsym at 0x3e5f0
+   size 1720
+Adding funcion arac_deinit from .dynsym at 0x1b058
+   size 24
+Adding funcion arac_mc_c_n0_16 from .dynsym at 0x36608
+   size 1052
+Adding funcion aracd_delete from .dynsym at 0x476f8
+   size 268
+Adding funcion aracd_set_cui_qp from .dynsym at 0x53f38
+   size 252
+Adding funcion aracd_sps_get from .dynsym at 0x509b8
+   size 36
+Adding funcion arac_sao_eo_0_16 from .dynsym at 0x3abd0
+   size 248
+Adding funcion arac_get_mvp_cand from .dynsym at 0x1e690
+   size 1344
+Adding funcion aracd_task_df_hor_16 from .dynsym at 0x40240
+   size 880
+Adding funcion arac_ipred_dc_filtering_16 from .dynsym at 0x1d328
+   size 312
+Adding funcion arac_ipred_planar from .dynsym at 0x1b648
+   size 1008
+Adding funcion arac_picman_reset from .dynsym at 0x3a610
+   size 84
+Adding funcion arac_mc_bi_avg_l_16 from .dynsym at 0x38118
+   size 580
+Adding funcion arac_mc_c_00_uv_16 from .dynsym at 0x35e78
+   size 1148
+Adding funcion arac_scale_mv from .dynsym at 0x1e228
+   size 216
+Adding funcion arac_mc_l_00_16 from .dynsym at 0x34228
+   size 568
+Adding funcion aracd_bsr_annexb_to_ebsp from .dynsym at 0x521f8
+   size 104
+Adding funcion aracd_sps_free_all from .dynsym at 0x50a28
+   size 56
+Adding funcion aracd_task_df_ver from .dynsym at 0x3fa58
+   size 580
+Adding funcion aracd_sps_peek_paramset_id from .dynsym at 0x50a60
+   size 76
+Adding funcion aracd_eco_init from .dynsym at 0x564d0
+   size 24
+Adding funcion aracd_md5_check from .dynsym at 0x539b8
+   size 568
+Adding funcion pred_intra_l_16 from .dynsym at 0x4b228
+   size 788
+Adding funcion arac_mc_c_00 from .dynsym at 0x31130
+   size 500
+Adding funcion arac_init from .dynsym at 0x1b030
+   size 40
+Adding funcion arac_df_scu_hor_c from .dynsym at 0x23978
+   size 152
+Adding funcion arac_filt_hor_c_dqp from .dynsym at 0x279b8
+   size 672
+Adding funcion arac_mc_bi_avg_l from .dynsym at 0x321c8
+   size 468
+Adding funcion aracd_eco_ipcm from .dynsym at 0x5a770
+   size 640
+Adding funcion arac_df_get_bs_intra from .dynsym at 0x21b88
+   size 824
+Adding funcion arac_filt_ver_c_dqp_16 from .dynsym at 0x26d48
+   size 656
+Adding funcion aracd_md5_plane_16 from .dynsym at 0x53548
+   size 176
+Adding funcion arac_sao_bo_16 from .dynsym at 0x3b458
+   size 172
+Adding funcion arac_sao_eo_3_ms from .dynsym at 0x3bbc0
+   size 1128
+Adding funcion aracd_picbuf_expand from .dynsym at 0x51ea8
+   size 16
+Adding funcion aracd_picbuf_clr from .dynsym at 0x51ec0
+   size 8
+Adding funcion aracd_eco_st_rps from .dynsym at 0x54da8
+   size 864
+Adding funcion arac_ipred_strong_smoothing from .dynsym at 0x1bcb8
+   size 628
+Adding funcion aracd_eco_cabac_dec_bin from .dynsym at 0x564e8
+   size 232
+Adding funcion arac_picbuf_alloc from .dynsym at 0x1d728
+   size 384
+Adding funcion aracd_get_neb_spua_sn from .dynsym at 0x52398
+   size 228
+Adding funcion arac_mc_l_20 from .dynsym at 0x29ee0
+   size 1172
+Adding funcion aracd_pic_alloc from .dynsym at 0x51ed0
+   size 36
+Adding funcion aracd_pred_intra_16 from .dynsym at 0x4c890
+   size 2444
+Adding funcion aracd_ready from .dynsym at 0x466e0
+   size 320
+Adding funcion arac_df_scu_hor_l from .dynsym at 0x237f0
+   size 200
+Adding funcion arac_mc_l_21 from .dynsym at 0x2cab8
+   size 2920
+Adding funcion aracd_vps_alloc from .dynsym at 0x50160
+   size 92
+Adding funcion aracd_copy_sao_lcu_param_16 from .dynsym at 0x533d8
+   size 196
+Adding funcion arac_df_scu_hor_c_16 from .dynsym at 0x24bd8
+   size 176
+Adding funcion arac_mc_l_22 from .dynsym at 0x2d620
+   size 3160
+Adding funcion aracd_deblock_scu_16 from .dynsym at 0x3d010
+   size 832
+Adding funcion aracd_sps_alloc from .dynsym at 0x50888
+   size 92
+Adding funcion arac_mc_l_23 from .dynsym at 0x2e278
+   size 3000
+Adding funcion arac_sao_eo_1_16 from .dynsym at 0x3acc8
+   size 504
+Adding funcion aracd_pps_alloc from .dynsym at 0x51938
+   size 92
+Adding funcion aracd_pull_info from .dynsym at 0x482c0
+   size 68
+Adding funcion pred_intra_c from .dynsym at 0x4b540
+   size 904
+Adding funcion arac_filt_hor_l_16 from .dynsym at 0x23e98
+   size 1384
+Adding funcion aracd_sps_free_from_list from .dynsym at 0x509e0
+   size 68
+Adding funcion aracd_clone_frm_16 from .dynsym at 0x46ca0
+   size 324
+Adding funcion aracd_mt_post_proc from .dynsym at 0x414a8
+   size 2048
+Adding funcion aracd_deblock_scu from .dynsym at 0x3ccd8
+   size 824
+Adding funcion arac_ipred_prepare_rqt_16 from .dynsym at 0x4ac30
+   size 796
+Adding funcion arac_mc_c_nn from .dynsym at 0x31d60
+   size 1124
+Adding funcion arac_mc_l_01_16 from .dynsym at 0x34460
+   size 2128
+Adding funcion aracd_dec_nal from .dynsym at 0x43cd0
+   size 9228
+Adding funcion aracd_bsr_flush from .dynsym at 0x51fc8
+   size 236
+Adding funcion arac_picman_ref_list_init from .dynsym at 0x38b70
+   size 1668
+Adding funcion aracd_pred_ipcm from .dynsym at 0x4fd98
+   size 964
+Adding funcion arac_dq_32x32_sl from .dynsym at 0x21010
+   size 2936
+Adding funcion arac_sao_eo_0 from .dynsym at 0x3a668
+   size 180
+Adding funcion get_avail_tu_intra_rqt_422 from .dynsym at 0x497f0
+   size 744
+Adding funcion arac_ipred_ang_16 from .dynsym at 0x1c320
+   size 1620
+Adding funcion aracd_eco_filler_data from .dynsym at 0x55db0
+   size 68
+Adding funcion aracd_pic_free from .dynsym at 0x51ef8
+   size 8
+Adding funcion aracd_picbuf_cpy from .dynsym at 0x51eb8
+   size 4
+Adding funcion arac_get_ref_qp_for_dqp from .dynsym at 0x1e1a8
+   size 124
+Adding funcion arac_df_scu_ver_c from .dynsym at 0x238b8
+   size 188
+Adding funcion arac_sao_eo_2 from .dynsym at 0x3a720
+   size 552
+Adding funcion pred_intra_l from .dynsym at 0x4af50
+   size 724
+Adding funcion arac_mc_c_0n_16 from .dynsym at 0x36af0
+   size 1676
+Adding funcion arac_sao_eo_3 from .dynsym at 0x3a948
+   size 648
+Adding funcion arac_get_coef_scan_idx_rqt from .dynsym at 0x1ef90
+   size 152
+Adding funcion arac_mc_c_nn_uv_16 from .dynsym at 0x37180
+   size 204
+Adding funcion aracd_bsr_cpy from .dynsym at 0x5dbe0
+   size 196
+Adding funcion arac_recon_16 from .dynsym at 0x1d460
+   size 708
+Adding funcion aracd_set_ppi_by_bit_depth from .dynsym at 0x460e0
+   size 1536
+Adding funcion aracd_pred_inter from .dynsym at 0x4d220
+   size 452
+Adding funcion eco_mv_merge_b from .dynsym at 0x5c178
+   size 124
+Adding funcion arac_picman_init from .dynsym at 0x39f10
+   size 232
+Adding funcion aracd_deblock_scu_dqp_16 from .dynsym at 0x3d8d0
+   size 1476
+Adding funcion aracd_pic_push from .dynsym at 0x51f00
+   size 200
+Adding funcion aracd_sps_dec from .dynsym at 0x50ab0
+   size 3172
+Adding funcion arac_get_neb_spua_inter from .dynsym at 0x1de30
+   size 424
+Adding funcion arac_dq_4x4_sl from .dynsym at 0x204f8
+   size 472
+Adding funcion aracd_clone from .dynsym at 0x48350
+   size 68
+Adding funcion arac_platform_init from .dynsym at 0x1b020
+   size 8
+Adding funcion arac_df_scu_hor_c_dqp_16 from .dynsym at 0x26fd8
+   size 380
+Adding funcion arac_picman_get_maps from .dynsym at 0x39ff8
+   size 96
+Adding funcion arac_df_scu_ver_l from .dynsym at 0x23738
+   size 184
+Adding funcion arac_filt_ver_c_16 from .dynsym at 0x24400
+   size 480
+Adding funcion aracd_eco_end_of_slice from .dynsym at 0x57ef0
+   size 144
+Adding funcion aracd_pred_intra_rqt from .dynsym at 0x4bc48
+   size 36
+Adding funcion aracd_pps_peek_paramset_id from .dynsym at 0x51b10
+   size 56
+Adding funcion arac_sao_eo_2_16 from .dynsym at 0x3aec0
+   size 636
+Adding funcion aracd_eco_cu_mode from .dynsym at 0x58518
+   size 1552
+Adding funcion aracd_eco_sei_data from .dynsym at 0x55e28
+   size 1248
+Adding funcion aracd_bsr_rbsp_slice_segment_trailing_bits from .dynsym at 0x522a8
+   size 80
+Adding funcion aracd_bsr_byte_alignment from .dynsym at 0x52260
+   size 68
+Adding funcion arac_mc_bi_avg_wp_16 from .dynsym at 0x388f0
+   size 636
+Adding funcion arac_mc_l_n0_16 from .dynsym at 0x33cc0
+   size 1380
+Adding funcion aracd_dec_slice_mt_delayed_post from .dynsym at 0x41f48
+   size 748
+Adding funcion arac_filt_hor_c from .dynsym at 0x23550
+   size 484
+Adding funcion arac_df_scu_ver_l_16 from .dynsym at 0x24918
+   size 232
+Adding funcion arac_mc_l_02_16 from .dynsym at 0x34cb0
+   size 2396
+Adding funcion arac_df_scu_hor_l_dqp from .dynsym at 0x27690
+   size 340
+Adding funcion arac_df_scu_hor_l_dqp_16 from .dynsym at 0x26230
+   size 388
+Adding funcion aracd_sao_16 from .dynsym at 0x3eca8
+   size 452
+Adding funcion eco_mv_merge_p from .dynsym at 0x5bf40
+   size 568
+Adding funcion aracd_dec_sao_lcu_interleaving from .dynsym at 0x5c510
+   size 5688
+Adding funcion arac_ipred_prepare_rqt_422_16 from .dynsym at 0x49d98
+   size 752
+Adding funcion arac_get_cabac_sig_ctx_idx from .dynsym at 0x1ee00
+   size 148
+Adding funcion arac_mc_l_30 from .dynsym at 0x2a378
+   size 1148
+Adding funcion aracd_clone_frm from .dynsym at 0x46b58
+   size 324
+Adding funcion arac_mc_l_31 from .dynsym at 0x2ee30
+   size 2848
+Adding funcion aracd_picbuf_alloc from .dynsym at 0x51e78
+   size 36
+Adding funcion aracd_vps_free from .dynsym at 0x501c0
+   size 16
+Adding funcion aracd_vps_put from .dynsym at 0x501d0
+   size 100
+Adding funcion arac_mc_l_32 from .dynsym at 0x2f950
+   size 3248
+Adding funcion arac_filt_hor_l from .dynsym at 0x22f60
+   size 1220
+Adding funcion arac_mc_l_33 from .dynsym at 0x30600
+   size 2864
+Adding funcion arac_filt_hor_c_dqp_16 from .dynsym at 0x27158
+   size 1024
+Adding funcion aracd_task_df_hor_dqp from .dynsym at 0x40cd8
+   size 1040
+Adding funcion aracd_vps_get from .dynsym at 0x50290
+   size 36
+Adding funcion arac_ipred_prepare_rqt_422 from .dynsym at 0x49ad8
+   size 700
+Adding funcion arac_get_avail_cu from .dynsym at 0x1dfd8
+   size 176
+Adding funcion arac_get_ref_qp from .dynsym at 0x1e110
+   size 148
+Adding funcion aracd_blk_itdq_sl from .dynsym at 0x3c6e0
+   size 1020
+Adding funcion aracd_eco_nh from .dynsym at 0x54d60
+   size 68
+Adding funcion aracd_task_df_hor_dqp_16 from .dynsym at 0x410e8
+   size 956
+Adding funcion aracd_pps_free_from_list from .dynsym at 0x51a90
+   size 68
+Adding funcion aracd_vps_peek_paramset_id from .dynsym at 0x50338
+   size 76
+Adding funcion arac_picman_rps_marking from .dynsym at 0x3a058
+   size 876
+Adding funcion aracd_md5_plane from .dynsym at 0x534a0
+   size 168
+Adding funcion arac_get_avail_pu_intra from .dynsym at 0x1dae8
+   size 556
+Adding funcion aracd_pps_alloc2 from .dynsym at 0x51a10
+   size 88
+Adding funcion arac_ipred_prepare from .dynsym at 0x1bf30
+   size 648
+Adding funcion arac_get_neb_scua from .dynsym at 0x1dd18
+   size 276
+Adding funcion aracd_sps_free from .dynsym at 0x508e8
+   size 16
+Adding funcion arac_picbuf_expand from .dynsym at 0x1d8e0
+   size 92
+Adding funcion aracd_vps_free_all from .dynsym at 0x50300
+   size 56
+Adding funcion arac_get_tmv from .dynsym at 0x1e300
+   size 908
+Adding funcion arac_sao_eo_3_16 from .dynsym at 0x3b140
+   size 792
+Adding funcion aracd_pps_put from .dynsym at 0x519a8
+   size 100
+Adding funcion aracd_cabac_deinit from .dynsym at 0x5c4b8
+   size 84
+Adding funcion arac_filt_hor_l_dqp_16 from .dynsym at 0x263b8
+   size 2048
+Adding funcion arac_picman_deinit from .dynsym at 0x39e28
+   size 228
+Adding funcion aracd_pull from .dynsym at 0x48278
+   size 68
+Adding funcion pred_intra_c_16 from .dynsym at 0x4b8c8
+   size 892
+Adding funcion arac_filt_ver_c from .dynsym at 0x23428
+   size 296
+Adding funcion aracd_blk_itdq from .dynsym at 0x3c078
+   size 1176
+Adding funcion aracd_picbuf_clr_16 from .dynsym at 0x51ec8
+   size 8
+Adding funcion aracd_pps_get from .dynsym at 0x51a68
+   size 40
+Adding funcion arac_mc_l_03_16 from .dynsym at 0x35610
+   size 2148
+Adding funcion arac_picman_put_pic from .dynsym at 0x39730
+   size 616
+Adding funcion aracd_set_complexity from .dynsym at 0x47480
+   size 56
+Adding funcion arac_get_num_rps_cur_temp_list from .dynsym at 0x1f028
+   size 152
+Adding funcion arac_df_scu_ver_l_dqp from .dynsym at 0x27558
+   size 312
+Adding funcion aracd_picbuf_free from .dynsym at 0x51ea0
+   size 8
+Adding funcion arac_mc_wp_16 from .dynsym at 0x384f0
+   size 512
+Adding funcion aracd_pps_free from .dynsym at 0x51998
+   size 16
+Adding funcion arac_mc_c_0n from .dynsym at 0x31740
+   size 1564
+Adding funcion arac_mc_c_nn_16 from .dynsym at 0x37250
+   size 2032
+Adding funcion aracd_pull_frm_info from .dynsym at 0x46960
+   size 228
+Adding funcion arac_ipred_ang from .dynsym at 0x1b070
+   size 1492
+Adding funcion arac_sao_eo_0_ms from .dynsym at 0x3b660
+   size 188
+Adding funcion arac_picman_out_pic_info from .dynsym at 0x39c80
+   size 352
+Adding funcion aracd_sps_alloc2 from .dynsym at 0x50960
+   size 88
+Adding funcion arac_filt_ver_l from .dynsym at 0x22b38
+   size 1064
+Adding funcion arac_mc_c_0n_uv_16 from .dynsym at 0x36a28
+   size 196
+Adding funcion eco_mv_inter_b from .dynsym at 0x5b438
+   size 2820
+Adding funcion arac_it_32x32 from .dynsym at 0x1f8d0
+   size 3112
+Adding funcion arac_mc_l_01 from .dynsym at 0x27ef8
+   size 2248
+Adding funcion arac_get_cabac_pattern_sig_ctx from .dynsym at 0x1ee98
+   size 84
+Adding funcion arac_mc_l_02 from .dynsym at 0x287c0
+   size 2516
+Adding funcion arac_mc_l_0n_16 from .dynsym at 0x330f0
+   size 3024
+Adding funcion aracd_sao from .dynsym at 0x3de98
+   size 456
+Adding funcion arac_mc_l_03 from .dynsym at 0x29198
+   size 2264
+Adding funcion aracd_pred_intra from .dynsym at 0x4bfb8
+   size 2260
+Adding funcion aracd_cabac_init from .dynsym at 0x56408
+   size 196
+Adding funcion arac_pu_set_mv from .dynsym at 0x1f0c0
+   size 364
+Adding funcion arac_filt_hor_c_16 from .dynsym at 0x245e0
+   size 824
+Adding funcion arac_picman_ref_list_reorder from .dynsym at 0x391f8
+   size 4
+Adding funcion aracd_task_df_ver_16 from .dynsym at 0x3fca0
+   size 604
+Adding funcion arac_df_get_bs_inter_ms from .dynsym at 0x225b8
+   size 608
+Adding funcion arac_df_scu_ver_c_dqp_16 from .dynsym at 0x26bb8
+   size 396
+Adding funcion arac_filt_ver_l_dqp from .dynsym at 0x24c88
+   size 1564
+Adding funcion aracd_bsr_get_byte_pos from .dynsym at 0x520b8
+   size 88
+Adding funcion aracd_config from .dynsym at 0x47d28
+   size 1288
+Adding funcion arac_mc_c_00_16 from .dynsym at 0x362f8
+   size 584
+Adding funcion arac_df_scu_hor_c_dqp from .dynsym at 0x27db0
+   size 328
+Adding funcion arac_ipred_prepare_rqt from .dynsym at 0x4a088
+   size 2076
+Adding funcion arac_dq_8x8_sl from .dynsym at 0x206d0
+   size 828
+Adding funcion arac_mc_c_n0_uv_16 from .dynsym at 0x36540
+   size 196
+Adding funcion aracd_flush from .dynsym at 0x46820
+   size 44
+Adding funcion arac_df_scu_hor_l_16 from .dynsym at 0x24a00
+   size 248
+Adding funcion arac_sao_bo_ms from .dynsym at 0x3c028
+   size 76
+Adding funcion aracd_create from .dynsym at 0x474b8
+   size 576
+Adding funcion aracd_decode from .dynsym at 0x48230
+   size 68
+Adding funcion arac_ipred_smoothing from .dynsym at 0x1ba38
+   size 640
+Adding funcion arac_mc_c_n0 from .dynsym at 0x31328
+   size 1048
+Adding funcion aracd_eco_aud_data from .dynsym at 0x55df8
+   size 48
+Adding funcion arac_mc_bi_avg_16 from .dynsym at 0x37a40
+   size 1752
+Disassembly begins
+adrp( 0x4d26c 0x4e148 ) target in text**
+adrp( 0x4d270 0x4d3e8 ) target in text**
+adrp( 0x473c0 0x42660 ) target in text**
+adrp( 0x417dc 0x41ca8 ) target in text**
+adrp( 0x420ac 0x42238 ) target in text**
+adrp( 0x42130 0x487c8 ) target in text**
+adrp( 0x481f8 0x42660 ) target in text**
+adrp( 0x41b94 0x41e28 ) target in text**
+adrp( 0x41b98 0x41d08 ) target in text**
+adrp( 0x41c54 0x41e28 ) target in text**
+adrp( 0x41c58 0x41d08 ) target in text**
+adrp( 0x4d294 0x4f670 ) target in text**
+adrp( 0x4d298 0x4ef20 ) target in text**
+Used 107 document pages for analysis
+Analysis complete
+Found 1205 procedures:

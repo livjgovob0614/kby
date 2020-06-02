@@ -1,0 +1,10 @@
+# arm_64
+  .symtab의 
+
+  dynsym에는 function 업산?
+  
+
+
+# strip_arm_64
+  unconditional branch이면 바로 target으로 jump하기 때문에
+  <_start> 함수의 두번째 bl(0x4008b8)은 정상적으로^^ 커버X 
