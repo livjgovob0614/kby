@@ -95,13 +95,37 @@ class Analyzer():
     def get_text_function_info(self):
         with open(self.f_info, 'r') as f:
           for i, line in enumerate(f):
-            target = int(line, 16)
+            #target = line.encode("hex")
+            #target = binascii.hexlify(line)
+            print (line, type(line))
+            target = self.toHex(int(line))
+            print (target, type(target))
             if i & 1:
               self.known_ends.append(hex(target))
             else:
               print ("Adding funcion from info_file at", hex(target))
-              self.queue.put(target)
-              self.starts.append(target)
+              self.queue.put(hex(target))
+              self.starts.append(hex(target))
+
+
+    def toHex(self, num):
+      res = 0x0
+      m = 0
+      while (num / (10**m)) > 0:
+        m += 1
+      while num:
+        m -= 1
+        a = num / (10**m)
+        res += hex(a * (16**m))
+        num -= a * (10**m)
+      return res
+
+
+
+
+
+
+      
 
 
     def recursive_descent(self):

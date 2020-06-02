@@ -71,7 +71,7 @@ def main(argv):
     print("#" * 64 + "\n")
 
     if len(argv) <= 1:
-        raise Exception("Usage: python3 main.py binary")
+        raise Exception("Usage: python3 main.py binary f_info")
 
     loaders = load_modules()
 
@@ -93,7 +93,10 @@ def main(argv):
             loader = valid_loaders[0]
 
         # launch the actual analysis
-        anal = Analyzer(loader, exe, f)
+        if len(argv) > 2:
+          anal = Analyzer(loader, exe, f, argv[2])
+        else:
+          anal = Analyzer(loader, exe, f)
 
 
 if __name__ == '__main__':
