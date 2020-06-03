@@ -1,4 +1,4 @@
-import binascii
+import os
 from queue import Queue
 
 from capstone import *
@@ -25,8 +25,8 @@ class Analyzer():
         self.f_info = function_info
         self.first_adr = 0x999999
         self.last_adr = 0x0
+        self.adrp_ins = []
         self.adrp_list = []
-        self.adrp_result = []
 
         """ Analyze a file f using a user-specified loader. It will start from the
         procedures given by the loader, then try a recursive descent from there
@@ -47,7 +47,7 @@ class Analyzer():
         self.print_disasm_result()
 
         # TODO
-        # self.classify_adrp_targets()
+        self.classify_adrp_targets()
 
 
     def analyze(self):
@@ -99,7 +99,7 @@ class Analyzer():
             if i & 1:
               self.known_ends.append(hex(target))
             else:
-              print ("Adding funcion from info_file at", hex(target))
+              print ("Adding funcion from", os.path.basename(f.name) ,"at", hex(target))
               self.queue.put(target)
               self.starts.append(target)
 
@@ -143,9 +143,9 @@ class Analyzer():
                 break
 
               if ins.mnemonic.startswith('adrp'):
-                self.adrp_list.append(self.get_adrp_target(ins)) #TODO
+                self.adrp_ins.append(self.get_adrp_target(ins)) #TODO
                 #XXX print ("ADRP!")
-                #for i in self.adrp_list[-1]:
+                #for i in self.adrp_ins[-1]:
                 #  print (hex(i))
               elif ins.id in branch_instructions:
                 if ins.operands[0].type == ARM64_OP_IMM:
@@ -219,12 +219,56 @@ class Analyzer():
 
 
     def classify_adrp_targets(self):
-        for a, t, i in self.adrp_list:
-          if i:
-            self.adrp_result.append(a, t, i)
-          else:
-            self.adrp_result.append(a, t, i)
+        idx = 0
+        for a, t, is_in_text in sorted(self.adrp_ins):
+          if is_in_text:
+            self.adrp_list.append((a, t))
+            self.adrp_target_list.append((t, idx))
+            idx += 1
+        self.adrp_target_list.sort()
           
+
+    def print_result(self, binary):
+        # Make a filename dir (if not exists) & change working directory
+        result_dir = os.path.join("./result/", os.path.basename(binary.name))
+        if not os.path.isdir(result_dir):
+          os.mkdir(result_dir)
+        os.chdir(result_dir)
+
+        # Make a time dir (always -)
+        t = datetime.now()
+        output_dir = "{}{}{}_{}{}{}".format(t.year, t.month, t.day, t.hour, t.minute, t.second)
+        if os.path.isdir(output_dir):
+          print ("!! Output directory already exists. !!")
+          sys.exit()
+        os.chdir(output_dir)
+
+        # Make result file (change file name rr)
+        output_file = "textsection_adrp_info"
+        with open(output_file, 'w') as f:
+          for a, t in adrp_list:
+            s = str(hex(a))[2:] + "\t" + str(hex(t))[2:] + "\t1" #TODO 1(code,not data)->analysis result
+            f.write(s)
+
+        # Make a new IDA file (with adrp info)
+        i = j = 0
+        size1 = len(adrp_list)
+        size2 = len(adrp_target_list)
+        for line in fileinput.input(argv[3], inplace=True) # TODO argv[3]
+          if i < size1 and str(hex(adrp_list[i][0]))[2:] in line: # first constraint first.
+            sys.stdout.write("** Notice: ADRP instruction_"+str(i)+"\n")
+            i += 1
+          if j < size2 and str(hex(adrp_target_list[j][0]))[2:] in line:
+            sys.stdout.write("** Notice: ADRP target_"+str(adrp_target_list[j][1])+"\n")
+            j += 1
+          sys.stdout.write(line)
+
+
+
+          
+      
+    
+
 
 def loader_name(l):
     return l.__name__.split(".")[-1]
