@@ -70,7 +70,6 @@ class Analyzer():
         self.starts = []
         for addr in self.doc.proc_to_analyze:
             print("Adding proc at address", hex(addr), "(found by loader), type:",type(addr))
-            self.doc.set_procedure(addr) # TODO ?
             self.queue.put(addr)
             self.starts.append(addr)
         self.doc.proc_to_analyze = None
