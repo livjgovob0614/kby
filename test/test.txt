@@ -1,10 +1,7 @@
-00012 hihi
-ADRP target_0001
-ADRP target_0001
-ADRP target_0001
-ADRP target_0001
-ADRP target_0001
-ADRP target_0001
-0005a bye
-5 5
-4
+** Notice: ADRP instruction_0
+** Notice: ADRP instruction_0
+0x10 dsfkdjgidknm,dg
+0x88 djflsdnnfdgjfkj
+** Notice: ADRP instruction_1
+** Notice: ADRP instruction_1
+0x20 dklfkldsgkdskgsdkl

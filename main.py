@@ -93,7 +93,9 @@ def main(argv):
             loader = valid_loaders[0]
 
         # launch the actual analysis
-        if len(argv) > 2:
+        if len(argv) > 3:
+          anal = Analyzer(loader, exe, f, argv[2], argv[3])
+        elif len(argv) > 2:
           anal = Analyzer(loader, exe, f, argv[2])
         else:
           anal = Analyzer(loader, exe, f)
