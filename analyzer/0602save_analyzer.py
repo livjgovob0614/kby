@@ -2,22 +2,31 @@ import binascii
 from queue import Queue
 
 from capstone import *
-#from capstone.x86 import *
 from capstone.arm64_const import *
 
 import disassembler
 import API
 from formats.constructs import *
 from formats.enums import *
-#from base_analyzer import BaseAnalyzer
+
+import binascii
+
+_ADRP_TYPES = {
+  "else": 0,
+  "text_sec": 1,
+  "data_sec": 2
+}
 
 class Analyzer():
 
-    def __init__(self, loader, exe, f):
+    def __init__(self, loader, exe, f, function_info=None):
         # jg:
         self.exe = exe
+        self.f_info = function_info
         self.first_adr = 0x999999
         self.last_adr = 0x0
+        self.adrp_list = []
+        self.adrp_result = []
 
         """ Analyze a file f using a user-specified loader. It will start from the
         procedures given by the loader, then try a recursive descent from there
@@ -29,48 +38,16 @@ class Analyzer():
 
         self.capstone_handle = disassembler.setup_capstone(self.doc)
 
-        print(
-            "Successfully loaded",
-            f.name,
-            "using loader",
-            loader_name(loader))
+        print("Successfully loaded", f.name,
+            "using loader", loader_name(loader))
         print("Analyzing...")
         self.analyze()
         print("Analysis complete")
 
-        print("Found", len(self.doc.procedures), "procedures:")
+        self.print_disasm_result()
 
-        #print("Skipping printing of procedures")
-        #for proc in sorted(self.doc.procedures):
-        #   print("Disassembly of", hex(proc))
-        #   disassembler.print_disassemble_proc(self.doc, self.capstone_handle, proc)
-
-# jg:
-        adr = self.first_adr
-        adr &= ~0b1
-        #code = self.exe.get_binary_vaddr_range(start_adr, self.last_adr)
-        print ("start,end adr:", hex(self.first_adr), hex(self.last_adr))
-        while adr <= self.last_adr:
-          while self.doc.is_instruction(ins.address) or self.doc.is_instruction_body(ins.address):
-            #ins_gen = self.capstone_handle.disasm(code, start_adr)
-            ins = next(self.capstone_handle.disasm(self.doc.bytes_at(adr,15), adr, count=1))
-            #ins_list = list(ins_gen)
-            for ins in ins_list:
-            #while (True):
-              #try:
-              #  ins = next(ins_list)
-              #except StopIteration:
-              #  continue
-              if self.doc.is_instruction(ins.address) or self.doc.is_instruction_body(ins.address):
-                if ins.address in self.doc.procedures:
-                  print ("Start function:")
-                print ("     ",hex(ins.address), ins.mnemonic)
-                if ins.address in self.known_ends:
-                  print ("End function\n")
-              #if ins.address == self.last_adr:
-              #  break
-
-
+        # TODO
+        # self.classify_adrp_targets()
 
 
     def analyze(self):
@@ -84,59 +61,77 @@ class Analyzer():
             self.starts.append(addr)
         self.doc.proc_to_analyze = None
 
-# test ####################### jg
-        """
-        section = self.exe.helper.get_section_by_name('.symtab')
-        if section is None:
-          print ("jg: .symtab is None")
-          section = self.exe.helper.get_section_by_name('.dynsym')
-        if section is not None:
-          print ("jg: .dynsym is not None")
-          for symbol in section.iter_symbols():
-            print ("name,addr(low):",symbol.name, hex(symbol.entry.st_value))
-        """
-        
         symtab = self.exe.helper.get_section_by_name('.symtab')
-        if symtab:
-          for symbol in symtab.iter_symbols():
-            if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
-              addr = symbol['st_value']
-              fname = symbol.name
-              print ("Adding funcion", fname, "from .symtab at", hex(addr))
-              self.queue.put(addr)
-              self.starts.append(addr)
-              # TODO why should symbol have size when adding function?
-              if symbol['st_size']:
-                self.known_ends.append(symbol['st_size'])
-                print ("   size", symbol['st_size'])
-        
+        if symtab: self.get_sym_function_info(symtab)
+        print ("\n\n")
         dynsym = self.exe.helper.get_section_by_name('.dynsym')
-        if dynsym:
-          for symbol in dynsym.iter_symbols():
-            if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
-              addr = symbol['st_value']
-              fname = symbol.name
-              print ("Adding X funcion", fname, "from .dynsym at", hex(addr))
+        if dynsym: self.get_sym_function_info(dynsym)
 
-        self.heuristic_procedures()
+        if not self.f_info is None:
+          self.get_text_function_info()
 
+
+        print ("Disassembly begins")
         self.recursive_descent()
         print("Used " +
               str(len(self.doc.address_space.pages)) +
               " document pages for analysis")
 
-    def heuristic_procedures(self):
-        # TODO: mark procedures found by searching for "push esb, mov ebp esp"
-        # x86: search for 55 89 E5
-        pass
+
+    def get_sym_function_info(self, sym):
+        for symbol in sym.iter_symbols():
+          if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
+            addr = symbol['st_value']
+            fname = symbol.name
+            print ("Adding funcion", fname, "from", sym.name ,"at", hex(addr))
+            self.queue.put(addr)
+            self.starts.append(addr)
+            # TODO why should symbol have size when adding function?
+            if symbol['st_size']:
+              self.known_ends.append(symbol['st_value']+symbol['st_size']-0x4)
+              print ("   size", symbol['st_size'])
+
+
+    def get_text_function_info(self):
+        with open(self.f_info, 'r') as f:
+          for i, line in enumerate(f):
+            #target = line.encode("hex")
+            #target = binascii.hexlify(line)
+            print (line, type(line))
+            target = self.toHex(int(line))
+            print (target, type(target))
+            if i & 1:
+              self.known_ends.append(hex(target))
+            else:
+              print ("Adding funcion from info_file at", hex(target))
+              self.queue.put(hex(target))
+              self.starts.append(hex(target))
+
+
+    def toHex(self, num):
+      res = 0x0
+      m = 0
+      while (num / (10**m)) > 0:
+        m += 1
+      while num:
+        m -= 1
+        a = num / (10**m)
+        res += hex(a * (16**m))
+        num -= a * (10**m)
+      return res
+
+
+
+
+
+
+      
+
 
     def recursive_descent(self):
-        """ Basic recursive descent using priority queues for branches"""
         uncond_target = 0
         while not self.queue.empty() or uncond_target:
-            print ("****************************\nStarting at new disasm_point!")
-            # Is it OK? or priority queue?
-            # uncond br > cond  muzogun? m.m hmm....
+            # XXX print ("\n****************************\nStarting at new disasm_point!")
             if uncond_target:
               start_adr = uncond_target
               uncond_target = 0
@@ -147,37 +142,22 @@ class Analyzer():
               self.first_adr = start_adr
 
             cur_section = self.exe.section_containing_vaddr(start_adr)
-            #print ("cur_section:", hex(cur_section.vaddr))
-            # TODO print cur section
             section_end_vaddr = cur_section.vaddr + cur_section.size
-            # TODO end_adr = min([a for a in bb_disas)
-            end_adr = section_end_vaddr
-            # TODO alter end_adr = min([addr for addr in self.starts if addr > start_adr] or [section_end_vaddr])
-            end_adr = min([addr for addr in self.starts if addr > start_adr] or ([section_end_vaddr] or [addr for addr in self.known_ends if addr > start_adr]))
-            #print ("cur_section_end:", hex(end_adr))
+            end_adr = min([addr for addr in self.starts if addr > start_adr] or ([section_end_vaddr] or [addr for addr in sorted(self.known_ends) if addr > start_adr]))
 
             start_adr &= ~0b1
             code = self.exe.get_binary_vaddr_range(start_adr, end_adr)
-
-            # TODO
-            #for ins in self.capstone_handle.disasm(self.doc.bytes_at(adr, 15), adr):
             ins_list = self.capstone_handle.disasm(code, start_adr)
+
+
             for ins in ins_list:
               if self.doc.is_instruction(ins.address) or self.doc.is_instruction_body(ins.address):
                 continue
 
-              if not ins.id: # = ARM64_INS_INVALID ??
+              if not ins.id:
+                #TODO continue (.inst 0x00000000 case?) 
                 break
-              # TODO  what if ins.address in kwnown_ends but ins.id = br?
-              #       so move this to loop_end
-              #elif ins.address in known_ends:
-              #  break
 
-              # TODO : Handling nop instruction
-
-              # print_instruction(ins)
-              # TODO check arm64 instr size!! and then change x86 page size, etc.
-              print ("     ",hex(ins.address), ins.mnemonic)
               self.doc.set_instruction(ins.address, ins.size)
 
               if ins.address > self.last_adr:
@@ -186,57 +166,94 @@ class Analyzer():
               if ins.id in stop_instruction:
                 break
 
-
-### test jg:
-# TODO store [adrp address & target address]
               if ins.mnemonic.startswith('adrp'):
-                print (" ADRP!")
-                for op in ins.operands:
-                  if op.type == CS_OP_IMM:
-                    print ("IMM:", hex(op.imm))
-                  elif op.type == CS_OP_MEM:
-                    print ("MEM(base, index, disp):", op.mem.base, op.mem.index, op.mem.disp)
-                  elif op.type == CS_OP_FP:
-                    print ("FP")
-                  elif op.type == CS_OP_REG:
-                    print ("REG")
-                  else:
-                    print ("else")
-
-              # Check instruction type
-              if ins.id in branch_instructions:
+                self.adrp_list.append(self.get_adrp_target(ins)) #TODO
+                #XXX print ("ADRP!")
+                #for i in self.adrp_list[-1]:
+                #  print (hex(i))
+              elif ins.id in branch_instructions:
                 if ins.operands[0].type == ARM64_OP_IMM:
-                  #print("check -1:", ins.operands[-1].type == ARM64_OP_IMM, ", 0:", ins.operands[0].type == ARM64_OP_IMM)
-                  # %u????
                   if ins.id in conditional_branch_instructions or (ins.cc != ARM64_CC_AL and ins.cc):
                     self.queue.put(ins.operands[0].imm)
-                    print("Adding br target :", hex(ins.operands[0].imm))
-                  # what if return?  
+                    # XXX print("Adding br target :", hex(ins.operands[0].imm))
                   else:
                     if ins.id in call_instructions:
-# XXX XXX in our research
-                      self.doc.set_procedure(ins.operands[0].imm)
                       try:
+                        # TODO Assume next of call = instr
                         self.queue.put(next(ins_list).address)
                       except StopIteration:
-                        print ("StopIteration at", hex(ins.address))
+                        pass
                     uncond_target = ins.operands[0].imm
-                    print("Go to br target -->", hex(ins.operands[0].imm))
-
-                    # break (with below)
-
+                    # XXX print("Go to br target -->", hex(ins.operands[0].imm))
+                # TODO Indirect jumps
+                else:
+                  pass
 
               if ins.address in self.known_ends or uncond_target:
                 break
 
 
+    def get_adrp_target(self, ins):
+        text_section = self.exe.helper.get_section_by_name('.text')
+        ss = text_section['sh_addr']
+        ee = text_section['sh_addr'] + text_section['sh_size']
+
+        target_reg = ins.operands[0].value.reg
+        target = ins.operands[1].imm
+
+        adr = ins.address + ins.size
+        for i in range(10): # TODO set proper range
+          next_ins = next(self.capstone_handle.disasm(self.doc.bytes_at(adr,15), adr, count=1))
+          ops = next_ins.operands
+          # TODO need more constraints +++
+          if next_ins.mnemonic == "add" and (target_reg == ops[0].value.reg or target_reg == ops[1].value.reg):
+              #print ("yes")
+              target = ops[2].imm + target
+              if ss <= target < ee:
+                print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                return ins.address, target, 1
+              break
+          elif next_ins.mnemonic == "ldr" and (target_reg == ops[0].value.reg or target_reg == ops[1].value.mem.base):
+              #print ("yes2")
+              target = ops[1].value.mem.disp + target
+              if ss <= target < ee:
+                print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                return ins.address, target, 1
+              break
+          adr = adr + ins.size
+        return ins.address, target, 0
+
+
+# jg: XXX ****************
+    def print_disasm_result(self):
+      adr = self.first_adr
+      adr &= ~0b1
+      print ("start,end adr:", hex(adr), hex(self.last_adr))
+      while adr <= self.last_adr:
+        while self.doc.is_instruction(adr) or self.doc.is_instruction_body(adr):
+          ins = next(self.capstone_handle.disasm(self.doc.bytes_at(adr,15), adr, count=1))
+          if ins.address in self.doc.procedures:
+            print ("\nStart function at",hex(ins.address))
+          #print ("     ",hex(ins.address), ins.mnemonic)
+          disassembler.print_instruction(ins)
+          if ins.address in self.known_ends:
+            print ("End function\n")
+          adr += ins.size
+        adr += ins.size
+
+
+    def classify_adrp_targets(self):
+        for a, t, i in self.adrp_list:
+          if i:
+            self.adrp_result.append(a, t, i)
+          else:
+            self.adrp_result.append(a, t, i)
+          
+
 def loader_name(l):
     return l.__name__.split(".")[-1]
 
-# TODO: add same groups for ARM/X86_64/...
 branch_instructions = {
-    #X86_INS_LJMP,
-    #X86_INS_JMP
     ARM64_INS_B,
     ARM64_INS_BR,
     ARM64_INS_BL,
@@ -245,12 +262,11 @@ branch_instructions = {
     ARM64_INS_CBZ,
     ARM64_INS_TBNZ,
     ARM64_INS_TBZ,
-    # ? what is target
+    # ? what is the target of this
     ARM64_INS_RET
 }
 
 stop_instruction = {
-    # TODO: uncertain stop instr ? (opt2)
     ARM64_INS_RET
 }
 
@@ -259,22 +275,9 @@ conditional_branch_instructions = {
     ARM64_INS_CBZ,
     ARM64_INS_TBNZ,
     ARM64_INS_TBZ
-    # why call = cond br???????
-    #X86_INS_CALL,
-    #X86_INS_LCALL,
 }
 
 call_instructions = {
     ARM64_INS_BL,
     ARM64_INS_BLR
 }
-'''
-    def queue_address(self, address):
-        # Don't queue already decoded addresses
-        if self.doc.is_data(address):
-            self.queue.put(address)
-
-adr+adr.size: next instr
-    def dequeue_address(self):
-        return self.queue.get()
-'''

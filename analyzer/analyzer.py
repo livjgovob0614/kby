@@ -9,6 +9,8 @@ import API
 from formats.constructs import *
 from formats.enums import *
 
+import binascii
+
 _ADRP_TYPES = {
   "else": 0,
   "text_sec": 1,
@@ -17,9 +19,10 @@ _ADRP_TYPES = {
 
 class Analyzer():
 
-    def __init__(self, loader, exe, f):
+    def __init__(self, loader, exe, f, function_info=None):
         # jg:
         self.exe = exe
+        self.f_info = function_info
         self.first_adr = 0x999999
         self.last_adr = 0x0
         self.adrp_list = []
@@ -41,24 +44,7 @@ class Analyzer():
         self.analyze()
         print("Analysis complete")
 
-        print("Found", len(self.doc.procedures), "procedures:")
-
-
-# jg: XXX ****************
-        adr = self.first_adr
-        adr &= ~0b1
-        print ("start,end adr:", hex(adr), hex(self.last_adr))
-        while adr <= self.last_adr:
-          while self.doc.is_instruction(adr) or self.doc.is_instruction_body(adr):
-            ins = next(self.capstone_handle.disasm(self.doc.bytes_at(adr,15), adr, count=1))
-            if ins.address in self.doc.procedures:
-              print ("\nStart function at",hex(ins.address))
-            #print ("     ",hex(ins.address), ins.mnemonic)
-            disassembler.print_instruction(ins)
-            if ins.address in self.known_ends:
-              print ("End function\n")
-            adr += ins.size
-          adr += ins.size
+        self.print_disasm_result()
 
         # TODO
         # self.classify_adrp_targets()
@@ -75,38 +61,46 @@ class Analyzer():
         self.doc.proc_to_analyze = None
 
         symtab = self.exe.helper.get_section_by_name('.symtab')
-        if symtab:
-          for symbol in symtab.iter_symbols():
-            if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
-              addr = symbol['st_value']
-              fname = symbol.name
-              print ("Adding funcion", fname, "from .symtab at", hex(addr))
-              self.queue.put(addr)
-              self.starts.append(addr)
-              # TODO why should symbol have size when adding function?
-              if symbol['st_size']:
-                self.known_ends.append(symbol['st_value']+symbol['st_size']-0x4)
-                print ("   size", symbol['st_size'])
-        
+        if symtab: self.get_sym_function_info(symtab)
         print ("\n\n")
         dynsym = self.exe.helper.get_section_by_name('.dynsym')
-        if dynsym:
-          for symbol in dynsym.iter_symbols():
-            if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
-              addr = symbol['st_value']
-              fname = symbol.name
-              print ("Adding funcion", fname, "from .dynsym at", hex(addr))
-              self.queue.put(addr)
-              self.starts.append(addr)
-              if symbol['st_size']:
-                self.known_ends.append(symbol['st_value']+symbol['st_size']-0x4)
-                print ("   size", symbol['st_size'])
+        if dynsym: self.get_sym_function_info(dynsym)
+
+        if not self.f_info is None:
+          self.get_text_function_info()
+
 
         print ("Disassembly begins")
         self.recursive_descent()
         print("Used " +
               str(len(self.doc.address_space.pages)) +
               " document pages for analysis")
+
+
+    def get_sym_function_info(self, sym):
+        for symbol in sym.iter_symbols():
+          if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
+            addr = symbol['st_value']
+            fname = symbol.name
+            print ("Adding funcion", fname, "from", sym.name ,"at", hex(addr))
+            self.queue.put(addr)
+            self.starts.append(addr)
+            # TODO why should symbol have size when adding function?
+            if symbol['st_size']:
+              self.known_ends.append(symbol['st_value']+symbol['st_size']-0x4)
+              print ("   size", symbol['st_size'])
+
+
+    def get_text_function_info(self):
+        with open(self.f_info, 'r') as f:
+          for i, line in enumerate(f):
+            target = int(line, 16)
+            if i & 1:
+              self.known_ends.append(hex(target))
+            else:
+              print ("Adding funcion from info_file at", hex(target))
+              self.queue.put(target)
+              self.starts.append(target)
 
 
     def recursive_descent(self):
@@ -203,6 +197,24 @@ class Analyzer():
               break
           adr = adr + ins.size
         return ins.address, target, 0
+
+
+# jg: XXX ****************
+    def print_disasm_result(self):
+      adr = self.first_adr
+      adr &= ~0b1
+      print ("start,end adr:", hex(adr), hex(self.last_adr))
+      while adr <= self.last_adr:
+        while self.doc.is_instruction(adr) or self.doc.is_instruction_body(adr):
+          ins = next(self.capstone_handle.disasm(self.doc.bytes_at(adr,15), adr, count=1))
+          if ins.address in self.doc.procedures:
+            print ("\nStart function at",hex(ins.address))
+          #print ("     ",hex(ins.address), ins.mnemonic)
+          disassembler.print_instruction(ins)
+          if ins.address in self.known_ends:
+            print ("End function\n")
+          adr += ins.size
+        adr += ins.size
 
 
     def classify_adrp_targets(self):
