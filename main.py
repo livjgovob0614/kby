@@ -101,7 +101,7 @@ def main(argv):
         #elif len(argv) > 2:
         #  anal = Analyzer(loader, exe, f, argv[2])
         #else:
-        Init("./lst/"+os.path.basename(f.name)+".lst")
+        #Init("./lst/"+os.path.basename(f.name)+".lst")
         anal = Analyzer(loader, exe, f)
 
 

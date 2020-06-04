@@ -25,16 +25,8 @@ class Analyzer():
     #def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
     def __init__(self, loader, exe, f):
         self.exe = exe
-        """
-        if not lst_f is None:
-          self.f_info = function_info_f
-          self.lst_f = lst_f
-        else:
-          self.f_info = None
-          self.lst_f = function_info_f
-        """
-        self.f_info = "./input/"+os.path.basename(f.name)+"/funcInfo"
-        self.lst_f = "./input/"+os.path.basename(f.name)+"/funcText"
+        self.f_info = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcInfo"
+        self.lst_f = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcText"
         self.first_adr = 0x999999
         self.last_adr = 0x0
         self.adrp_ins = []
@@ -88,7 +80,6 @@ class Analyzer():
         if not self.f_info is None:
           self.get_text_function_info()
 
-
         print ("Disassembly begins")
         self.recursive_descent()
 
@@ -108,12 +99,14 @@ class Analyzer():
 
 
     def get_text_function_info(self):
-        print (os.path.abspath(self.f_info))
-        with open(os.path.abspath(self.f_info), 'r') as f:
+        print (self.f_info)
+        #sys.exit()
+        with open(self.f_info, 'r') as f:
           for i, line in enumerate(f):
             target = int(line, 16)
+            # aa: print (hex(target))
             if i & 1:
-              self.known_ends.append(hex(target))
+              self.known_ends.append(target)
             else:
               print ("Adding funcion from", os.path.basename(f.name) ,"at", hex(target))
               self.queue.put(target)
@@ -134,6 +127,10 @@ class Analyzer():
               self.first_adr = start_adr
 
             cur_section = self.exe.section_containing_vaddr(start_adr)
+            #print ("current:",hex(start_adr))
+            if cur_section == None:
+              print ("137 none type: current: ",hex(start_adr))
+              continue
             section_end_vaddr = cur_section.vaddr + cur_section.size
             end_adr = min([addr for addr in self.starts if addr > start_adr] or ([section_end_vaddr] or [addr for addr in sorted(self.known_ends) if addr > start_adr]))
 
@@ -256,7 +253,6 @@ class Analyzer():
 
     def write_result(self, binary):
         print ("Found", len(self.adrp_list),"adrp instructions of which targets are in text section.")
-        cur = os.getcwd()
 
         # Make a filename dir (if not exists) & change working directory
         result_dir = os.path.join("./output/", os.path.basename(binary.name))
@@ -285,7 +281,7 @@ class Analyzer():
             # XXX print (s)
             f.write(s)
 
-        shutil.copy(cur+"/"+self.lst_f, "./")
+        shutil.copy(self.lst_f, "./")
 
         i = j = 0
         size1 = len(self.adrp_list)
