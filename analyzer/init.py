@@ -6,6 +6,7 @@ class Init():
 
     f = open(in_f,"r")
     example_data  = f.readlines()
+    f.close()
     func_data = []
     text_data = []
 

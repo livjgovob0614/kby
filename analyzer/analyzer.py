@@ -25,8 +25,9 @@ class Analyzer():
     #def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
     def __init__(self, loader, exe, f):
         self.exe = exe
-        self.f_info = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcInfo"
-        self.lst_f = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcText"
+        #self.f_info = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcInfo"
+        self.f_info = "input/"+os.path.basename(f.name)+"/funcInfo"
+        self.lst_f = "funcText"
         self.first_adr = 0x999999
         self.last_adr = 0x0
         self.adrp_ins = []
@@ -254,6 +255,8 @@ class Analyzer():
     def write_result(self, binary):
         print ("Found", len(self.adrp_list),"adrp instructions of which targets are in text section.")
 
+        cur = os.getcwd()
+
         # Make a filename dir (if not exists) & change working directory
         result_dir = os.path.join("./output/", os.path.basename(binary.name))
         if not os.path.isdir(result_dir):
@@ -270,7 +273,7 @@ class Analyzer():
         os.chdir(output_dir)
 
         # Make result file (change file name rr)
-        output_file = "textsection_adrp_info"
+        output_file = "adrp_info"
         #with open(os.path.abspath(output_file), 'w') as f:
         with open(output_file, 'w') as f:
           for a, t in self.adrp_list:
@@ -281,7 +284,7 @@ class Analyzer():
             # XXX print (s)
             f.write(s)
 
-        shutil.copy(self.lst_f, "./")
+        shutil.copy(cur+"/input/"+os.path.basename(f.name)+"/"+self.lst_f, "./")
 
         i = j = 0
         size1 = len(self.adrp_list)
