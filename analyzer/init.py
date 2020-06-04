@@ -4,8 +4,9 @@ import sys
 class Init():
   def __init__(self, in_f):
 
-    f = open(in_f,"r")
+    f = open(in_f,"rb")
     example_data  = f.readlines()
+    f.close()
     func_data = []
     #text_data = []
     text_num = 0    
