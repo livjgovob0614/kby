@@ -1,7 +1,0 @@
-** Notice: ADRP instruction_0
-** Notice: ADRP instruction_0
-0x10 dsfkdjgidknm,dg
-0x88 djflsdnnfdgjfkj
-** Notice: ADRP instruction_1
-** Notice: ADRP instruction_1
-0x20 dklfkldsgkdskgsdkl
