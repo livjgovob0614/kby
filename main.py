@@ -21,7 +21,6 @@ from importlib import import_module
 from glob import glob
 
 from analyzer.analyzer import Analyzer
-from analyzer.init import Init
 from capstone import *
 
 import API
@@ -101,7 +100,6 @@ def main(argv):
         #elif len(argv) > 2:
         #  anal = Analyzer(loader, exe, f, argv[2])
         #else:
-        Init("./lst/"+os.path.basename(f.name)+".lst")
         anal = Analyzer(loader, exe, f)
 
 
