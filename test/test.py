@@ -12,6 +12,7 @@ for line in fileinput.input('./test.txt', inplace=True):
     break
 """
 
+"""
 i = j = 5
 print (i, j)
 
@@ -38,4 +39,11 @@ for line in fileinput.input("./test.txt", inplace=True):
 		sys.stdout.write("** Notice: ADRP instruction_"+str(i)+"\n")
 		i += 1
 	sys.stdout.write(line)
+"""
 
+
+with open("test", 'r') as f:
+  for line in f:
+    target = int(line,16)
+    print (target)
+    print (hex(target))

@@ -22,15 +22,19 @@ _ADRP_TYPES = {
 
 class Analyzer():
 
-    def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
-        # jg:
+    #def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
+    def __init__(self, loader, exe, f):
         self.exe = exe
+        """
         if not lst_f is None:
           self.f_info = function_info_f
           self.lst_f = lst_f
         else:
           self.f_info = None
           self.lst_f = function_info_f
+        """
+        self.f_info = "./input/"+os.path.basename(f.name)+"/funcInfo"
+        self.lst_f = "./input/"+os.path.basename(f.name)+"/funcText"
         self.first_adr = 0x999999
         self.last_adr = 0x0
         self.adrp_ins = []
@@ -254,7 +258,7 @@ class Analyzer():
         cur = os.getcwd()
 
         # Make a filename dir (if not exists) & change working directory
-        result_dir = os.path.join("./result/", os.path.basename(binary.name))
+        result_dir = os.path.join("./output/", os.path.basename(binary.name))
         if not os.path.isdir(result_dir):
           os.makedirs(result_dir)
         os.chdir(result_dir)
