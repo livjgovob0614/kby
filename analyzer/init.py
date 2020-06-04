@@ -10,7 +10,7 @@ class Init():
     text_data = []
 
     for i in range(0,len(example_data)):
-        if('unwind' in example_data[i]):
+        if('__unwind' in example_data[i]):
             print(example_data[i][6:23])
             func_data = func_data + [example_data[i][6:23]+"\n"]
         elif('starts' in example_data[i]):
