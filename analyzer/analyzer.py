@@ -108,7 +108,8 @@ class Analyzer():
 
 
     def get_text_function_info(self):
-        with open(self.f_info, 'r') as f:
+        print (os.path.abspath(self.f_info))
+        with open(os.path.abspath(self.f_info), 'r') as f:
           for i, line in enumerate(f):
             target = int(line, 16)
             if i & 1:
