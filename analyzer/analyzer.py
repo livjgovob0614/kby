@@ -293,6 +293,7 @@ class Analyzer():
         
         target_str = None
         is_code = 0
+        not_code_target = []
         #code_sig = ["COLLAPSED FUNCTION", "sub_", "__unwind"]
         for line in fileinput.input(self.lst_f, inplace=True):
           addr = line.split()[0]
@@ -302,9 +303,12 @@ class Analyzer():
               is_code = 1
             if not target_str in addr:
               while j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() == target_str:
-                sys.stdout.write("** Notice: ADRP target_no"+str(self.adrp_target_list[j][1])+"_"+str(is_code)+"_\n")
+                sys.stdout.write("** Notice: ADRP "+str(is_code)+"_target_no"+str(self.adrp_target_list[j][1])+"\n")
                 #print("\t\ttarget: ", hex(self.adrp_target_list[j][0])[2:].upper())
                 j += 1
+              if not is_code:
+                not_code_target.append(target_str)
+
               target_str = None
               is_code = 0
 
@@ -321,6 +325,10 @@ class Analyzer():
 
           sys.stdout.write(line)
         fileinput.close()
+
+        with open("adrp_data_target", 'w') as f:
+          for a in not_code_target:
+            f.write(a+"\n")
 
         return os.getcwd()
 
