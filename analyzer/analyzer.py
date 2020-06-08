@@ -316,6 +316,8 @@ class Analyzer():
 
           if j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() in addr:
             target_str = str(hex(self.adrp_target_list[j][0]))[2:].upper()
+            if "COLLAPSED FUNCTION" in line or "sub"+target_str in line or "__unwind" in line:
+              is_code = 1
 
           sys.stdout.write(line)
         fileinput.close()
