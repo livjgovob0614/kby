@@ -290,15 +290,33 @@ class Analyzer():
         size1 = len(self.adrp_list)
         size2 = len(self.adrp_target_list)
 
+        
+        target_str = None
+        is_code = 0
+        #code_sig = ["COLLAPSED FUNCTION", "sub_", "__unwind"]
         for line in fileinput.input(self.lst_f, inplace=True):
-          #print("::", str(hex(self.adrp_list[i][0]))[2:], str(hex(self.adrp_target_list[j][0])[2:]))
-          if i < size1 and str(hex(self.adrp_list[i][0]))[2:].upper() in line: # first constraint first.
+          addr = line.split()[0]
+
+          if not target_str == None:
+            if "COLLAPSED FUNCTION" in line or "sub"+target_str in line or "__unwind" in line:
+              is_code = 1
+            if not target_str in addr:
+              while j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() == target_str:
+                sys.stdout.write("** Notice: ADRP target_no"+str(self.adrp_target_list[j][1])+"_"+str(is_code)+"_\n")
+                #print("\t\ttarget: ", hex(self.adrp_target_list[j][0])[2:].upper())
+                j += 1
+              target_str = None
+              is_code = 0
+
+
+          if i < size1 and str(hex(self.adrp_list[i][0]))[2:].upper() in addr: # first constraint first.
             sys.stdout.write("** Notice: ADRP instruction_no"+str(i)+"\n")
             #print("** Notice: ADRP instruction_"+str(i)+"\n")
             i += 1
-          if j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() in line:
-            sys.stdout.write("** Notice: ADRP target_no"+str(self.adrp_target_list[j][1])+"\n")
-            j += 1
+
+          if j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() in addr:
+            target_str = str(hex(self.adrp_target_list[j][0]))[2:].upper()
+
           sys.stdout.write(line)
         fileinput.close()
 

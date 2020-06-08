@@ -4,7 +4,7 @@ import sys
 class Init():
   def __init__(self, in_f):
 
-    f = open(in_f,"rb")
+    f = open(in_f,"r")
     example_data  = f.readlines()
     f.close()
     func_data = []
