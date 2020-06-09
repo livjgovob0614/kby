@@ -61,18 +61,9 @@ def ansi_bold(s):
 
 
 def main(argv):
-    print("#" * 64)
-    print("##" + " " * 23 + "KICKASS DISASS" + " " * 23 + "##")
-    print("##" + " " * 60 + "##")
-    print(
-        "##" +
-        "Powered by Capstone {:d}.{:d} ##".format(
-            CS_API_MAJOR,
-            CS_API_MINOR).rjust(62))
-    print("#" * 64 + "\n")
 
-    if len(argv) <= 1:
-        raise Exception("Usage: python3 main.py binary f_info")
+    if len(argv) < 2:
+        raise Exception("Usage: python3 main.py filename (mode)")
 
     loaders = load_modules()
 
@@ -85,7 +76,7 @@ def main(argv):
         exe._extract_symbol_table()
 
         if not valid_loaders:
-            print("+ No loaders recognize the file")
+            print ("+ No loaders recognize the file")
             sys.exit(-1)
 
         if len(valid_loaders) >= 2:
@@ -93,8 +84,32 @@ def main(argv):
         else:
             loader = valid_loaders[0]
 
-        #exec(open("./init_main.py").read())
-        anal = Analyzer(loader, exe, f)
+
+        fname = os.path.basename(f.name)
+        if len(argv) >= 3:
+          os.system("python3 init_main.py "+fname+" disasm_all_mode")
+        else:
+          os.system("python3 init_main.py "+fname)
+
+        if not os.path.isdir("input/"+fname):
+          print ("Input file(input/"+fname+") does not exist")
+          sys.exit()
+
+
+        print("#" * 64)
+        print("##" + " " * 23 + "KICKASS DISASS" + " " * 23 + "##")
+        print("##" + " " * 60 + "##")
+        print(
+            "##" +
+            "Powered by Capstone {:d}.{:d} ##".format(
+                CS_API_MAJOR,
+                CS_API_MINOR).rjust(62))
+        print("#" * 64 + "\n")
+
+        if len(argv) >= 3:
+          anal = Analyzer(loader, exe, f, argv[2])
+        else:
+          anal = Analyzer(loader, exe, f)
 
 
 if __name__ == '__main__':

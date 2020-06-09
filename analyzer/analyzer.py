@@ -23,11 +23,13 @@ _ADRP_TYPES = {
 class Analyzer():
 
     #def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
-    def __init__(self, loader, exe, f):
+    def __init__(self, loader, exe, f, out_dir=None):
         self.exe = exe
-        #self.f_info = os.getcwd()+"/input/"+os.path.basename(f.name)+"/funcInfo"
+
+        self.out_dir = out_dir
         self.f_info = "input/"+os.path.basename(f.name)+"/funcInfo"
         self.lst_f = "funcText"
+
         self.first_adr = 0x999999
         self.last_adr = 0x0
         self.adrp_ins = []
@@ -203,14 +205,14 @@ class Analyzer():
                 #print ("yes")
                 target = ops[2].imm + target
                 if ss <= target < ee:
-                  print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                  # XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
                   return ins.address, target, 1
                 break
             elif "ldr" in next_ins.mnemonic and (target_reg == ops[0].value.reg or target_reg == ops[1].value.mem.base):
                 #print ("yes2")
                 target = ops[1].value.mem.disp + target # TODO  adr x1, [x3] case ?
                 if ss <= target < ee:
-                  print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                  # XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
                   return ins.address, target, 1
                 break
             elif "str" in next_ins.mnemonic and (target_reg == ops[0].value.reg or target_reg == ops[1].value.mem.base):
@@ -258,27 +260,25 @@ class Analyzer():
         cur = os.getcwd()
 
         # Make a filename dir (if not exists) & change working directory
-        result_dir = os.path.join("./output/", os.path.basename(binary.name))
-        if not os.path.isdir(result_dir):
-          os.makedirs(result_dir)
-        os.chdir(result_dir)
-
-        # Make a time dir (always -)
-        t = datetime.now()
-        output_dir = "{}{}{}_{}{}{}".format(t.year, t.month, t.day, t.hour, t.minute, t.second)
-        if os.path.isdir(output_dir):
-          print ("!! Output directory already exists. !!")
-          sys.exit()
-        os.makedirs(output_dir)
+        if self.out_dir is None:
+          result_dir = os.path.join("./output/", os.path.basename(binary.name))
+          t = datetime.now()
+          output_dir = t.strftime("%y")+t.strftime("%m")+t.strftime("%d")+"_"+t.strftime("%H")+t.strftime("%M")+t.strftime("%S")
+          output_dir = os.path.join(result_dir, output_dir)
+        else:
+          output_dir = os.path.join(os.path.join("./output/", self.out_dir), os.path.basename(binary.name))
+        if not os.path.isdir(output_dir):
+          os.makedirs(output_dir)
         os.chdir(output_dir)
 
-        # Make result file (change file name rr)
+
+        # Make result files (change file name rr)
         output_file = "adrp_info"
         #with open(os.path.abspath(output_file), 'w') as f:
         with open(output_file, 'w') as f:
           for a, t in self.adrp_list:
             if t == None:
-              print ("Unknown adrp target found.")
+              # XXX print ("Unknown adrp target found.")
               continue
             s = str(hex(a))[2:] + "\t" + str(hex(t))[2:] + "\t1\n" #TODO 1(code,not data)->analysis result
             # XXX print (s)
@@ -289,7 +289,6 @@ class Analyzer():
         i = j = 0
         size1 = len(self.adrp_list)
         size2 = len(self.adrp_target_list)
-
         
         target_str = None
         is_code = 0
