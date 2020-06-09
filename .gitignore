@@ -6,3 +6,4 @@
 ./tmp/
 ./impl_sample/
 ./sample/
+./**/*.so
