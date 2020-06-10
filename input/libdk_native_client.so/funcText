@@ -1,0 +1,2192 @@
+.text:0000000000002000 ; ===========================================================================
+.text:0000000000002000 ; Segment type: Pure code
+.text:0000000000002000                 AREA .text, CODE, ALIGN=3
+.text:0000000000002000                 ; ORG 0x2000
+.text:0000000000002000                 CODE64
+.text:0000000000002000 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002000                 EXPORT start
+.text:0000000000002000 start                                   ; DATA XREF: LOAD:0000000000000018↑o
+.text:0000000000002000                                         ; LOAD:00000000000000C0↑o ...
+.text:0000000000002000 ; __unwind {
+.text:0000000000002000                 ADRP            X0, #off_4000@PAGE
+.text:0000000000002004                 ADD             X0, X0, #off_4000@PAGEOFF ; void *
+.text:0000000000002008                 B               .__cxa_finalize
+.text:0000000000002008 ; } // starts at 2000
+.text:0000000000002008 ; End of function start
+.text:0000000000002008 ; ---------------------------------------------------------------------------
+.text:000000000000200C                 ALIGN 0x10
+.text:0000000000002010 ; [00000004 BYTES: COLLAPSED FUNCTION nullsub_1. PRESS CTRL-NUMPAD+ TO EXPAND]
+.text:0000000000002014                 ALIGN 8
+.text:0000000000002018 ; [00000004 BYTES: COLLAPSED FUNCTION j_nullsub_1. PRESS CTRL-NUMPAD+ TO EXPAND]
+.text:000000000000201C                 ALIGN 0x20
+.text:0000000000002020 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002020 ; Attributes: bp-based frame
+.text:0000000000002020                 EXPORT isServiceReady
+.text:0000000000002020 isServiceReady                          ; DATA XREF: LOAD:0000000000000558↑o
+.text:0000000000002020 var_404E        = -0x404E
+.text:0000000000002020 s               = -0x4048
+.text:0000000000002020 var_4047        = -0x4047
+.text:0000000000002020 var_4045        = -0x4045
+.text:0000000000002020 var_20          = -0x20
+.text:0000000000002020 var_10          = -0x10
+.text:0000000000002020 var_s0          =  0
+.text:0000000000002020 ; __unwind {
+.text:0000000000002020                 STR             X28, [SP,#-0x10+var_20]!
+.text:0000000000002024                 STP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000002028                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:000000000000202C                 ADD             X29, SP, #0x20
+.text:0000000000002030                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002034                 SUB             SP, SP, #0x30
+.text:0000000000002038                 MRS             X19, #3, c13, c0, #2
+.text:000000000000203C                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002040                 LDR             X8, [X19,#0x28]
+.text:0000000000002044                 MOV             W2, #0x200C ; n
+.text:0000000000002048                 ADD             X0, X0, #0x18 ; s
+.text:000000000000204C                 MOV             W1, WZR ; c
+.text:0000000000002050                 ADD             X20, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002054                 STR             X8, [SP]
+.text:0000000000002058                 BL              .memset
+.text:000000000000205C                 MOV             W2, #0x2009 ; n
+.text:0000000000002060                 ADD             X0, SP, #0x4050+s ; s
+.text:0000000000002064                 MOV             W1, WZR ; c
+.text:0000000000002068                 BL              .memset
+.text:000000000000206C                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002070                 MOV             W8, #1
+.text:0000000000002074                 MOV             W9, #0xA
+.text:0000000000002078                 ADD             X0, X0, #0x18
+.text:000000000000207C                 ADD             X1, SP, #0x4050+s
+.text:0000000000002080                 STRB            W8, [X20,#0x18]!
+.text:0000000000002084                 STURH           W9, [X20,#1]
+.text:0000000000002088                 BL              sub_2160
+.text:000000000000208C                 CBZ             W0, loc_20D8
+.text:0000000000002090                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002094                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002098                 MOV             W3, W0
+.text:000000000000209C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000020A0                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000020A4 loc_20A4                                ; CODE XREF: isServiceReady+118↓j
+.text:00000000000020A4                                         ; isServiceReady+134↓j
+.text:00000000000020A4                 MOV             W0, #6
+.text:00000000000020A8                 BL              .__android_log_print
+.text:00000000000020AC                 MOV             W0, #0xFFFFFFFB
+.text:00000000000020B0 loc_20B0                                ; CODE XREF: isServiceReady+E4↓j
+.text:00000000000020B0                                         ; isServiceReady+104↓j ...
+.text:00000000000020B0                 LDR             X8, [X19,#0x28]
+.text:00000000000020B4                 LDR             X9, [SP]
+.text:00000000000020B8                 CMP             X8, X9
+.text:00000000000020BC                 B.NE            loc_2158
+.text:00000000000020C0                 ADD             SP, SP, #4,LSL#12
+.text:00000000000020C4                 ADD             SP, SP, #0x30 ; '0'
+.text:00000000000020C8                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:00000000000020CC                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:00000000000020D0                 LDR             X28, [SP+0x20+var_20],#0x30
+.text:00000000000020D4                 RET
+.text:00000000000020D8 ; ---------------------------------------------------------------------------
+.text:00000000000020D8 loc_20D8                                ; CODE XREF: isServiceReady+6C↑j
+.text:00000000000020D8                 LDRB            W3, [SP,#0x4050+s]
+.text:00000000000020DC                 CMP             W3, #1
+.text:00000000000020E0                 B.NE            loc_2108
+.text:00000000000020E4                 LDURH           W3, [SP,#0x4050+var_4047]
+.text:00000000000020E8                 CMP             W3, #0xA
+.text:00000000000020EC                 B.NE            loc_2128
+.text:00000000000020F0                 LDURH           W3, [SP,#0x4050+var_4045]
+.text:00000000000020F4                 CBZ             W3, loc_213C
+.text:00000000000020F8                 CMP             W3, #6
+.text:00000000000020FC                 B.NE            loc_2144
+.text:0000000000002100                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002104                 B               loc_20B0
+.text:0000000000002108 ; ---------------------------------------------------------------------------
+.text:0000000000002108 loc_2108                                ; CODE XREF: isServiceReady+C0↑j
+.text:0000000000002108                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000210C                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002110                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002114                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002118                 MOV             W0, #6
+.text:000000000000211C                 BL              .__android_log_print
+.text:0000000000002120                 MOV             W0, #0xFFFFFFFE
+.text:0000000000002124                 B               loc_20B0
+.text:0000000000002128 ; ---------------------------------------------------------------------------
+.text:0000000000002128 loc_2128                                ; CODE XREF: isServiceReady+CC↑j
+.text:0000000000002128                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000212C                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002130                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002134                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002138                 B               loc_20A4
+.text:000000000000213C ; ---------------------------------------------------------------------------
+.text:000000000000213C loc_213C                                ; CODE XREF: isServiceReady+D4↑j
+.text:000000000000213C                 MOV             W0, WZR
+.text:0000000000002140                 B               loc_20B0
+.text:0000000000002144 ; ---------------------------------------------------------------------------
+.text:0000000000002144 loc_2144                                ; CODE XREF: isServiceReady+DC↑j
+.text:0000000000002144                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002148                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:000000000000214C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002150                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002154                 B               loc_20A4
+.text:0000000000002158 ; ---------------------------------------------------------------------------
+.text:0000000000002158 loc_2158                                ; CODE XREF: isServiceReady+9C↑j
+.text:0000000000002158                 BL              .__stack_chk_fail
+.text:0000000000002158 ; } // starts at 2020
+.text:0000000000002158 ; End of function isServiceReady
+.text:0000000000002158 ; ---------------------------------------------------------------------------
+.text:000000000000215C                 ALIGN 0x20
+.text:0000000000002160 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002160 ; Attributes: bp-based frame
+.text:0000000000002160 sub_2160                                ; CODE XREF: isServiceReady+68↑p
+.text:0000000000002160                                         ; isExistDeviceRootKey+6C↓p ...
+.text:0000000000002160 var_B0          = -0xB0
+.text:0000000000002160 var_9D          = -0x9D
+.text:0000000000002160 var_90          = -0x90
+.text:0000000000002160 var_70          = -0x70
+.text:0000000000002160 var_52          = -0x52
+.text:0000000000002160 var_38          = -0x38
+.text:0000000000002160 var_30          = -0x30
+.text:0000000000002160 var_20          = -0x20
+.text:0000000000002160 var_10          = -0x10
+.text:0000000000002160 var_s0          =  0
+.text:0000000000002160 ; __unwind {
+.text:0000000000002160                 SUB             SP, SP, #0xC0
+.text:0000000000002164                 STR             X23, [SP,#0xB0+var_30]
+.text:0000000000002168                 STP             X22, X21, [SP,#0xB0+var_20]
+.text:000000000000216C                 STP             X20, X19, [SP,#0xB0+var_10]
+.text:0000000000002170                 STP             X29, X30, [SP,#0xB0+var_s0]
+.text:0000000000002174                 ADD             X29, SP, #0xB0
+.text:0000000000002178                 MRS             X23, #3, c13, c0, #2
+.text:000000000000217C                 LDR             X8, [X23,#0x28]
+.text:0000000000002180                 STUR            X8, [X29,#var_38]
+.text:0000000000002184                 CBZ             X0, loc_2244
+.text:0000000000002188                 MOV             X20, X1
+.text:000000000000218C                 CBZ             X1, loc_2244
+.text:0000000000002190                 MOV             X21, X0
+.text:0000000000002194                 MOV             W0, #1  ; domain
+.text:0000000000002198                 MOV             W1, #1  ; type
+.text:000000000000219C                 MOV             W2, WZR ; protocol
+.text:00000000000021A0                 MOV             W22, #1
+.text:00000000000021A4                 BL              .socket
+.text:00000000000021A8                 CMN             W0, #1
+.text:00000000000021AC                 B.EQ            loc_226C
+.text:00000000000021B0                 ADRP            X4, #aDevicerootkeys@PAGE ; "DeviceRootKeyService"
+.text:00000000000021B4                 MOVI            V0.2D, #0
+.text:00000000000021B8                 ADD             X4, X4, #aDevicerootkeys@PAGEOFF ; "DeviceRootKeyService"
+.text:00000000000021BC                 MOV             W8, #0x6976
+.text:00000000000021C0                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000021C4                 LDR             Q1, [X4] ; "DeviceRootKeyService"
+.text:00000000000021C8                 ADRP            X2, #aSS@PAGE ; "%s : %s"
+.text:00000000000021CC                 ADRP            X3, #aCommunicatetod@PAGE ; "communicateToDrkService"
+.text:00000000000021D0                 MOV             W19, W0
+.text:00000000000021D4                 STP             Q0, Q0, [SP,#0xB0+var_B0]
+.text:00000000000021D8                 MOVK            W8, #0x6563,LSL#16
+.text:00000000000021DC                 STP             Q0, Q0, [SP,#0xB0+var_90]
+.text:00000000000021E0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000021E4                 STUR            Q0, [SP,#0xB0+var_52]
+.text:00000000000021E8                 ADD             X2, X2, #aSS@PAGEOFF ; "%s : %s"
+.text:00000000000021EC                 STP             Q0, Q0, [SP,#0xB0+var_70]
+.text:00000000000021F0                 ADD             X3, X3, #aCommunicatetod@PAGEOFF ; "communicateToDrkService"
+.text:00000000000021F4                 STRH            W22, [SP,#0xB0+var_B0]
+.text:00000000000021F8                 MOV             W0, #4
+.text:00000000000021FC                 STRB            WZR, [SP,#0xB0+var_B0+2]
+.text:0000000000002200                 STUR            Q1, [SP,#0xB0+var_B0+3]
+.text:0000000000002204                 STUR            W8, [SP,#0xB0+var_9D]
+.text:0000000000002208                 BL              .__android_log_print
+.text:000000000000220C                 MOV             W2, #0x17 ; len
+.text:0000000000002210                 MOV             X1, SP  ; addr
+.text:0000000000002214                 MOV             W0, W19 ; fd
+.text:0000000000002218                 BL              .connect
+.text:000000000000221C                 CBZ             W0, loc_2294
+.text:0000000000002220                 BL              .__errno
+.text:0000000000002224                 LDR             W3, [X0]
+.text:0000000000002228                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000222C                 ADRP            X2, #aFailedToConnec@PAGE ; "Failed to connect socket. errno : %d"
+.text:0000000000002230                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002234                 ADD             X2, X2, #aFailedToConnec@PAGEOFF ; "Failed to connect socket. errno : %d"
+.text:0000000000002238 loc_2238                                ; CODE XREF: sub_2160+1B4↓j
+.text:0000000000002238                 MOV             W0, #6
+.text:000000000000223C                 BL              .__android_log_print
+.text:0000000000002240                 B               loc_2330
+.text:0000000000002244 ; ---------------------------------------------------------------------------
+.text:0000000000002244 loc_2244                                ; CODE XREF: sub_2160+24↑j
+.text:0000000000002244                                         ; sub_2160+2C↑j
+.text:0000000000002244                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002248                 ADRP            X2, #aSInvalidArgume@PAGE ; "%s : Invalid argument."
+.text:000000000000224C                 ADRP            X3, #aCommunicatetod@PAGE ; "communicateToDrkService"
+.text:0000000000002250                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002254                 ADD             X2, X2, #aSInvalidArgume@PAGEOFF ; "%s : Invalid argument."
+.text:0000000000002258                 ADD             X3, X3, #aCommunicatetod@PAGEOFF ; "communicateToDrkService"
+.text:000000000000225C                 MOV             W0, #6
+.text:0000000000002260                 BL              .__android_log_print
+.text:0000000000002264                 MOV             W20, #0xFFFFFFF6
+.text:0000000000002268                 B               loc_233C
+.text:000000000000226C ; ---------------------------------------------------------------------------
+.text:000000000000226C loc_226C                                ; CODE XREF: sub_2160+4C↑j
+.text:000000000000226C                 BL              .__errno
+.text:0000000000002270                 LDR             W3, [X0]
+.text:0000000000002274                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002278                 ADRP            X2, #aFailedToCreate@PAGE ; "Failed to create socket. errno : %d"
+.text:000000000000227C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002280                 ADD             X2, X2, #aFailedToCreate@PAGEOFF ; "Failed to create socket. errno : %d"
+.text:0000000000002284                 MOV             W0, #6
+.text:0000000000002288                 BL              .__android_log_print
+.text:000000000000228C                 MOV             W20, #0xFFFFFFF8
+.text:0000000000002290                 B               loc_233C
+.text:0000000000002294 ; ---------------------------------------------------------------------------
+.text:0000000000002294 loc_2294                                ; CODE XREF: sub_2160+BC↑j
+.text:0000000000002294                 LDR             W8, [X21,#8]
+.text:0000000000002298                 MOV             W0, W19 ; fd
+.text:000000000000229C                 MOV             X1, X21 ; buf
+.text:00000000000022A0                 MOV             W3, WZR ; flags
+.text:00000000000022A4                 MOV             X4, XZR ; addr
+.text:00000000000022A8                 ADD             W8, W8, #0xC
+.text:00000000000022AC                 SXTW            X22, W8
+.text:00000000000022B0                 MOV             X2, X22 ; n
+.text:00000000000022B4                 MOV             W5, WZR ; addr_len
+.text:00000000000022B8                 BL              .sendto
+.text:00000000000022BC                 CMP             X0, X22
+.text:00000000000022C0                 B.NE            loc_2318
+.text:00000000000022C4                 MOV             W21, #0x2009
+.text:00000000000022C8                 MOV             X0, X20 ; s
+.text:00000000000022CC                 MOV             W1, WZR ; c
+.text:00000000000022D0                 MOV             X2, X21 ; n
+.text:00000000000022D4                 BL              .memset
+.text:00000000000022D8                 MOV             W0, W19 ; fd
+.text:00000000000022DC                 MOV             X1, X20 ; buf
+.text:00000000000022E0                 MOV             X2, X21 ; n
+.text:00000000000022E4                 MOV             W3, WZR ; flags
+.text:00000000000022E8                 MOV             X4, XZR ; addr
+.text:00000000000022EC                 MOV             X5, XZR ; addr_len
+.text:00000000000022F0                 BL              .recvfrom
+.text:00000000000022F4                 MOV             X3, X0
+.text:00000000000022F8                 MOV             W20, WZR
+.text:00000000000022FC                 CMP             W3, #0
+.text:0000000000002300                 B.GT            loc_2334
+.text:0000000000002304                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002308                 ADRP            X2, #aFailedToRecvDa@PAGE ; "Failed to recv data. %d"
+.text:000000000000230C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002310                 ADD             X2, X2, #aFailedToRecvDa@PAGEOFF ; "Failed to recv data. %d"
+.text:0000000000002314                 B               loc_2238
+.text:0000000000002318 ; ---------------------------------------------------------------------------
+.text:0000000000002318 loc_2318                                ; CODE XREF: sub_2160+160↑j
+.text:0000000000002318                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000231C                 ADRP            X2, #aFailedToSendDa@PAGE ; "Failed to send data."
+.text:0000000000002320                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002324                 ADD             X2, X2, #aFailedToSendDa@PAGEOFF ; "Failed to send data."
+.text:0000000000002328                 MOV             W0, #6
+.text:000000000000232C                 BL              .__android_log_print
+.text:0000000000002330 loc_2330                                ; CODE XREF: sub_2160+E0↑j
+.text:0000000000002330                 MOV             W20, #0xFFFFFFF8
+.text:0000000000002334 loc_2334                                ; CODE XREF: sub_2160+1A0↑j
+.text:0000000000002334                 MOV             W0, W19 ; fd
+.text:0000000000002338                 BL              .close
+.text:000000000000233C loc_233C                                ; CODE XREF: sub_2160+108↑j
+.text:000000000000233C                                         ; sub_2160+130↑j
+.text:000000000000233C                 LDR             X8, [X23,#0x28]
+.text:0000000000002340                 LDUR            X9, [X29,#var_38]
+.text:0000000000002344                 CMP             X8, X9
+.text:0000000000002348                 B.NE            loc_2368
+.text:000000000000234C                 MOV             W0, W20
+.text:0000000000002350                 LDR             X23, [SP,#0xB0+var_30]
+.text:0000000000002354                 LDP             X29, X30, [SP,#0xB0+var_s0]
+.text:0000000000002358                 LDP             X20, X19, [SP,#0xB0+var_10]
+.text:000000000000235C                 LDP             X22, X21, [SP,#0xB0+var_20]
+.text:0000000000002360                 ADD             SP, SP, #0xC0
+.text:0000000000002364                 RET
+.text:0000000000002368 ; ---------------------------------------------------------------------------
+.text:0000000000002368 loc_2368                                ; CODE XREF: sub_2160+1E8↑j
+.text:0000000000002368                 BL              .__stack_chk_fail
+.text:0000000000002368 ; } // starts at 2160
+.text:0000000000002368 ; End of function sub_2160
+.text:0000000000002368 ; ---------------------------------------------------------------------------
+.text:000000000000236C                 ALIGN 0x10
+.text:0000000000002370 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002370 ; Attributes: bp-based frame
+.text:0000000000002370                 EXPORT isExistDeviceRootKey
+.text:0000000000002370 isExistDeviceRootKey                    ; DATA XREF: LOAD:0000000000000540↑o
+.text:0000000000002370 var_404E        = -0x404E
+.text:0000000000002370 s               = -0x4048
+.text:0000000000002370 var_4047        = -0x4047
+.text:0000000000002370 var_4045        = -0x4045
+.text:0000000000002370 var_20          = -0x20
+.text:0000000000002370 var_10          = -0x10
+.text:0000000000002370 var_s0          =  0
+.text:0000000000002370 ; __unwind {
+.text:0000000000002370                 STP             X28, X21, [SP,#-0x10+var_20]!
+.text:0000000000002374                 STP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000002378                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:000000000000237C                 ADD             X29, SP, #0x20
+.text:0000000000002380                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002384                 SUB             SP, SP, #0x30
+.text:0000000000002388                 MRS             X20, #3, c13, c0, #2
+.text:000000000000238C                 MOV             W19, W0
+.text:0000000000002390                 LDR             X8, [X20,#0x28]
+.text:0000000000002394                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002398                 MOV             W2, #0x200C ; n
+.text:000000000000239C                 ADD             X0, X0, #0x18 ; s
+.text:00000000000023A0                 MOV             W1, WZR ; c
+.text:00000000000023A4                 ADD             X21, SP, #0x4050+var_404E,LSL#12
+.text:00000000000023A8                 STR             X8, [SP]
+.text:00000000000023AC                 BL              .memset
+.text:00000000000023B0                 MOV             W2, #0x2009 ; n
+.text:00000000000023B4                 ADD             X0, SP, #0x4050+s ; s
+.text:00000000000023B8                 MOV             W1, WZR ; c
+.text:00000000000023BC                 BL              .memset
+.text:00000000000023C0                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:00000000000023C4                 MOV             W8, #1
+.text:00000000000023C8                 ADD             X0, X0, #0x18
+.text:00000000000023CC                 ADD             X1, SP, #0x4050+s
+.text:00000000000023D0                 STRB            W8, [X21,#0x18]!
+.text:00000000000023D4                 STURH           W8, [X21,#1]
+.text:00000000000023D8                 STUR            W19, [X21,#3]
+.text:00000000000023DC                 BL              sub_2160
+.text:00000000000023E0                 CBZ             W0, loc_2408
+.text:00000000000023E4                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000023E8                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000023EC                 MOV             W3, W0
+.text:00000000000023F0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000023F4                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000023F8 loc_23F8                                ; CODE XREF: isExistDeviceRootKey+124↓j
+.text:00000000000023F8                                         ; isExistDeviceRootKey+148↓j
+.text:00000000000023F8                 MOV             W0, #6
+.text:00000000000023FC                 BL              .__android_log_print
+.text:0000000000002400                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002404                 B               loc_245C
+.text:0000000000002408 ; ---------------------------------------------------------------------------
+.text:0000000000002408 loc_2408                                ; CODE XREF: isExistDeviceRootKey+70↑j
+.text:0000000000002408                 LDRB            W3, [SP,#0x4050+s]
+.text:000000000000240C                 CMP             W3, #1
+.text:0000000000002410                 B.NE            loc_2440
+.text:0000000000002414                 LDURH           W3, [SP,#0x4050+var_4047]
+.text:0000000000002418                 CMP             W3, #1
+.text:000000000000241C                 B.NE            loc_2484
+.text:0000000000002420                 LDURH           W3, [SP,#0x4050+var_4045]
+.text:0000000000002424                 CBZ             W3, loc_2498
+.text:0000000000002428                 CMP             W3, #6
+.text:000000000000242C                 B.EQ            loc_24A0
+.text:0000000000002430                 CMP             W3, #4
+.text:0000000000002434                 B.NE            loc_24A8
+.text:0000000000002438                 MOV             W0, WZR
+.text:000000000000243C                 B               loc_245C
+.text:0000000000002440 ; ---------------------------------------------------------------------------
+.text:0000000000002440 loc_2440                                ; CODE XREF: isExistDeviceRootKey+A0↑j
+.text:0000000000002440                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002444                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002448                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000244C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002450                 MOV             W0, #6
+.text:0000000000002454                 BL              .__android_log_print
+.text:0000000000002458                 MOV             W0, #0xFFFFFFFE
+.text:000000000000245C loc_245C                                ; CODE XREF: isExistDeviceRootKey+94↑j
+.text:000000000000245C                                         ; isExistDeviceRootKey+CC↑j ...
+.text:000000000000245C                 LDR             X8, [X20,#0x28]
+.text:0000000000002460                 LDR             X9, [SP]
+.text:0000000000002464                 CMP             X8, X9
+.text:0000000000002468                 B.NE            loc_24BC
+.text:000000000000246C                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002470                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002474                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000002478                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:000000000000247C                 LDP             X28, X21, [SP+0x20+var_20],#0x30
+.text:0000000000002480                 RET
+.text:0000000000002484 ; ---------------------------------------------------------------------------
+.text:0000000000002484 loc_2484                                ; CODE XREF: isExistDeviceRootKey+AC↑j
+.text:0000000000002484                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002488                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:000000000000248C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002490                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002494                 B               loc_23F8
+.text:0000000000002498 ; ---------------------------------------------------------------------------
+.text:0000000000002498 loc_2498                                ; CODE XREF: isExistDeviceRootKey+B4↑j
+.text:0000000000002498                 MOV             W0, #1
+.text:000000000000249C                 B               loc_245C
+.text:00000000000024A0 ; ---------------------------------------------------------------------------
+.text:00000000000024A0 loc_24A0                                ; CODE XREF: isExistDeviceRootKey+BC↑j
+.text:00000000000024A0                 MOV             W0, #0xFFFFFFFA
+.text:00000000000024A4                 B               loc_245C
+.text:00000000000024A8 ; ---------------------------------------------------------------------------
+.text:00000000000024A8 loc_24A8                                ; CODE XREF: isExistDeviceRootKey+C4↑j
+.text:00000000000024A8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000024AC                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:00000000000024B0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000024B4                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:00000000000024B8                 B               loc_23F8
+.text:00000000000024BC ; ---------------------------------------------------------------------------
+.text:00000000000024BC loc_24BC                                ; CODE XREF: isExistDeviceRootKey+F8↑j
+.text:00000000000024BC                 BL              .__stack_chk_fail
+.text:00000000000024BC ; } // starts at 2370
+.text:00000000000024BC ; End of function isExistDeviceRootKey
+.text:00000000000024C0 ; =============== S U B R O U T I N E =======================================
+.text:00000000000024C0 ; Attributes: bp-based frame
+.text:00000000000024C0                 EXPORT getDrkUID
+.text:00000000000024C0 getDrkUID                               ; DATA XREF: LOAD:0000000000000420↑o
+.text:00000000000024C0 var_4060        = -0x4060
+.text:00000000000024C0 s               = -0x4058
+.text:00000000000024C0 var_4057        = -0x4057
+.text:00000000000024C0 var_4055        = -0x4055
+.text:00000000000024C0 var_4053        = -0x4053
+.text:00000000000024C0 var_30          = -0x30
+.text:00000000000024C0 var_20          = -0x20
+.text:00000000000024C0 var_10          = -0x10
+.text:00000000000024C0 var_s0          =  0
+.text:00000000000024C0 ; __unwind {
+.text:00000000000024C0                 STP             X28, X23, [SP,#-0x10+var_30]!
+.text:00000000000024C4                 STP             X22, X21, [SP,#0x30+var_20]
+.text:00000000000024C8                 STP             X20, X19, [SP,#0x30+var_10]
+.text:00000000000024CC                 STP             X29, X30, [SP,#0x30+var_s0]
+.text:00000000000024D0                 ADD             X29, SP, #0x30
+.text:00000000000024D4                 SUB             SP, SP, #4,LSL#12
+.text:00000000000024D8                 MRS             X22, #3, c13, c0, #2
+.text:00000000000024DC                 LDR             X8, [X22,#0x28]
+.text:00000000000024E0                 STR             X8, [SP,#0x4030+var_4060]!
+.text:00000000000024E4                 CBZ             X1, loc_2568
+.text:00000000000024E8                 MOV             W21, W0
+.text:00000000000024EC                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:00000000000024F0                 MOV             W20, W2
+.text:00000000000024F4                 MOV             X19, X1
+.text:00000000000024F8                 MOV             W2, #0x200C ; n
+.text:00000000000024FC                 ADD             X0, X0, #0x18 ; s
+.text:0000000000002500                 MOV             W1, WZR ; c
+.text:0000000000002504                 ADD             X23, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002508                 BL              .memset
+.text:000000000000250C                 MOV             W2, #0x2009 ; n
+.text:0000000000002510                 ADD             X0, SP, #0x4060+s ; s
+.text:0000000000002514                 MOV             W1, WZR ; c
+.text:0000000000002518                 BL              .memset
+.text:000000000000251C                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002520                 MOV             W8, #1
+.text:0000000000002524                 MOV             W9, #2
+.text:0000000000002528                 ADD             X0, X0, #0x18
+.text:000000000000252C                 ADD             X1, SP, #0x4060+s
+.text:0000000000002530                 STRB            W8, [X23,#0x18]!
+.text:0000000000002534                 STURH           W9, [X23,#1]
+.text:0000000000002538                 STUR            W21, [X23,#3]
+.text:000000000000253C                 BL              sub_2160
+.text:0000000000002540                 CBZ             W0, loc_2570
+.text:0000000000002544                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002548                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:000000000000254C                 MOV             W3, W0
+.text:0000000000002550                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002554                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002558 loc_2558                                ; CODE XREF: getDrkUID+168↓j
+.text:0000000000002558                                         ; getDrkUID+184↓j
+.text:0000000000002558                 MOV             W0, #6
+.text:000000000000255C                 BL              .__android_log_print
+.text:0000000000002560                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002564                 B               loc_25EC
+.text:0000000000002568 ; ---------------------------------------------------------------------------
+.text:0000000000002568 loc_2568                                ; CODE XREF: getDrkUID+24↑j
+.text:0000000000002568                 MOV             W0, #0xFFFFFFFF
+.text:000000000000256C                 B               loc_25EC
+.text:0000000000002570 ; ---------------------------------------------------------------------------
+.text:0000000000002570 loc_2570                                ; CODE XREF: getDrkUID+80↑j
+.text:0000000000002570                 LDRB            W3, [SP,#0x4060+s]
+.text:0000000000002574                 CMP             W3, #1
+.text:0000000000002578                 B.NE            loc_25D0
+.text:000000000000257C                 LDURH           W3, [SP,#0x4060+var_4057]
+.text:0000000000002580                 CMP             W3, #2
+.text:0000000000002584                 B.NE            loc_2618
+.text:0000000000002588                 LDURH           W3, [SP,#0x4060+var_4055]
+.text:000000000000258C                 CMP             W3, #6
+.text:0000000000002590                 B.EQ            loc_262C
+.text:0000000000002594                 CBNZ            W3, loc_2634
+.text:0000000000002598                 LDUR            W8, [SP,#0x4060+var_4053]
+.text:000000000000259C                 CMP             W8, W20
+.text:00000000000025A0                 B.CS            loc_2648
+.text:00000000000025A4                 MOV             W2, W20 ; n
+.text:00000000000025A8                 MOV             X0, X19 ; s
+.text:00000000000025AC                 MOV             W1, WZR ; c
+.text:00000000000025B0                 BL              .memset
+.text:00000000000025B4                 ADD             X8, SP, #0x4060+s
+.text:00000000000025B8                 LDUR            W2, [SP,#0x4060+var_4053] ; n
+.text:00000000000025BC                 ADD             X1, X8, #9 ; src
+.text:00000000000025C0                 MOV             X0, X19 ; dest
+.text:00000000000025C4                 BL              .memcpy
+.text:00000000000025C8                 MOV             W0, WZR
+.text:00000000000025CC                 B               loc_25EC
+.text:00000000000025D0 ; ---------------------------------------------------------------------------
+.text:00000000000025D0 loc_25D0                                ; CODE XREF: getDrkUID+B8↑j
+.text:00000000000025D0                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000025D4                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:00000000000025D8                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000025DC                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:00000000000025E0                 MOV             W0, #6
+.text:00000000000025E4                 BL              .__android_log_print
+.text:00000000000025E8                 MOV             W0, #0xFFFFFFFE
+.text:00000000000025EC loc_25EC                                ; CODE XREF: getDrkUID+A4↑j
+.text:00000000000025EC                                         ; getDrkUID+AC↑j ...
+.text:00000000000025EC                 LDR             X8, [X22,#0x28]
+.text:00000000000025F0                 LDR             X9, [SP,#0x4060+var_4060]
+.text:00000000000025F4                 CMP             X8, X9
+.text:00000000000025F8                 B.NE            loc_2650
+.text:00000000000025FC                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002600                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002604                 LDP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000002608                 LDP             X20, X19, [SP,#0x30+var_10]
+.text:000000000000260C                 LDP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000002610                 LDP             X28, X23, [SP+0x30+var_30],#0x40
+.text:0000000000002614                 RET
+.text:0000000000002618 ; ---------------------------------------------------------------------------
+.text:0000000000002618 loc_2618                                ; CODE XREF: getDrkUID+C4↑j
+.text:0000000000002618                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000261C                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002620                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002624                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002628                 B               loc_2558
+.text:000000000000262C ; ---------------------------------------------------------------------------
+.text:000000000000262C loc_262C                                ; CODE XREF: getDrkUID+D0↑j
+.text:000000000000262C                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002630                 B               loc_25EC
+.text:0000000000002634 ; ---------------------------------------------------------------------------
+.text:0000000000002634 loc_2634                                ; CODE XREF: getDrkUID+D4↑j
+.text:0000000000002634                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002638                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:000000000000263C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002640                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002644                 B               loc_2558
+.text:0000000000002648 ; ---------------------------------------------------------------------------
+.text:0000000000002648 loc_2648                                ; CODE XREF: getDrkUID+E0↑j
+.text:0000000000002648                 MOV             W0, #0xFFFFFFF9
+.text:000000000000264C                 B               loc_25EC
+.text:0000000000002650 ; ---------------------------------------------------------------------------
+.text:0000000000002650 loc_2650                                ; CODE XREF: getDrkUID+138↑j
+.text:0000000000002650                 BL              .__stack_chk_fail
+.text:0000000000002650 ; } // starts at 24C0
+.text:0000000000002650 ; End of function getDrkUID
+.text:0000000000002650 ; ---------------------------------------------------------------------------
+.text:0000000000002654                 ALIGN 8
+.text:0000000000002658 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002658 ; Attributes: bp-based frame
+.text:0000000000002658                 EXPORT createServiceKeySession
+.text:0000000000002658 createServiceKeySession                 ; DATA XREF: LOAD:0000000000000510↑o
+.text:0000000000002658 var_4080        = -0x4080
+.text:0000000000002658 s               = -0x4078
+.text:0000000000002658 var_4077        = -0x4077
+.text:0000000000002658 var_4075        = -0x4075
+.text:0000000000002658 var_4073        = -0x4073
+.text:0000000000002658 var_2060        = -0x2060
+.text:0000000000002658 var_50          = -0x50
+.text:0000000000002658 var_40          = -0x40
+.text:0000000000002658 var_30          = -0x30
+.text:0000000000002658 var_20          = -0x20
+.text:0000000000002658 var_10          = -0x10
+.text:0000000000002658 var_s0          =  0
+.text:0000000000002658 ; __unwind {
+.text:0000000000002658                 STR             X28, [SP,#-0x10+var_50]!
+.text:000000000000265C                 STP             X26, X25, [SP,#0x50+var_40]
+.text:0000000000002660                 STP             X24, X23, [SP,#0x50+var_30]
+.text:0000000000002664                 STP             X22, X21, [SP,#0x50+var_20]
+.text:0000000000002668                 STP             X20, X19, [SP,#0x50+var_10]
+.text:000000000000266C                 STP             X29, X30, [SP,#0x50+var_s0]
+.text:0000000000002670                 ADD             X29, SP, #0x50
+.text:0000000000002674                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002678                 MRS             X24, #3, c13, c0, #2
+.text:000000000000267C                 MOV             X21, X0
+.text:0000000000002680                 LDR             X8, [X24,#0x28]
+.text:0000000000002684                 MOV             W0, #0xFFFFFFFF
+.text:0000000000002688                 STR             X8, [SP,#0x4050+var_4080]!
+.text:000000000000268C                 CBZ             X21, loc_2744
+.text:0000000000002690                 MOV             X19, X3
+.text:0000000000002694                 CBZ             X3, loc_2744
+.text:0000000000002698                 ADD             X26, SP, #0x4080+var_4080+2,LSL#12
+.text:000000000000269C                 ADD             X26, X26, #0x18
+.text:00000000000026A0                 MOV             W23, W2
+.text:00000000000026A4                 MOV             W22, W1
+.text:00000000000026A8                 ADD             X0, X26, #8 ; s
+.text:00000000000026AC                 MOV             W2, #0x2004 ; n
+.text:00000000000026B0                 MOV             W1, WZR ; c
+.text:00000000000026B4                 ADD             X25, SP, #0x4080+var_4080+2,LSL#12
+.text:00000000000026B8                 MOV             W20, W4
+.text:00000000000026BC                 ADD             X25, X25, #0x18
+.text:00000000000026C0                 BL              .memset
+.text:00000000000026C4                 MOV             W2, #0x2009 ; n
+.text:00000000000026C8                 ADD             X0, SP, #0x4080+s ; s
+.text:00000000000026CC                 MOV             W1, WZR ; c
+.text:00000000000026D0                 BL              .memset
+.text:00000000000026D4                 MOV             W8, #1
+.text:00000000000026D8                 STRB            W23, [X25,#7]
+.text:00000000000026DC                 MOV             W9, #3
+.text:00000000000026E0                 STUR            W22, [X25,#3]
+.text:00000000000026E4                 MOV             X0, X21 ; s
+.text:00000000000026E8                 STRB            W8, [X25]
+.text:00000000000026EC                 STURH           W9, [X25,#1]
+.text:00000000000026F0                 BL              .strlen
+.text:00000000000026F4                 ADD             X8, X26, #0xC
+.text:00000000000026F8                 STR             W0, [SP,#0x4080+var_2060]
+.text:00000000000026FC                 AND             X2, X0, #0xFFFFFFFF
+.text:0000000000002700                 MOV             X0, X8
+.text:0000000000002704                 MOV             X1, X21
+.text:0000000000002708                 MOV             W3, #0x2000
+.text:000000000000270C                 BL              .__memcpy_chk
+.text:0000000000002710                 ADD             X0, SP, #0x4080+var_4080+2,LSL#12
+.text:0000000000002714                 ADD             X0, X0, #0x18
+.text:0000000000002718                 ADD             X1, SP, #0x4080+s
+.text:000000000000271C                 BL              sub_2160
+.text:0000000000002720                 CBZ             W0, loc_2778
+.text:0000000000002724                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002728                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:000000000000272C                 MOV             W3, W0
+.text:0000000000002730                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002734                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002738 loc_2738                                ; CODE XREF: createServiceKeySession+1B0↓j
+.text:0000000000002738                                         ; createServiceKeySession+1CC↓j
+.text:0000000000002738                 MOV             W0, #6
+.text:000000000000273C                 BL              .__android_log_print
+.text:0000000000002740                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002744 loc_2744                                ; CODE XREF: createServiceKeySession+34↑j
+.text:0000000000002744                                         ; createServiceKeySession+3C↑j ...
+.text:0000000000002744                 LDR             X8, [X24,#0x28]
+.text:0000000000002748                 LDR             X9, [SP,#0x4080+var_4080]
+.text:000000000000274C                 CMP             X8, X9
+.text:0000000000002750                 B.NE            loc_2830
+.text:0000000000002754                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002758                 ADD             SP, SP, #0x30 ; '0'
+.text:000000000000275C                 LDP             X29, X30, [SP,#0x50+var_s0]
+.text:0000000000002760                 LDP             X20, X19, [SP,#0x50+var_10]
+.text:0000000000002764                 LDP             X22, X21, [SP,#0x50+var_20]
+.text:0000000000002768                 LDP             X24, X23, [SP,#0x50+var_30]
+.text:000000000000276C                 LDP             X26, X25, [SP,#0x50+var_40]
+.text:0000000000002770                 LDR             X28, [SP+0x50+var_50],#0x60
+.text:0000000000002774                 RET
+.text:0000000000002778 ; ---------------------------------------------------------------------------
+.text:0000000000002778 loc_2778                                ; CODE XREF: createServiceKeySession+C8↑j
+.text:0000000000002778                 LDRB            W3, [SP,#0x4080+s]
+.text:000000000000277C                 CMP             W3, #1
+.text:0000000000002780                 B.NE            loc_27D8
+.text:0000000000002784                 LDURH           W3, [SP,#0x4080+var_4077]
+.text:0000000000002788                 CMP             W3, #3
+.text:000000000000278C                 B.NE            loc_27F8
+.text:0000000000002790                 LDURH           W3, [SP,#0x4080+var_4075]
+.text:0000000000002794                 CMP             W3, #6
+.text:0000000000002798                 B.EQ            loc_280C
+.text:000000000000279C                 CBNZ            W3, loc_2814
+.text:00000000000027A0                 LDUR            W8, [SP,#0x4080+var_4073]
+.text:00000000000027A4                 CMP             W8, W20
+.text:00000000000027A8                 B.CS            loc_2828
+.text:00000000000027AC                 MOV             W2, W20 ; n
+.text:00000000000027B0                 MOV             X0, X19 ; s
+.text:00000000000027B4                 MOV             W1, WZR ; c
+.text:00000000000027B8                 BL              .memset
+.text:00000000000027BC                 ADD             X8, SP, #0x4080+s
+.text:00000000000027C0                 LDUR            W2, [SP,#0x4080+var_4073] ; n
+.text:00000000000027C4                 ADD             X1, X8, #9 ; src
+.text:00000000000027C8                 MOV             X0, X19 ; dest
+.text:00000000000027CC                 BL              .memcpy
+.text:00000000000027D0                 LDUR            W0, [SP,#0x4080+var_4073]
+.text:00000000000027D4                 B               loc_2744
+.text:00000000000027D8 ; ---------------------------------------------------------------------------
+.text:00000000000027D8 loc_27D8                                ; CODE XREF: createServiceKeySession+128↑j
+.text:00000000000027D8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000027DC                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:00000000000027E0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000027E4                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:00000000000027E8                 MOV             W0, #6
+.text:00000000000027EC                 BL              .__android_log_print
+.text:00000000000027F0                 MOV             W0, #0xFFFFFFFE
+.text:00000000000027F4                 B               loc_2744
+.text:00000000000027F8 ; ---------------------------------------------------------------------------
+.text:00000000000027F8 loc_27F8                                ; CODE XREF: createServiceKeySession+134↑j
+.text:00000000000027F8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000027FC                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002800                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002804                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002808                 B               loc_2738
+.text:000000000000280C ; ---------------------------------------------------------------------------
+.text:000000000000280C loc_280C                                ; CODE XREF: createServiceKeySession+140↑j
+.text:000000000000280C                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002810                 B               loc_2744
+.text:0000000000002814 ; ---------------------------------------------------------------------------
+.text:0000000000002814 loc_2814                                ; CODE XREF: createServiceKeySession+144↑j
+.text:0000000000002814                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002818                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:000000000000281C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002820                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002824                 B               loc_2738
+.text:0000000000002828 ; ---------------------------------------------------------------------------
+.text:0000000000002828 loc_2828                                ; CODE XREF: createServiceKeySession+150↑j
+.text:0000000000002828                 MOV             W0, #0xFFFFFFF9
+.text:000000000000282C                 B               loc_2744
+.text:0000000000002830 ; ---------------------------------------------------------------------------
+.text:0000000000002830 loc_2830                                ; CODE XREF: createServiceKeySession+F8↑j
+.text:0000000000002830                 BL              .__stack_chk_fail
+.text:0000000000002830 ; } // starts at 2658
+.text:0000000000002830 ; End of function createServiceKeySession
+.text:0000000000002830 ; ---------------------------------------------------------------------------
+.text:0000000000002834                 ALIGN 8
+.text:0000000000002838 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002838 ; Attributes: bp-based frame
+.text:0000000000002838                 EXPORT releaseServiceKeySession
+.text:0000000000002838 releaseServiceKeySession                ; DATA XREF: LOAD:0000000000000450↑o
+.text:0000000000002838 var_404E        = -0x404E
+.text:0000000000002838 s               = -0x4048
+.text:0000000000002838 var_4047        = -0x4047
+.text:0000000000002838 var_4045        = -0x4045
+.text:0000000000002838 var_20          = -0x20
+.text:0000000000002838 var_10          = -0x10
+.text:0000000000002838 var_s0          =  0
+.text:0000000000002838 ; __unwind {
+.text:0000000000002838                 STR             X28, [SP,#-0x10+var_20]!
+.text:000000000000283C                 STP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000002840                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000002844                 ADD             X29, SP, #0x20
+.text:0000000000002848                 SUB             SP, SP, #4,LSL#12
+.text:000000000000284C                 SUB             SP, SP, #0x30
+.text:0000000000002850                 MRS             X19, #3, c13, c0, #2
+.text:0000000000002854                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002858                 LDR             X8, [X19,#0x28]
+.text:000000000000285C                 MOV             W2, #0x200C ; n
+.text:0000000000002860                 ADD             X0, X0, #0x18 ; s
+.text:0000000000002864                 MOV             W1, WZR ; c
+.text:0000000000002868                 ADD             X20, SP, #0x4050+var_404E,LSL#12
+.text:000000000000286C                 STR             X8, [SP]
+.text:0000000000002870                 BL              .memset
+.text:0000000000002874                 MOV             W2, #0x2009 ; n
+.text:0000000000002878                 ADD             X0, SP, #0x4050+s ; s
+.text:000000000000287C                 MOV             W1, WZR ; c
+.text:0000000000002880                 BL              .memset
+.text:0000000000002884                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002888                 MOV             W8, #1
+.text:000000000000288C                 MOV             W9, #4
+.text:0000000000002890                 ADD             X0, X0, #0x18
+.text:0000000000002894                 ADD             X1, SP, #0x4050+s
+.text:0000000000002898                 STRB            W8, [X20,#0x18]!
+.text:000000000000289C                 STURH           W9, [X20,#1]
+.text:00000000000028A0                 BL              sub_2160
+.text:00000000000028A4                 CBZ             W0, loc_28F0
+.text:00000000000028A8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000028AC                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000028B0                 MOV             W3, W0
+.text:00000000000028B4                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000028B8                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000028BC loc_28BC                                ; CODE XREF: releaseServiceKeySession+118↓j
+.text:00000000000028BC                                         ; releaseServiceKeySession+134↓j
+.text:00000000000028BC                 MOV             W0, #6
+.text:00000000000028C0                 BL              .__android_log_print
+.text:00000000000028C4                 MOV             W0, #0xFFFFFFFB
+.text:00000000000028C8 loc_28C8                                ; CODE XREF: releaseServiceKeySession+E4↓j
+.text:00000000000028C8                                         ; releaseServiceKeySession+104↓j ...
+.text:00000000000028C8                 LDR             X8, [X19,#0x28]
+.text:00000000000028CC                 LDR             X9, [SP]
+.text:00000000000028D0                 CMP             X8, X9
+.text:00000000000028D4                 B.NE            loc_2970
+.text:00000000000028D8                 ADD             SP, SP, #4,LSL#12
+.text:00000000000028DC                 ADD             SP, SP, #0x30 ; '0'
+.text:00000000000028E0                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:00000000000028E4                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:00000000000028E8                 LDR             X28, [SP+0x20+var_20],#0x30
+.text:00000000000028EC                 RET
+.text:00000000000028F0 ; ---------------------------------------------------------------------------
+.text:00000000000028F0 loc_28F0                                ; CODE XREF: releaseServiceKeySession+6C↑j
+.text:00000000000028F0                 LDRB            W3, [SP,#0x4050+s]
+.text:00000000000028F4                 CMP             W3, #1
+.text:00000000000028F8                 B.NE            loc_2920
+.text:00000000000028FC                 LDURH           W3, [SP,#0x4050+var_4047]
+.text:0000000000002900                 CMP             W3, #4
+.text:0000000000002904                 B.NE            loc_2940
+.text:0000000000002908                 LDURH           W3, [SP,#0x4050+var_4045]
+.text:000000000000290C                 CBZ             W3, loc_2954
+.text:0000000000002910                 CMP             W3, #6
+.text:0000000000002914                 B.NE            loc_295C
+.text:0000000000002918                 MOV             W0, #0xFFFFFFFA
+.text:000000000000291C                 B               loc_28C8
+.text:0000000000002920 ; ---------------------------------------------------------------------------
+.text:0000000000002920 loc_2920                                ; CODE XREF: releaseServiceKeySession+C0↑j
+.text:0000000000002920                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002924                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002928                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000292C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002930                 MOV             W0, #6
+.text:0000000000002934                 BL              .__android_log_print
+.text:0000000000002938                 MOV             W0, #0xFFFFFFFE
+.text:000000000000293C                 B               loc_28C8
+.text:0000000000002940 ; ---------------------------------------------------------------------------
+.text:0000000000002940 loc_2940                                ; CODE XREF: releaseServiceKeySession+CC↑j
+.text:0000000000002940                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002944                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002948                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000294C                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002950                 B               loc_28BC
+.text:0000000000002954 ; ---------------------------------------------------------------------------
+.text:0000000000002954 loc_2954                                ; CODE XREF: releaseServiceKeySession+D4↑j
+.text:0000000000002954                 MOV             W0, WZR
+.text:0000000000002958                 B               loc_28C8
+.text:000000000000295C ; ---------------------------------------------------------------------------
+.text:000000000000295C loc_295C                                ; CODE XREF: releaseServiceKeySession+DC↑j
+.text:000000000000295C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002960                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000002964                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002968                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:000000000000296C                 B               loc_28BC
+.text:0000000000002970 ; ---------------------------------------------------------------------------
+.text:0000000000002970 loc_2970                                ; CODE XREF: releaseServiceKeySession+9C↑j
+.text:0000000000002970                 BL              .__stack_chk_fail
+.text:0000000000002970 ; } // starts at 2838
+.text:0000000000002970 ; End of function releaseServiceKeySession
+.text:0000000000002970 ; ---------------------------------------------------------------------------
+.text:0000000000002974                 ALIGN 8
+.text:0000000000002978 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002978 ; Attributes: bp-based frame
+.text:0000000000002978                 EXPORT initTlv
+.text:0000000000002978 initTlv                                 ; DATA XREF: LOAD:0000000000000528↑o
+.text:0000000000002978 var_404E        = -0x404E
+.text:0000000000002978 s               = -0x4048
+.text:0000000000002978 var_4047        = -0x4047
+.text:0000000000002978 var_4045        = -0x4045
+.text:0000000000002978 var_20          = -0x20
+.text:0000000000002978 var_10          = -0x10
+.text:0000000000002978 var_s0          =  0
+.text:0000000000002978 ; __unwind {
+.text:0000000000002978                 STR             X28, [SP,#-0x10+var_20]!
+.text:000000000000297C                 STP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000002980                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000002984                 ADD             X29, SP, #0x20
+.text:0000000000002988                 SUB             SP, SP, #4,LSL#12
+.text:000000000000298C                 SUB             SP, SP, #0x30
+.text:0000000000002990                 MRS             X19, #3, c13, c0, #2
+.text:0000000000002994                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:0000000000002998                 LDR             X8, [X19,#0x28]
+.text:000000000000299C                 MOV             W2, #0x200C ; n
+.text:00000000000029A0                 ADD             X0, X0, #0x18 ; s
+.text:00000000000029A4                 MOV             W1, WZR ; c
+.text:00000000000029A8                 ADD             X20, SP, #0x4050+var_404E,LSL#12
+.text:00000000000029AC                 STR             X8, [SP]
+.text:00000000000029B0                 BL              .memset
+.text:00000000000029B4                 MOV             W2, #0x2009 ; n
+.text:00000000000029B8                 ADD             X0, SP, #0x4050+s ; s
+.text:00000000000029BC                 MOV             W1, WZR ; c
+.text:00000000000029C0                 BL              .memset
+.text:00000000000029C4                 ADD             X0, SP, #0x4050+var_404E,LSL#12
+.text:00000000000029C8                 MOV             W8, #1
+.text:00000000000029CC                 MOV             W9, #5
+.text:00000000000029D0                 ADD             X0, X0, #0x18
+.text:00000000000029D4                 ADD             X1, SP, #0x4050+s
+.text:00000000000029D8                 STRB            W8, [X20,#0x18]!
+.text:00000000000029DC                 STURH           W9, [X20,#1]
+.text:00000000000029E0                 BL              sub_2160
+.text:00000000000029E4                 CBZ             W0, loc_2A30
+.text:00000000000029E8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000029EC                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000029F0                 MOV             W3, W0
+.text:00000000000029F4                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000029F8                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000029FC loc_29FC                                ; CODE XREF: initTlv+118↓j
+.text:00000000000029FC                                         ; initTlv+134↓j
+.text:00000000000029FC                 MOV             W0, #6
+.text:0000000000002A00                 BL              .__android_log_print
+.text:0000000000002A04                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002A08 loc_2A08                                ; CODE XREF: initTlv+E4↓j
+.text:0000000000002A08                                         ; initTlv+104↓j ...
+.text:0000000000002A08                 LDR             X8, [X19,#0x28]
+.text:0000000000002A0C                 LDR             X9, [SP]
+.text:0000000000002A10                 CMP             X8, X9
+.text:0000000000002A14                 B.NE            loc_2AB0
+.text:0000000000002A18                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002A1C                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002A20                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000002A24                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000002A28                 LDR             X28, [SP+0x20+var_20],#0x30
+.text:0000000000002A2C                 RET
+.text:0000000000002A30 ; ---------------------------------------------------------------------------
+.text:0000000000002A30 loc_2A30                                ; CODE XREF: initTlv+6C↑j
+.text:0000000000002A30                 LDRB            W3, [SP,#0x4050+s]
+.text:0000000000002A34                 CMP             W3, #1
+.text:0000000000002A38                 B.NE            loc_2A60
+.text:0000000000002A3C                 LDURH           W3, [SP,#0x4050+var_4047]
+.text:0000000000002A40                 CMP             W3, #5
+.text:0000000000002A44                 B.NE            loc_2A80
+.text:0000000000002A48                 LDURH           W3, [SP,#0x4050+var_4045]
+.text:0000000000002A4C                 CBZ             W3, loc_2A94
+.text:0000000000002A50                 CMP             W3, #6
+.text:0000000000002A54                 B.NE            loc_2A9C
+.text:0000000000002A58                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002A5C                 B               loc_2A08
+.text:0000000000002A60 ; ---------------------------------------------------------------------------
+.text:0000000000002A60 loc_2A60                                ; CODE XREF: initTlv+C0↑j
+.text:0000000000002A60                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002A64                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002A68                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002A6C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002A70                 MOV             W0, #6
+.text:0000000000002A74                 BL              .__android_log_print
+.text:0000000000002A78                 MOV             W0, #0xFFFFFFFE
+.text:0000000000002A7C                 B               loc_2A08
+.text:0000000000002A80 ; ---------------------------------------------------------------------------
+.text:0000000000002A80 loc_2A80                                ; CODE XREF: initTlv+CC↑j
+.text:0000000000002A80                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002A84                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002A88                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002A8C                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002A90                 B               loc_29FC
+.text:0000000000002A94 ; ---------------------------------------------------------------------------
+.text:0000000000002A94 loc_2A94                                ; CODE XREF: initTlv+D4↑j
+.text:0000000000002A94                 MOV             W0, WZR
+.text:0000000000002A98                 B               loc_2A08
+.text:0000000000002A9C ; ---------------------------------------------------------------------------
+.text:0000000000002A9C loc_2A9C                                ; CODE XREF: initTlv+DC↑j
+.text:0000000000002A9C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002AA0                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000002AA4                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002AA8                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002AAC                 B               loc_29FC
+.text:0000000000002AB0 ; ---------------------------------------------------------------------------
+.text:0000000000002AB0 loc_2AB0                                ; CODE XREF: initTlv+9C↑j
+.text:0000000000002AB0                 BL              .__stack_chk_fail
+.text:0000000000002AB0 ; } // starts at 2978
+.text:0000000000002AB0 ; End of function initTlv
+.text:0000000000002AB0 ; ---------------------------------------------------------------------------
+.text:0000000000002AB4                 ALIGN 8
+.text:0000000000002AB8 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002AB8 ; Attributes: bp-based frame
+.text:0000000000002AB8                 EXPORT addTlv
+.text:0000000000002AB8 addTlv                                  ; DATA XREF: LOAD:0000000000000408↑o
+.text:0000000000002AB8 var_4060        = -0x4060
+.text:0000000000002AB8 s               = -0x4058
+.text:0000000000002AB8 var_4057        = -0x4057
+.text:0000000000002AB8 var_4055        = -0x4055
+.text:0000000000002AB8 var_2040        = -0x2040
+.text:0000000000002AB8 var_30          = -0x30
+.text:0000000000002AB8 var_20          = -0x20
+.text:0000000000002AB8 var_10          = -0x10
+.text:0000000000002AB8 var_s0          =  0
+.text:0000000000002AB8 ; __unwind {
+.text:0000000000002AB8                 STP             X28, X23, [SP,#-0x10+var_30]!
+.text:0000000000002ABC                 STP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000002AC0                 STP             X20, X19, [SP,#0x30+var_10]
+.text:0000000000002AC4                 STP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000002AC8                 ADD             X29, SP, #0x30
+.text:0000000000002ACC                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002AD0                 MRS             X22, #3, c13, c0, #2
+.text:0000000000002AD4                 LDR             X8, [X22,#0x28]
+.text:0000000000002AD8                 STR             X8, [SP,#0x4030+var_4060]!
+.text:0000000000002ADC                 CBZ             X1, loc_2B7C
+.text:0000000000002AE0                 MOV             W21, W0
+.text:0000000000002AE4                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002AE8                 MOV             W20, W2
+.text:0000000000002AEC                 MOV             X19, X1
+.text:0000000000002AF0                 MOV             W2, #0x200C ; n
+.text:0000000000002AF4                 ADD             X0, X0, #0x18 ; s
+.text:0000000000002AF8                 MOV             W1, WZR ; c
+.text:0000000000002AFC                 ADD             X23, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002B00                 ADD             X23, X23, #0x18
+.text:0000000000002B04                 BL              .memset
+.text:0000000000002B08                 MOV             W2, #0x2009 ; n
+.text:0000000000002B0C                 ADD             X0, SP, #0x4060+s ; s
+.text:0000000000002B10                 MOV             W1, WZR ; c
+.text:0000000000002B14                 BL              .memset
+.text:0000000000002B18                 MOV             W8, #1
+.text:0000000000002B1C                 STUR            W21, [X23,#3]
+.text:0000000000002B20                 MOV             W9, #6
+.text:0000000000002B24                 ADD             X0, X23, #0xC
+.text:0000000000002B28                 MOV             W2, W20
+.text:0000000000002B2C                 STRB            W8, [X23]
+.text:0000000000002B30                 MOV             X1, X19
+.text:0000000000002B34                 STURH           W9, [X23,#1]
+.text:0000000000002B38                 MOV             W3, #0x2000
+.text:0000000000002B3C                 STR             W20, [SP,#0x4060+var_2040]
+.text:0000000000002B40                 BL              .__memcpy_chk
+.text:0000000000002B44                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002B48                 ADD             X0, X0, #0x18
+.text:0000000000002B4C                 ADD             X1, SP, #0x4060+s
+.text:0000000000002B50                 BL              sub_2160
+.text:0000000000002B54                 CBZ             W0, loc_2B84
+.text:0000000000002B58                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002B5C                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002B60                 MOV             W3, W0
+.text:0000000000002B64                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002B68                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002B6C loc_2B6C                                ; CODE XREF: addTlv+154↓j
+.text:0000000000002B6C                                         ; addTlv+170↓j
+.text:0000000000002B6C                 MOV             W0, #6
+.text:0000000000002B70                 BL              .__android_log_print
+.text:0000000000002B74                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002B78                 B               loc_2BD0
+.text:0000000000002B7C ; ---------------------------------------------------------------------------
+.text:0000000000002B7C loc_2B7C                                ; CODE XREF: addTlv+24↑j
+.text:0000000000002B7C                 MOV             W0, #0xFFFFFFFF
+.text:0000000000002B80                 B               loc_2BD0
+.text:0000000000002B84 ; ---------------------------------------------------------------------------
+.text:0000000000002B84 loc_2B84                                ; CODE XREF: addTlv+9C↑j
+.text:0000000000002B84                 LDRB            W3, [SP,#0x4060+s]
+.text:0000000000002B88                 CMP             W3, #1
+.text:0000000000002B8C                 B.NE            loc_2BB4
+.text:0000000000002B90                 LDURH           W3, [SP,#0x4060+var_4057]
+.text:0000000000002B94                 CMP             W3, #6
+.text:0000000000002B98                 B.NE            loc_2BFC
+.text:0000000000002B9C                 LDURH           W3, [SP,#0x4060+var_4055]
+.text:0000000000002BA0                 CBZ             W3, loc_2C10
+.text:0000000000002BA4                 CMP             W3, #6
+.text:0000000000002BA8                 B.NE            loc_2C18
+.text:0000000000002BAC                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002BB0                 B               loc_2BD0
+.text:0000000000002BB4 ; ---------------------------------------------------------------------------
+.text:0000000000002BB4 loc_2BB4                                ; CODE XREF: addTlv+D4↑j
+.text:0000000000002BB4                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002BB8                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002BBC                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002BC0                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002BC4                 MOV             W0, #6
+.text:0000000000002BC8                 BL              .__android_log_print
+.text:0000000000002BCC                 MOV             W0, #0xFFFFFFFE
+.text:0000000000002BD0 loc_2BD0                                ; CODE XREF: addTlv+C0↑j
+.text:0000000000002BD0                                         ; addTlv+C8↑j ...
+.text:0000000000002BD0                 LDR             X8, [X22,#0x28]
+.text:0000000000002BD4                 LDR             X9, [SP,#0x4060+var_4060]
+.text:0000000000002BD8                 CMP             X8, X9
+.text:0000000000002BDC                 B.NE            loc_2C2C
+.text:0000000000002BE0                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002BE4                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002BE8                 LDP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000002BEC                 LDP             X20, X19, [SP,#0x30+var_10]
+.text:0000000000002BF0                 LDP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000002BF4                 LDP             X28, X23, [SP+0x30+var_30],#0x40
+.text:0000000000002BF8                 RET
+.text:0000000000002BFC ; ---------------------------------------------------------------------------
+.text:0000000000002BFC loc_2BFC                                ; CODE XREF: addTlv+E0↑j
+.text:0000000000002BFC                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002C00                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002C04                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002C08                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002C0C                 B               loc_2B6C
+.text:0000000000002C10 ; ---------------------------------------------------------------------------
+.text:0000000000002C10 loc_2C10                                ; CODE XREF: addTlv+E8↑j
+.text:0000000000002C10                 MOV             W0, WZR
+.text:0000000000002C14                 B               loc_2BD0
+.text:0000000000002C18 ; ---------------------------------------------------------------------------
+.text:0000000000002C18 loc_2C18                                ; CODE XREF: addTlv+F0↑j
+.text:0000000000002C18                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002C1C                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000002C20                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002C24                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002C28                 B               loc_2B6C
+.text:0000000000002C2C ; ---------------------------------------------------------------------------
+.text:0000000000002C2C loc_2C2C                                ; CODE XREF: addTlv+124↑j
+.text:0000000000002C2C                 BL              .__stack_chk_fail
+.text:0000000000002C2C ; } // starts at 2AB8
+.text:0000000000002C2C ; End of function addTlv
+.text:0000000000002C30 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002C30 ; Attributes: bp-based frame
+.text:0000000000002C30                 EXPORT getDrkCertificate
+.text:0000000000002C30 getDrkCertificate                       ; DATA XREF: LOAD:0000000000000480↑o
+.text:0000000000002C30 var_4060        = -0x4060
+.text:0000000000002C30 s               = -0x4058
+.text:0000000000002C30 var_4057        = -0x4057
+.text:0000000000002C30 var_4055        = -0x4055
+.text:0000000000002C30 var_4053        = -0x4053
+.text:0000000000002C30 var_30          = -0x30
+.text:0000000000002C30 var_20          = -0x20
+.text:0000000000002C30 var_10          = -0x10
+.text:0000000000002C30 var_s0          =  0
+.text:0000000000002C30 ; __unwind {
+.text:0000000000002C30                 STP             X28, X23, [SP,#-0x10+var_30]!
+.text:0000000000002C34                 STP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000002C38                 STP             X20, X19, [SP,#0x30+var_10]
+.text:0000000000002C3C                 STP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000002C40                 ADD             X29, SP, #0x30
+.text:0000000000002C44                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002C48                 MRS             X22, #3, c13, c0, #2
+.text:0000000000002C4C                 LDR             X8, [X22,#0x28]
+.text:0000000000002C50                 STR             X8, [SP,#0x4030+var_4060]!
+.text:0000000000002C54                 CBZ             X1, loc_2CD8
+.text:0000000000002C58                 MOV             W21, W0
+.text:0000000000002C5C                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002C60                 MOV             W20, W2
+.text:0000000000002C64                 MOV             X19, X1
+.text:0000000000002C68                 MOV             W2, #0x200C ; n
+.text:0000000000002C6C                 ADD             X0, X0, #0x18 ; s
+.text:0000000000002C70                 MOV             W1, WZR ; c
+.text:0000000000002C74                 ADD             X23, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002C78                 BL              .memset
+.text:0000000000002C7C                 MOV             W2, #0x2009 ; n
+.text:0000000000002C80                 ADD             X0, SP, #0x4060+s ; s
+.text:0000000000002C84                 MOV             W1, WZR ; c
+.text:0000000000002C88                 BL              .memset
+.text:0000000000002C8C                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000002C90                 MOV             W8, #1
+.text:0000000000002C94                 MOV             W9, #8
+.text:0000000000002C98                 ADD             X0, X0, #0x18
+.text:0000000000002C9C                 ADD             X1, SP, #0x4060+s
+.text:0000000000002CA0                 STRB            W8, [X23,#0x18]!
+.text:0000000000002CA4                 STURH           W9, [X23,#1]
+.text:0000000000002CA8                 STUR            W21, [X23,#3]
+.text:0000000000002CAC                 BL              sub_2160
+.text:0000000000002CB0                 CBZ             W0, loc_2CE0
+.text:0000000000002CB4                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002CB8                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002CBC                 MOV             W3, W0
+.text:0000000000002CC0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002CC4                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002CC8 loc_2CC8                                ; CODE XREF: getDrkCertificate+168↓j
+.text:0000000000002CC8                                         ; getDrkCertificate+184↓j
+.text:0000000000002CC8                 MOV             W0, #6
+.text:0000000000002CCC                 BL              .__android_log_print
+.text:0000000000002CD0                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002CD4                 B               loc_2D5C
+.text:0000000000002CD8 ; ---------------------------------------------------------------------------
+.text:0000000000002CD8 loc_2CD8                                ; CODE XREF: getDrkCertificate+24↑j
+.text:0000000000002CD8                 MOV             W0, #0xFFFFFFFF
+.text:0000000000002CDC                 B               loc_2D5C
+.text:0000000000002CE0 ; ---------------------------------------------------------------------------
+.text:0000000000002CE0 loc_2CE0                                ; CODE XREF: getDrkCertificate+80↑j
+.text:0000000000002CE0                 LDRB            W3, [SP,#0x4060+s]
+.text:0000000000002CE4                 CMP             W3, #1
+.text:0000000000002CE8                 B.NE            loc_2D40
+.text:0000000000002CEC                 LDURH           W3, [SP,#0x4060+var_4057]
+.text:0000000000002CF0                 CMP             W3, #8
+.text:0000000000002CF4                 B.NE            loc_2D88
+.text:0000000000002CF8                 LDURH           W3, [SP,#0x4060+var_4055]
+.text:0000000000002CFC                 CMP             W3, #6
+.text:0000000000002D00                 B.EQ            loc_2D9C
+.text:0000000000002D04                 CBNZ            W3, loc_2DA4
+.text:0000000000002D08                 LDUR            W8, [SP,#0x4060+var_4053]
+.text:0000000000002D0C                 CMP             W8, W20
+.text:0000000000002D10                 B.CS            loc_2DB8
+.text:0000000000002D14                 MOV             W2, W20 ; n
+.text:0000000000002D18                 MOV             X0, X19 ; s
+.text:0000000000002D1C                 MOV             W1, WZR ; c
+.text:0000000000002D20                 BL              .memset
+.text:0000000000002D24                 ADD             X8, SP, #0x4060+s
+.text:0000000000002D28                 LDUR            W2, [SP,#0x4060+var_4053] ; n
+.text:0000000000002D2C                 ADD             X1, X8, #9 ; src
+.text:0000000000002D30                 MOV             X0, X19 ; dest
+.text:0000000000002D34                 BL              .memcpy
+.text:0000000000002D38                 LDUR            W0, [SP,#0x4060+var_4053]
+.text:0000000000002D3C                 B               loc_2D5C
+.text:0000000000002D40 ; ---------------------------------------------------------------------------
+.text:0000000000002D40 loc_2D40                                ; CODE XREF: getDrkCertificate+B8↑j
+.text:0000000000002D40                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002D44                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002D48                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002D4C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002D50                 MOV             W0, #6
+.text:0000000000002D54                 BL              .__android_log_print
+.text:0000000000002D58                 MOV             W0, #0xFFFFFFFE
+.text:0000000000002D5C loc_2D5C                                ; CODE XREF: getDrkCertificate+A4↑j
+.text:0000000000002D5C                                         ; getDrkCertificate+AC↑j ...
+.text:0000000000002D5C                 LDR             X8, [X22,#0x28]
+.text:0000000000002D60                 LDR             X9, [SP,#0x4060+var_4060]
+.text:0000000000002D64                 CMP             X8, X9
+.text:0000000000002D68                 B.NE            loc_2DC0
+.text:0000000000002D6C                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002D70                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002D74                 LDP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000002D78                 LDP             X20, X19, [SP,#0x30+var_10]
+.text:0000000000002D7C                 LDP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000002D80                 LDP             X28, X23, [SP+0x30+var_30],#0x40
+.text:0000000000002D84                 RET
+.text:0000000000002D88 ; ---------------------------------------------------------------------------
+.text:0000000000002D88 loc_2D88                                ; CODE XREF: getDrkCertificate+C4↑j
+.text:0000000000002D88                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002D8C                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002D90                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002D94                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002D98                 B               loc_2CC8
+.text:0000000000002D9C ; ---------------------------------------------------------------------------
+.text:0000000000002D9C loc_2D9C                                ; CODE XREF: getDrkCertificate+D0↑j
+.text:0000000000002D9C                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002DA0                 B               loc_2D5C
+.text:0000000000002DA4 ; ---------------------------------------------------------------------------
+.text:0000000000002DA4 loc_2DA4                                ; CODE XREF: getDrkCertificate+D4↑j
+.text:0000000000002DA4                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002DA8                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000002DAC                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002DB0                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002DB4                 B               loc_2CC8
+.text:0000000000002DB8 ; ---------------------------------------------------------------------------
+.text:0000000000002DB8 loc_2DB8                                ; CODE XREF: getDrkCertificate+E0↑j
+.text:0000000000002DB8                 MOV             W0, #0xFFFFFFF9
+.text:0000000000002DBC                 B               loc_2D5C
+.text:0000000000002DC0 ; ---------------------------------------------------------------------------
+.text:0000000000002DC0 loc_2DC0                                ; CODE XREF: getDrkCertificate+138↑j
+.text:0000000000002DC0                 BL              .__stack_chk_fail
+.text:0000000000002DC0 ; } // starts at 2C30
+.text:0000000000002DC0 ; End of function getDrkCertificate
+.text:0000000000002DC0 ; ---------------------------------------------------------------------------
+.text:0000000000002DC4                 ALIGN 8
+.text:0000000000002DC8 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002DC8 ; Attributes: bp-based frame
+.text:0000000000002DC8                 EXPORT sendPseudoAtCommand
+.text:0000000000002DC8 sendPseudoAtCommand                     ; DATA XREF: LOAD:00000000000005B8↑o
+.text:0000000000002DC8 var_4070        = -0x4070
+.text:0000000000002DC8 s               = -0x4068
+.text:0000000000002DC8 var_4067        = -0x4067
+.text:0000000000002DC8 var_4065        = -0x4065
+.text:0000000000002DC8 var_4063        = -0x4063
+.text:0000000000002DC8 var_2050        = -0x2050
+.text:0000000000002DC8 var_40          = -0x40
+.text:0000000000002DC8 var_30          = -0x30
+.text:0000000000002DC8 var_20          = -0x20
+.text:0000000000002DC8 var_10          = -0x10
+.text:0000000000002DC8 var_s0          =  0
+.text:0000000000002DC8 ; __unwind {
+.text:0000000000002DC8                 STR             X28, [SP,#-0x10+var_40]!
+.text:0000000000002DCC                 STP             X24, X23, [SP,#0x40+var_30]
+.text:0000000000002DD0                 STP             X22, X21, [SP,#0x40+var_20]
+.text:0000000000002DD4                 STP             X20, X19, [SP,#0x40+var_10]
+.text:0000000000002DD8                 STP             X29, X30, [SP,#0x40+var_s0]
+.text:0000000000002DDC                 ADD             X29, SP, #0x40
+.text:0000000000002DE0                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002DE4                 MRS             X23, #3, c13, c0, #2
+.text:0000000000002DE8                 LDR             X8, [X23,#0x28]
+.text:0000000000002DEC                 STR             X8, [SP,#0x4040+var_4070]!
+.text:0000000000002DF0                 CBZ             X0, loc_2E90
+.text:0000000000002DF4                 MOV             X21, X0
+.text:0000000000002DF8                 ADD             X0, SP, #0x4070+var_4070+2,LSL#12
+.text:0000000000002DFC                 MOV             X19, X2
+.text:0000000000002E00                 MOV             W22, W1
+.text:0000000000002E04                 MOV             W2, #0x200C ; n
+.text:0000000000002E08                 ADD             X0, X0, #0x18 ; s
+.text:0000000000002E0C                 MOV             W1, WZR ; c
+.text:0000000000002E10                 ADD             X24, SP, #0x4070+var_4070+2,LSL#12
+.text:0000000000002E14                 MOV             W20, W3
+.text:0000000000002E18                 ADD             X24, X24, #0x18
+.text:0000000000002E1C                 BL              .memset
+.text:0000000000002E20                 MOV             W2, #0x2009 ; n
+.text:0000000000002E24                 ADD             X0, SP, #0x4070+s ; s
+.text:0000000000002E28                 MOV             W1, WZR ; c
+.text:0000000000002E2C                 BL              .memset
+.text:0000000000002E30                 MOV             W8, #1
+.text:0000000000002E34                 MOV             W9, #7
+.text:0000000000002E38                 ADD             X0, X24, #0xC
+.text:0000000000002E3C                 MOV             W2, W22
+.text:0000000000002E40                 STRB            W8, [X24]
+.text:0000000000002E44                 MOV             X1, X21
+.text:0000000000002E48                 STURH           W9, [X24,#1]
+.text:0000000000002E4C                 MOV             W3, #0x2000
+.text:0000000000002E50                 STR             W22, [SP,#0x4070+var_2050]
+.text:0000000000002E54                 BL              .__memcpy_chk
+.text:0000000000002E58                 ADD             X0, SP, #0x4070+var_4070+2,LSL#12
+.text:0000000000002E5C                 ADD             X0, X0, #0x18
+.text:0000000000002E60                 ADD             X1, SP, #0x4070+s
+.text:0000000000002E64                 BL              sub_2160
+.text:0000000000002E68                 CBZ             W0, loc_2E98
+.text:0000000000002E6C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002E70                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002E74                 MOV             W3, W0
+.text:0000000000002E78                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002E7C                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000002E80 loc_2E80                                ; CODE XREF: sendPseudoAtCommand+18C↓j
+.text:0000000000002E80                                         ; sendPseudoAtCommand+1A8↓j
+.text:0000000000002E80                 MOV             W0, #6
+.text:0000000000002E84                 BL              .__android_log_print
+.text:0000000000002E88                 MOV             W0, #0xFFFFFFFB
+.text:0000000000002E8C                 B               loc_2F14
+.text:0000000000002E90 ; ---------------------------------------------------------------------------
+.text:0000000000002E90 loc_2E90                                ; CODE XREF: sendPseudoAtCommand+28↑j
+.text:0000000000002E90                 MOV             W0, #0xFFFFFFFF
+.text:0000000000002E94                 B               loc_2F14
+.text:0000000000002E98 ; ---------------------------------------------------------------------------
+.text:0000000000002E98 loc_2E98                                ; CODE XREF: sendPseudoAtCommand+A0↑j
+.text:0000000000002E98                 LDRB            W3, [SP,#0x4070+s]
+.text:0000000000002E9C                 CMP             W3, #1
+.text:0000000000002EA0                 B.NE            loc_2EF8
+.text:0000000000002EA4                 LDURH           W3, [SP,#0x4070+var_4067]
+.text:0000000000002EA8                 CMP             W3, #7
+.text:0000000000002EAC                 B.NE            loc_2F44
+.text:0000000000002EB0                 LDURH           W3, [SP,#0x4070+var_4065]
+.text:0000000000002EB4                 CMP             W3, #6
+.text:0000000000002EB8                 B.EQ            loc_2F58
+.text:0000000000002EBC                 CBNZ            W3, loc_2F60
+.text:0000000000002EC0                 LDUR            W8, [SP,#0x4070+var_4063]
+.text:0000000000002EC4                 CMP             W8, W20
+.text:0000000000002EC8                 B.CS            loc_2F74
+.text:0000000000002ECC                 MOV             W2, W20 ; n
+.text:0000000000002ED0                 MOV             X0, X19 ; s
+.text:0000000000002ED4                 MOV             W1, WZR ; c
+.text:0000000000002ED8                 BL              .memset
+.text:0000000000002EDC                 ADD             X8, SP, #0x4070+s
+.text:0000000000002EE0                 LDUR            W2, [SP,#0x4070+var_4063] ; n
+.text:0000000000002EE4                 ADD             X1, X8, #9 ; src
+.text:0000000000002EE8                 MOV             X0, X19 ; dest
+.text:0000000000002EEC                 BL              .memcpy
+.text:0000000000002EF0                 LDUR            W0, [SP,#0x4070+var_4063]
+.text:0000000000002EF4                 B               loc_2F14
+.text:0000000000002EF8 ; ---------------------------------------------------------------------------
+.text:0000000000002EF8 loc_2EF8                                ; CODE XREF: sendPseudoAtCommand+D8↑j
+.text:0000000000002EF8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002EFC                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000002F00                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002F04                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000002F08                 MOV             W0, #6
+.text:0000000000002F0C                 BL              .__android_log_print
+.text:0000000000002F10                 MOV             W0, #0xFFFFFFFE
+.text:0000000000002F14 loc_2F14                                ; CODE XREF: sendPseudoAtCommand+C4↑j
+.text:0000000000002F14                                         ; sendPseudoAtCommand+CC↑j ...
+.text:0000000000002F14                 LDR             X8, [X23,#0x28]
+.text:0000000000002F18                 LDR             X9, [SP,#0x4070+var_4070]
+.text:0000000000002F1C                 CMP             X8, X9
+.text:0000000000002F20                 B.NE            loc_2F7C
+.text:0000000000002F24                 ADD             SP, SP, #4,LSL#12
+.text:0000000000002F28                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000002F2C                 LDP             X29, X30, [SP,#0x40+var_s0]
+.text:0000000000002F30                 LDP             X20, X19, [SP,#0x40+var_10]
+.text:0000000000002F34                 LDP             X22, X21, [SP,#0x40+var_20]
+.text:0000000000002F38                 LDP             X24, X23, [SP,#0x40+var_30]
+.text:0000000000002F3C                 LDR             X28, [SP+0x40+var_40],#0x50
+.text:0000000000002F40                 RET
+.text:0000000000002F44 ; ---------------------------------------------------------------------------
+.text:0000000000002F44 loc_2F44                                ; CODE XREF: sendPseudoAtCommand+E4↑j
+.text:0000000000002F44                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002F48                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000002F4C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002F50                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000002F54                 B               loc_2E80
+.text:0000000000002F58 ; ---------------------------------------------------------------------------
+.text:0000000000002F58 loc_2F58                                ; CODE XREF: sendPseudoAtCommand+F0↑j
+.text:0000000000002F58                 MOV             W0, #0xFFFFFFFA
+.text:0000000000002F5C                 B               loc_2F14
+.text:0000000000002F60 ; ---------------------------------------------------------------------------
+.text:0000000000002F60 loc_2F60                                ; CODE XREF: sendPseudoAtCommand+F4↑j
+.text:0000000000002F60                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000002F64                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000002F68                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000002F6C                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:0000000000002F70                 B               loc_2E80
+.text:0000000000002F74 ; ---------------------------------------------------------------------------
+.text:0000000000002F74 loc_2F74                                ; CODE XREF: sendPseudoAtCommand+100↑j
+.text:0000000000002F74                 MOV             W0, #0xFFFFFFF9
+.text:0000000000002F78                 B               loc_2F14
+.text:0000000000002F7C ; ---------------------------------------------------------------------------
+.text:0000000000002F7C loc_2F7C                                ; CODE XREF: sendPseudoAtCommand+158↑j
+.text:0000000000002F7C                 BL              .__stack_chk_fail
+.text:0000000000002F7C ; } // starts at 2DC8
+.text:0000000000002F7C ; End of function sendPseudoAtCommand
+.text:0000000000002F80 ; =============== S U B R O U T I N E =======================================
+.text:0000000000002F80 ; Attributes: bp-based frame
+.text:0000000000002F80                 EXPORT verifyProvServiceBlob
+.text:0000000000002F80 verifyProvServiceBlob                   ; DATA XREF: LOAD:00000000000004B0↑o
+.text:0000000000002F80 var_4080        = -0x4080
+.text:0000000000002F80 s               = -0x4078
+.text:0000000000002F80 var_4077        = -0x4077
+.text:0000000000002F80 var_4075        = -0x4075
+.text:0000000000002F80 var_4073        = -0x4073
+.text:0000000000002F80 var_2060        = -0x2060
+.text:0000000000002F80 var_50          = -0x50
+.text:0000000000002F80 var_40          = -0x40
+.text:0000000000002F80 var_30          = -0x30
+.text:0000000000002F80 var_20          = -0x20
+.text:0000000000002F80 var_10          = -0x10
+.text:0000000000002F80 var_s0          =  0
+.text:0000000000002F80 ; __unwind {
+.text:0000000000002F80                 STR             X28, [SP,#-0x10+var_50]!
+.text:0000000000002F84                 STP             X26, X25, [SP,#0x50+var_40]
+.text:0000000000002F88                 STP             X24, X23, [SP,#0x50+var_30]
+.text:0000000000002F8C                 STP             X22, X21, [SP,#0x50+var_20]
+.text:0000000000002F90                 STP             X20, X19, [SP,#0x50+var_10]
+.text:0000000000002F94                 STP             X29, X30, [SP,#0x50+var_s0]
+.text:0000000000002F98                 ADD             X29, SP, #0x50
+.text:0000000000002F9C                 SUB             SP, SP, #4,LSL#12
+.text:0000000000002FA0                 MRS             X24, #3, c13, c0, #2
+.text:0000000000002FA4                 MOV             X21, X0
+.text:0000000000002FA8                 LDR             X8, [X24,#0x28]
+.text:0000000000002FAC                 MOV             W0, #0xFFFFFFFF
+.text:0000000000002FB0                 STR             X8, [SP,#0x4050+var_4080]!
+.text:0000000000002FB4                 CBZ             X21, loc_306C
+.text:0000000000002FB8                 MOV             X19, X3
+.text:0000000000002FBC                 CBZ             X3, loc_306C
+.text:0000000000002FC0                 ADD             X26, SP, #0x4080+var_4080+2,LSL#12
+.text:0000000000002FC4                 ADD             X26, X26, #0x18
+.text:0000000000002FC8                 MOV             W23, W2
+.text:0000000000002FCC                 MOV             W22, W1
+.text:0000000000002FD0                 ADD             X0, X26, #8 ; s
+.text:0000000000002FD4                 MOV             W2, #0x2004 ; n
+.text:0000000000002FD8                 MOV             W1, WZR ; c
+.text:0000000000002FDC                 ADD             X25, SP, #0x4080+var_4080+2,LSL#12
+.text:0000000000002FE0                 MOV             W20, W4
+.text:0000000000002FE4                 ADD             X25, X25, #0x18
+.text:0000000000002FE8                 BL              .memset
+.text:0000000000002FEC                 MOV             W2, #0x2009 ; n
+.text:0000000000002FF0                 ADD             X0, SP, #0x4080+s ; s
+.text:0000000000002FF4                 MOV             W1, WZR ; c
+.text:0000000000002FF8                 BL              .memset
+.text:0000000000002FFC                 MOV             W8, #1
+.text:0000000000003000                 STRB            W23, [X25,#7]
+.text:0000000000003004                 MOV             W9, #9
+.text:0000000000003008                 STUR            W22, [X25,#3]
+.text:000000000000300C                 MOV             X0, X21 ; s
+.text:0000000000003010                 STRB            W8, [X25]
+.text:0000000000003014                 STURH           W9, [X25,#1]
+.text:0000000000003018                 BL              .strlen
+.text:000000000000301C                 ADD             X8, X26, #0xC
+.text:0000000000003020                 STR             W0, [SP,#0x4080+var_2060]
+.text:0000000000003024                 AND             X2, X0, #0xFFFFFFFF
+.text:0000000000003028                 MOV             X0, X8
+.text:000000000000302C                 MOV             X1, X21
+.text:0000000000003030                 MOV             W3, #0x2000
+.text:0000000000003034                 BL              .__memcpy_chk
+.text:0000000000003038                 ADD             X0, SP, #0x4080+var_4080+2,LSL#12
+.text:000000000000303C                 ADD             X0, X0, #0x18
+.text:0000000000003040                 ADD             X1, SP, #0x4080+s
+.text:0000000000003044                 BL              sub_2160
+.text:0000000000003048                 CBZ             W0, loc_30A0
+.text:000000000000304C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003050                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000003054                 MOV             W3, W0
+.text:0000000000003058                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000305C                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000003060 loc_3060                                ; CODE XREF: verifyProvServiceBlob+1B0↓j
+.text:0000000000003060                                         ; verifyProvServiceBlob+1CC↓j
+.text:0000000000003060                 MOV             W0, #6
+.text:0000000000003064                 BL              .__android_log_print
+.text:0000000000003068                 MOV             W0, #0xFFFFFFFB
+.text:000000000000306C loc_306C                                ; CODE XREF: verifyProvServiceBlob+34↑j
+.text:000000000000306C                                         ; verifyProvServiceBlob+3C↑j ...
+.text:000000000000306C                 LDR             X8, [X24,#0x28]
+.text:0000000000003070                 LDR             X9, [SP,#0x4080+var_4080]
+.text:0000000000003074                 CMP             X8, X9
+.text:0000000000003078                 B.NE            loc_3158
+.text:000000000000307C                 ADD             SP, SP, #4,LSL#12
+.text:0000000000003080                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000003084                 LDP             X29, X30, [SP,#0x50+var_s0]
+.text:0000000000003088                 LDP             X20, X19, [SP,#0x50+var_10]
+.text:000000000000308C                 LDP             X22, X21, [SP,#0x50+var_20]
+.text:0000000000003090                 LDP             X24, X23, [SP,#0x50+var_30]
+.text:0000000000003094                 LDP             X26, X25, [SP,#0x50+var_40]
+.text:0000000000003098                 LDR             X28, [SP+0x50+var_50],#0x60
+.text:000000000000309C                 RET
+.text:00000000000030A0 ; ---------------------------------------------------------------------------
+.text:00000000000030A0 loc_30A0                                ; CODE XREF: verifyProvServiceBlob+C8↑j
+.text:00000000000030A0                 LDRB            W3, [SP,#0x4080+s]
+.text:00000000000030A4                 CMP             W3, #1
+.text:00000000000030A8                 B.NE            loc_3100
+.text:00000000000030AC                 LDURH           W3, [SP,#0x4080+var_4077]
+.text:00000000000030B0                 CMP             W3, #9
+.text:00000000000030B4                 B.NE            loc_3120
+.text:00000000000030B8                 LDURH           W3, [SP,#0x4080+var_4075]
+.text:00000000000030BC                 CMP             W3, #6
+.text:00000000000030C0                 B.EQ            loc_3134
+.text:00000000000030C4                 CBNZ            W3, loc_313C
+.text:00000000000030C8                 LDUR            W8, [SP,#0x4080+var_4073]
+.text:00000000000030CC                 CMP             W8, W20
+.text:00000000000030D0                 B.CS            loc_3150
+.text:00000000000030D4                 MOV             W2, W20 ; n
+.text:00000000000030D8                 MOV             X0, X19 ; s
+.text:00000000000030DC                 MOV             W1, WZR ; c
+.text:00000000000030E0                 BL              .memset
+.text:00000000000030E4                 ADD             X8, SP, #0x4080+s
+.text:00000000000030E8                 LDUR            W2, [SP,#0x4080+var_4073] ; n
+.text:00000000000030EC                 ADD             X1, X8, #9 ; src
+.text:00000000000030F0                 MOV             X0, X19 ; dest
+.text:00000000000030F4                 BL              .memcpy
+.text:00000000000030F8                 LDUR            W0, [SP,#0x4080+var_4073]
+.text:00000000000030FC                 B               loc_306C
+.text:0000000000003100 ; ---------------------------------------------------------------------------
+.text:0000000000003100 loc_3100                                ; CODE XREF: verifyProvServiceBlob+128↑j
+.text:0000000000003100                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003104                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000003108                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000310C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000003110                 MOV             W0, #6
+.text:0000000000003114                 BL              .__android_log_print
+.text:0000000000003118                 MOV             W0, #0xFFFFFFFE
+.text:000000000000311C                 B               loc_306C
+.text:0000000000003120 ; ---------------------------------------------------------------------------
+.text:0000000000003120 loc_3120                                ; CODE XREF: verifyProvServiceBlob+134↑j
+.text:0000000000003120                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003124                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000003128                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000312C                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000003130                 B               loc_3060
+.text:0000000000003134 ; ---------------------------------------------------------------------------
+.text:0000000000003134 loc_3134                                ; CODE XREF: verifyProvServiceBlob+140↑j
+.text:0000000000003134                 MOV             W0, #0xFFFFFFFA
+.text:0000000000003138                 B               loc_306C
+.text:000000000000313C ; ---------------------------------------------------------------------------
+.text:000000000000313C loc_313C                                ; CODE XREF: verifyProvServiceBlob+144↑j
+.text:000000000000313C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003140                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:0000000000003144                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003148                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:000000000000314C                 B               loc_3060
+.text:0000000000003150 ; ---------------------------------------------------------------------------
+.text:0000000000003150 loc_3150                                ; CODE XREF: verifyProvServiceBlob+150↑j
+.text:0000000000003150                 MOV             W0, #0xFFFFFFF9
+.text:0000000000003154                 B               loc_306C
+.text:0000000000003158 ; ---------------------------------------------------------------------------
+.text:0000000000003158 loc_3158                                ; CODE XREF: verifyProvServiceBlob+F8↑j
+.text:0000000000003158                 BL              .__stack_chk_fail
+.text:0000000000003158 ; } // starts at 2F80
+.text:0000000000003158 ; End of function verifyProvServiceBlob
+.text:0000000000003158 ; ---------------------------------------------------------------------------
+.text:000000000000315C                 ALIGN 0x20
+.text:0000000000003160 ; =============== S U B R O U T I N E =======================================
+.text:0000000000003160 ; Attributes: bp-based frame
+.text:0000000000003160                 EXPORT sendBigData
+.text:0000000000003160 sendBigData                             ; DATA XREF: LOAD:00000000000005A0↑o
+.text:0000000000003160 var_4060        = -0x4060
+.text:0000000000003160 s               = -0x4058
+.text:0000000000003160 var_4057        = -0x4057
+.text:0000000000003160 var_4055        = -0x4055
+.text:0000000000003160 var_2040        = -0x2040
+.text:0000000000003160 var_30          = -0x30
+.text:0000000000003160 var_20          = -0x20
+.text:0000000000003160 var_10          = -0x10
+.text:0000000000003160 var_s0          =  0
+.text:0000000000003160 ; __unwind {
+.text:0000000000003160                 STR             X28, [SP,#-0x10+var_30]!
+.text:0000000000003164                 STP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000003168                 STP             X20, X19, [SP,#0x30+var_10]
+.text:000000000000316C                 STP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000003170                 ADD             X29, SP, #0x30
+.text:0000000000003174                 SUB             SP, SP, #4,LSL#12
+.text:0000000000003178                 MRS             X21, #3, c13, c0, #2
+.text:000000000000317C                 LDR             X8, [X21,#0x28]
+.text:0000000000003180                 STR             X8, [SP,#0x4030+var_4060]!
+.text:0000000000003184                 CBZ             X1, loc_3228
+.text:0000000000003188                 MOV             W20, W0
+.text:000000000000318C                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000003190                 MOV             X19, X1
+.text:0000000000003194                 MOV             W2, #0x200C ; n
+.text:0000000000003198                 ADD             X0, X0, #0x18 ; s
+.text:000000000000319C                 MOV             W1, WZR ; c
+.text:00000000000031A0                 ADD             X22, SP, #0x4060+var_4060+2,LSL#12
+.text:00000000000031A4                 BL              .memset
+.text:00000000000031A8                 MOV             W2, #0x2009 ; n
+.text:00000000000031AC                 ADD             X0, SP, #0x4060+s ; s
+.text:00000000000031B0                 MOV             W1, WZR ; c
+.text:00000000000031B4                 BL              .memset
+.text:00000000000031B8                 MOV             W8, #1
+.text:00000000000031BC                 MOV             W9, #0xB
+.text:00000000000031C0                 MOV             X0, X19 ; s
+.text:00000000000031C4                 STRB            W8, [X22,#0x18]!
+.text:00000000000031C8                 STURH           W9, [X22,#1]
+.text:00000000000031CC                 STUR            W20, [X22,#3]
+.text:00000000000031D0                 BL              .strlen
+.text:00000000000031D4                 ADD             X8, X22, #0xC
+.text:00000000000031D8                 STR             W0, [SP,#0x4060+var_2040]
+.text:00000000000031DC                 AND             X2, X0, #0xFFFFFFFF
+.text:00000000000031E0                 MOV             X0, X8
+.text:00000000000031E4                 MOV             X1, X19
+.text:00000000000031E8                 MOV             W3, #0x2000
+.text:00000000000031EC                 BL              .__memcpy_chk
+.text:00000000000031F0                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:00000000000031F4                 ADD             X0, X0, #0x18
+.text:00000000000031F8                 ADD             X1, SP, #0x4060+s
+.text:00000000000031FC                 BL              sub_2160
+.text:0000000000003200                 CBZ             W0, loc_3230
+.text:0000000000003204                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003208                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:000000000000320C                 MOV             W3, W0
+.text:0000000000003210                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003214                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:0000000000003218 loc_3218                                ; CODE XREF: sendBigData+158↓j
+.text:0000000000003218                                         ; sendBigData+174↓j
+.text:0000000000003218                 MOV             W0, #6
+.text:000000000000321C                 BL              .__android_log_print
+.text:0000000000003220                 MOV             W0, #0xFFFFFFFB
+.text:0000000000003224                 B               loc_327C
+.text:0000000000003228 ; ---------------------------------------------------------------------------
+.text:0000000000003228 loc_3228                                ; CODE XREF: sendBigData+24↑j
+.text:0000000000003228                 MOV             W0, #0xFFFFFFFF
+.text:000000000000322C                 B               loc_327C
+.text:0000000000003230 ; ---------------------------------------------------------------------------
+.text:0000000000003230 loc_3230                                ; CODE XREF: sendBigData+A0↑j
+.text:0000000000003230                 LDRB            W3, [SP,#0x4060+s]
+.text:0000000000003234                 CMP             W3, #1
+.text:0000000000003238                 B.NE            loc_3260
+.text:000000000000323C                 LDURH           W3, [SP,#0x4060+var_4057]
+.text:0000000000003240                 CMP             W3, #0xB
+.text:0000000000003244                 B.NE            loc_32A8
+.text:0000000000003248                 LDURH           W3, [SP,#0x4060+var_4055]
+.text:000000000000324C                 CBZ             W3, loc_32BC
+.text:0000000000003250                 CMP             W3, #6
+.text:0000000000003254                 B.NE            loc_32C4
+.text:0000000000003258                 MOV             W0, #0xFFFFFFFA
+.text:000000000000325C                 B               loc_327C
+.text:0000000000003260 ; ---------------------------------------------------------------------------
+.text:0000000000003260 loc_3260                                ; CODE XREF: sendBigData+D8↑j
+.text:0000000000003260                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003264                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000003268                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000326C                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:0000000000003270                 MOV             W0, #6
+.text:0000000000003274                 BL              .__android_log_print
+.text:0000000000003278                 MOV             W0, #0xFFFFFFFE
+.text:000000000000327C loc_327C                                ; CODE XREF: sendBigData+C4↑j
+.text:000000000000327C                                         ; sendBigData+CC↑j ...
+.text:000000000000327C                 LDR             X8, [X21,#0x28]
+.text:0000000000003280                 LDR             X9, [SP,#0x4060+var_4060]
+.text:0000000000003284                 CMP             X8, X9
+.text:0000000000003288                 B.NE            loc_32D8
+.text:000000000000328C                 ADD             SP, SP, #4,LSL#12
+.text:0000000000003290                 ADD             SP, SP, #0x30 ; '0'
+.text:0000000000003294                 LDP             X29, X30, [SP,#0x30+var_s0]
+.text:0000000000003298                 LDP             X20, X19, [SP,#0x30+var_10]
+.text:000000000000329C                 LDP             X22, X21, [SP,#0x30+var_20]
+.text:00000000000032A0                 LDR             X28, [SP+0x30+var_30],#0x40
+.text:00000000000032A4                 RET
+.text:00000000000032A8 ; ---------------------------------------------------------------------------
+.text:00000000000032A8 loc_32A8                                ; CODE XREF: sendBigData+E4↑j
+.text:00000000000032A8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000032AC                 ADRP            X2, #aRdtCmdidDAreNo@PAGE ; "rdt.cmdId(%d) are not mismatched."
+.text:00000000000032B0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000032B4                 ADD             X2, X2, #aRdtCmdidDAreNo@PAGEOFF ; "rdt.cmdId(%d) are not mismatched."
+.text:00000000000032B8                 B               loc_3218
+.text:00000000000032BC ; ---------------------------------------------------------------------------
+.text:00000000000032BC loc_32BC                                ; CODE XREF: sendBigData+EC↑j
+.text:00000000000032BC                 MOV             W0, WZR
+.text:00000000000032C0                 B               loc_327C
+.text:00000000000032C4 ; ---------------------------------------------------------------------------
+.text:00000000000032C4 loc_32C4                                ; CODE XREF: sendBigData+F4↑j
+.text:00000000000032C4                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000032C8                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:00000000000032CC                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000032D0                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:00000000000032D4                 B               loc_3218
+.text:00000000000032D8 ; ---------------------------------------------------------------------------
+.text:00000000000032D8 loc_32D8                                ; CODE XREF: sendBigData+128↑j
+.text:00000000000032D8                 BL              .__stack_chk_fail
+.text:00000000000032D8 ; } // starts at 3160
+.text:00000000000032D8 ; End of function sendBigData
+.text:00000000000032D8 ; ---------------------------------------------------------------------------
+.text:00000000000032DC                 ALIGN 0x20
+.text:00000000000032E0 ; =============== S U B R O U T I N E =======================================
+.text:00000000000032E0 ; Attributes: bp-based frame
+.text:00000000000032E0                 EXPORT getDeviceInfo
+.text:00000000000032E0 getDeviceInfo                           ; DATA XREF: LOAD:0000000000000468↑o
+.text:00000000000032E0 var_4060        = -0x4060
+.text:00000000000032E0 s               = -0x4058
+.text:00000000000032E0 var_4057        = -0x4057
+.text:00000000000032E0 var_4055        = -0x4055
+.text:00000000000032E0 var_4053        = -0x4053
+.text:00000000000032E0 var_404F        = -0x404F
+.text:00000000000032E0 var_404E        = -0x404E
+.text:00000000000032E0 var_404D        = -0x404D
+.text:00000000000032E0 var_30          = -0x30
+.text:00000000000032E0 var_20          = -0x20
+.text:00000000000032E0 var_10          = -0x10
+.text:00000000000032E0 var_s0          =  0
+.text:00000000000032E0 ; __unwind {
+.text:00000000000032E0                 STP             X28, X23, [SP,#-0x10+var_30]!
+.text:00000000000032E4                 STP             X22, X21, [SP,#0x30+var_20]
+.text:00000000000032E8                 STP             X20, X19, [SP,#0x30+var_10]
+.text:00000000000032EC                 STP             X29, X30, [SP,#0x30+var_s0]
+.text:00000000000032F0                 ADD             X29, SP, #0x30
+.text:00000000000032F4                 SUB             SP, SP, #4,LSL#12
+.text:00000000000032F8                 MRS             X22, #3, c13, c0, #2
+.text:00000000000032FC                 SUB             W9, W0, #1
+.text:0000000000003300                 LDR             X8, [X22,#0x28]
+.text:0000000000003304                 CMP             W9, #0xD
+.text:0000000000003308                 STR             X8, [SP,#0x4030+var_4060]!
+.text:000000000000330C                 B.HI            loc_335C
+.text:0000000000003310                 MOV             X19, X1
+.text:0000000000003314                 CBZ             X1, loc_335C
+.text:0000000000003318                 ADRP            X23, #byte_6020@PAGE
+.text:000000000000331C                 MOV             W20, W0
+.text:0000000000003320                 LDRB            W8, [X23,#byte_6020@PAGEOFF]
+.text:0000000000003324                 TBZ             W8, #0, loc_337C
+.text:0000000000003328 loc_3328                                ; CODE XREF: getDeviceInfo+454↓j
+.text:0000000000003328                 MOVI            V0.2D, #0
+.text:000000000000332C                 ADRP            X8, #byte_6081@PAGE
+.text:0000000000003330                 STRB            WZR, [X19,#0x60]
+.text:0000000000003334                 STP             Q0, Q0, [X19,#0x40]
+.text:0000000000003338                 STP             Q0, Q0, [X19,#0x20]
+.text:000000000000333C                 STP             Q0, Q0, [X19]
+.text:0000000000003340                 LDRB            W8, [X8,#byte_6081@PAGEOFF]
+.text:0000000000003344                 STRB            W8, [X19,#0x60]
+.text:0000000000003348                 TBNZ            W20, #2, loc_33EC
+.text:000000000000334C                 TBNZ            W20, #1, loc_3400
+.text:0000000000003350 loc_3350                                ; CODE XREF: getDeviceInfo+11C↓j
+.text:0000000000003350                 TBNZ            W20, #3, loc_3414
+.text:0000000000003354 loc_3354                                ; CODE XREF: getDeviceInfo+130↓j
+.text:0000000000003354                 MOV             W20, WZR
+.text:0000000000003358                 B               loc_34B4
+.text:000000000000335C ; ---------------------------------------------------------------------------
+.text:000000000000335C loc_335C                                ; CODE XREF: getDeviceInfo+2C↑j
+.text:000000000000335C                                         ; getDeviceInfo+34↑j
+.text:000000000000335C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003360                 ADRP            X2, #aInvalidArgumen@PAGE ; "Invalid argument."
+.text:0000000000003364                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003368                 ADD             X2, X2, #aInvalidArgumen@PAGEOFF ; "Invalid argument."
+.text:000000000000336C                 MOV             W0, #6
+.text:0000000000003370                 BL              .__android_log_print
+.text:0000000000003374                 MOV             W20, #0xFFFFFFFF
+.text:0000000000003378                 B               loc_34D8
+.text:000000000000337C ; ---------------------------------------------------------------------------
+.text:000000000000337C loc_337C                                ; CODE XREF: getDeviceInfo+44↑j
+.text:000000000000337C                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000003380                 MOV             W2, #0x200C ; n
+.text:0000000000003384                 ADD             X0, X0, #0x18 ; s
+.text:0000000000003388                 MOV             W1, WZR ; c
+.text:000000000000338C                 ADD             X21, SP, #0x4060+var_4060+2,LSL#12
+.text:0000000000003390                 BL              .memset
+.text:0000000000003394                 MOV             W2, #0x2009 ; n
+.text:0000000000003398                 ADD             X0, SP, #0x4060+s ; s
+.text:000000000000339C                 MOV             W1, WZR ; c
+.text:00000000000033A0                 BL              .memset
+.text:00000000000033A4                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:00000000000033A8                 MOV             W8, #1
+.text:00000000000033AC                 MOV             W9, #0xC
+.text:00000000000033B0                 ADD             X0, X0, #0x18
+.text:00000000000033B4                 ADD             X1, SP, #0x4060+s
+.text:00000000000033B8                 STRB            W8, [X21,#0x18]!
+.text:00000000000033BC                 STURH           W9, [X21,#1]
+.text:00000000000033C0                 BL              sub_2160
+.text:00000000000033C4                 CBZ             W0, loc_342C
+.text:00000000000033C8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000033CC                 ADRP            X2, #aFailedToCommun@PAGE ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000033D0                 MOV             W3, W0
+.text:00000000000033D4                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000033D8                 ADD             X2, X2, #aFailedToCommun@PAGEOFF ; "Failed to communicate DrkSerivce. = %d"
+.text:00000000000033DC loc_33DC                                ; CODE XREF: getDeviceInfo+238↓j
+.text:00000000000033DC                 MOV             W0, #6
+.text:00000000000033E0 loc_33E0                                ; CODE XREF: getDeviceInfo+280↓j
+.text:00000000000033E0                 BL              .__android_log_print
+.text:00000000000033E4                 MOV             W20, #0xFFFFFFFB
+.text:00000000000033E8                 B               loc_3498
+.text:00000000000033EC ; ---------------------------------------------------------------------------
+.text:00000000000033EC loc_33EC                                ; CODE XREF: getDeviceInfo+68↑j
+.text:00000000000033EC                 ADRP            X8, #unk_6021@PAGE
+.text:00000000000033F0                 ADD             X8, X8, #unk_6021@PAGEOFF
+.text:00000000000033F4                 LDP             Q0, Q1, [X8]
+.text:00000000000033F8                 STP             Q0, Q1, [X19]
+.text:00000000000033FC                 TBZ             W20, #1, loc_3350
+.text:0000000000003400 loc_3400                                ; CODE XREF: getDeviceInfo+6C↑j
+.text:0000000000003400                 ADRP            X8, #unk_6041@PAGE
+.text:0000000000003404                 ADD             X8, X8, #unk_6041@PAGEOFF
+.text:0000000000003408                 LDP             Q0, Q1, [X8]
+.text:000000000000340C                 STP             Q0, Q1, [X19,#0x20]
+.text:0000000000003410                 TBZ             W20, #3, loc_3354
+.text:0000000000003414 loc_3414                                ; CODE XREF: getDeviceInfo:loc_3350↑j
+.text:0000000000003414                 ADRP            X8, #unk_6061@PAGE
+.text:0000000000003418                 ADD             X8, X8, #unk_6061@PAGEOFF
+.text:000000000000341C                 MOV             W20, WZR
+.text:0000000000003420                 LDP             Q0, Q1, [X8]
+.text:0000000000003424                 STP             Q0, Q1, [X19,#0x40]
+.text:0000000000003428                 B               loc_34B4
+.text:000000000000342C ; ---------------------------------------------------------------------------
+.text:000000000000342C loc_342C                                ; CODE XREF: getDeviceInfo+E4↑j
+.text:000000000000342C                 LDRB            W3, [SP,#0x4060+s]
+.text:0000000000003430                 LDRB            W8, [X21]
+.text:0000000000003434                 CMP             W3, W8
+.text:0000000000003438                 B.NE            loc_347C
+.text:000000000000343C                 LDURH           W3, [SP,#0x4060+var_4057]
+.text:0000000000003440                 LDURH           W8, [X21,#1]
+.text:0000000000003444                 CMP             W3, W8
+.text:0000000000003448                 B.NE            loc_3508
+.text:000000000000344C                 LDURH           W21, [SP,#0x4060+var_4055]
+.text:0000000000003450                 CBZ             W21, loc_351C
+.text:0000000000003454                 MOV             W2, #0x2009 ; n
+.text:0000000000003458                 ADD             X0, SP, #0x4060+s ; s
+.text:000000000000345C                 MOV             W1, WZR ; c
+.text:0000000000003460                 BL              .memset
+.text:0000000000003464                 SUB             W8, W21, #1
+.text:0000000000003468                 CMP             W8, #6
+.text:000000000000346C                 B.CS            loc_3548
+.text:0000000000003470                 MVN             W8, W8
+.text:0000000000003474                 ORR             W20, W8, #0xFFFF0000
+.text:0000000000003478                 B               loc_3498
+.text:000000000000347C ; ---------------------------------------------------------------------------
+.text:000000000000347C loc_347C                                ; CODE XREF: getDeviceInfo+158↑j
+.text:000000000000347C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003480                 ADRP            X2, #aVersionDIsNotM@PAGE ; "Version(%d) is not mismatched."
+.text:0000000000003484                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003488                 ADD             X2, X2, #aVersionDIsNotM@PAGEOFF ; "Version(%d) is not mismatched."
+.text:000000000000348C                 MOV             W0, #6
+.text:0000000000003490                 BL              .__android_log_print
+.text:0000000000003494                 MOV             W20, #0xFFFFFFFE
+.text:0000000000003498 loc_3498                                ; CODE XREF: getDeviceInfo+108↑j
+.text:0000000000003498                                         ; getDeviceInfo+198↑j ...
+.text:0000000000003498                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000349C                 ADRP            X2, #aErrorDReturned@PAGE ; "Error(%d) returned."
+.text:00000000000034A0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000034A4                 ADD             X2, X2, #aErrorDReturned@PAGEOFF ; "Error(%d) returned."
+.text:00000000000034A8 loc_34A8                                ; CODE XREF: getDeviceInfo+344↓j
+.text:00000000000034A8                 MOV             W0, #6
+.text:00000000000034AC                 MOV             W3, W20
+.text:00000000000034B0                 BL              .__android_log_print
+.text:00000000000034B4 loc_34B4                                ; CODE XREF: getDeviceInfo+78↑j
+.text:00000000000034B4                                         ; getDeviceInfo+148↑j
+.text:00000000000034B4                 ADD             X0, SP, #0x4060+var_4060+2,LSL#12
+.text:00000000000034B8                 MOV             W2, #0x200C ; n
+.text:00000000000034BC                 ADD             X0, X0, #0x18 ; s
+.text:00000000000034C0                 MOV             W1, WZR ; c
+.text:00000000000034C4                 BL              .memset
+.text:00000000000034C8                 MOV             W2, #0x2009 ; n
+.text:00000000000034CC                 ADD             X0, SP, #0x4060+s ; s
+.text:00000000000034D0                 MOV             W1, WZR ; c
+.text:00000000000034D4                 BL              .memset
+.text:00000000000034D8 loc_34D8                                ; CODE XREF: getDeviceInfo+98↑j
+.text:00000000000034D8                 LDR             X8, [X22,#0x28]
+.text:00000000000034DC                 LDR             X9, [SP,#0x4060+var_4060]
+.text:00000000000034E0                 CMP             X8, X9
+.text:00000000000034E4                 B.NE            loc_3738
+.text:00000000000034E8                 MOV             W0, W20
+.text:00000000000034EC                 ADD             SP, SP, #4,LSL#12
+.text:00000000000034F0                 ADD             SP, SP, #0x30 ; '0'
+.text:00000000000034F4                 LDP             X29, X30, [SP,#0x30+var_s0]
+.text:00000000000034F8                 LDP             X20, X19, [SP,#0x30+var_10]
+.text:00000000000034FC                 LDP             X22, X21, [SP,#0x30+var_20]
+.text:0000000000003500                 LDP             X28, X23, [SP+0x30+var_30],#0x40
+.text:0000000000003504                 RET
+.text:0000000000003508 ; ---------------------------------------------------------------------------
+.text:0000000000003508 loc_3508                                ; CODE XREF: getDeviceInfo+168↑j
+.text:0000000000003508                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000350C                 ADRP            X2, #aCommandidDIsNo@PAGE ; "CommandID(%d) is not mismatched."
+.text:0000000000003510                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003514                 ADD             X2, X2, #aCommandidDIsNo@PAGEOFF ; "CommandID(%d) is not mismatched."
+.text:0000000000003518                 B               loc_33DC
+.text:000000000000351C ; ---------------------------------------------------------------------------
+.text:000000000000351C loc_351C                                ; CODE XREF: getDeviceInfo+170↑j
+.text:000000000000351C                 LDUR            W4, [SP,#0x4060+var_4053]
+.text:0000000000003520                 CMP             W4, #2,LSL#12
+.text:0000000000003524                 B.LS            loc_3564
+.text:0000000000003528                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000352C                 ADRP            X2, #aInvalidDataRec@PAGE ; "Invalid data received."
+.text:0000000000003530                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003534                 ADD             X2, X2, #aInvalidDataRec@PAGEOFF ; "Invalid data received."
+.text:0000000000003538                 MOV             W0, #6
+.text:000000000000353C                 BL              .__android_log_print
+.text:0000000000003540                 MOV             W20, #0xFFFFFFFB
+.text:0000000000003544                 B               loc_3498
+.text:0000000000003548 ; ---------------------------------------------------------------------------
+.text:0000000000003548 loc_3548                                ; CODE XREF: getDeviceInfo+18C↑j
+.text:0000000000003548                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:000000000000354C                 ADRP            X2, #aUndefinedError@PAGE ; "Undefined error returned.(%d)"
+.text:0000000000003550                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003554                 ADD             X2, X2, #aUndefinedError@PAGEOFF ; "Undefined error returned.(%d)"
+.text:0000000000003558                 MOV             W0, #6
+.text:000000000000355C                 MOV             W3, W21
+.text:0000000000003560                 B               loc_33E0
+.text:0000000000003564 ; ---------------------------------------------------------------------------
+.text:0000000000003564 loc_3564                                ; CODE XREF: getDeviceInfo+244↑j
+.text:0000000000003564                 CMP             W4, #2
+.text:0000000000003568                 B.HI            loc_3594
+.text:000000000000356C                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003570                 ADRP            X2, #aSInvalidArgume@PAGE ; "%s : Invalid argument."
+.text:0000000000003574                 ADRP            X3, #aParsedeviceinf@PAGE ; "parseDeviceInfo"
+.text:0000000000003578                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000357C                 ADD             X2, X2, #aSInvalidArgume@PAGEOFF ; "%s : Invalid argument."
+.text:0000000000003580                 ADD             X3, X3, #aParsedeviceinf@PAGEOFF ; "parseDeviceInfo"
+.text:0000000000003584                 MOV             W0, #6
+.text:0000000000003588                 BL              .__android_log_print
+.text:000000000000358C loc_358C                                ; CODE XREF: getDeviceInfo+314↓j
+.text:000000000000358C                 MOV             W20, #0xFFFFFFF6
+.text:0000000000003590                 B               loc_3614
+.text:0000000000003594 ; ---------------------------------------------------------------------------
+.text:0000000000003594 loc_3594                                ; CODE XREF: getDeviceInfo+288↑j
+.text:0000000000003594                 LDRB            W8, [SP,#0x4060+var_404F]
+.text:0000000000003598                 CMP             W8, #0xFE
+.text:000000000000359C                 B.NE            loc_35F8
+.text:00000000000035A0                 LDRB            W9, [SP,#0x4060+var_404D]
+.text:00000000000035A4                 MOVI            V0.2D, #0
+.text:00000000000035A8                 LDRB            W10, [SP,#0x4060+var_404E]
+.text:00000000000035AC                 ADRP            X8, #unk_6021@PAGE
+.text:00000000000035B0                 ADD             X8, X8, #unk_6021@PAGEOFF
+.text:00000000000035B4                 STRB            WZR, [X23,#byte_6020@PAGEOFF]
+.text:00000000000035B8                 BFI             W10, W9, #8, #0x18
+.text:00000000000035BC                 STRB            WZR, [X8,#(byte_6081 - 0x6021)]
+.text:00000000000035C0                 ADD             W9, W10, #3
+.text:00000000000035C4                 STP             Q0, Q0, [X8,#0x40]
+.text:00000000000035C8                 AND             W3, W9, #0xFFFF
+.text:00000000000035CC                 STP             Q0, Q0, [X8,#0x20]
+.text:00000000000035D0                 CMP             W3, W4
+.text:00000000000035D4                 STP             Q0, Q0, [X8]
+.text:00000000000035D8                 B.LS            loc_3628
+.text:00000000000035DC                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000035E0                 ADRP            X2, #aTlvgetInvalidT@PAGE ; "tlvGet Invalid tlv buffer : %d %d."
+.text:00000000000035E4                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000035E8                 ADD             X2, X2, #aTlvgetInvalidT@PAGEOFF ; "tlvGet Invalid tlv buffer : %d %d."
+.text:00000000000035EC                 MOV             W0, #6
+.text:00000000000035F0                 BL              .__android_log_print
+.text:00000000000035F4                 B               loc_358C
+.text:00000000000035F8 ; ---------------------------------------------------------------------------
+.text:00000000000035F8 loc_35F8                                ; CODE XREF: getDeviceInfo+2BC↑j
+.text:00000000000035F8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000035FC                 ADRP            X2, #aFailedToReadTl@PAGE ; "Failed to read TLV header"
+.text:0000000000003600                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003604                 ADD             X2, X2, #aFailedToReadTl@PAGEOFF ; "Failed to read TLV header"
+.text:0000000000003608                 MOV             W0, #6
+.text:000000000000360C                 BL              .__android_log_print
+.text:0000000000003610                 MOV             W20, #0xFFFFFFFF
+.text:0000000000003614 loc_3614                                ; CODE XREF: getDeviceInfo+2B0↑j
+.text:0000000000003614                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003618                 ADRP            X2, #aFaildToParseTh@PAGE ; "Faild to parse the device information w"...
+.text:000000000000361C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003620                 ADD             X2, X2, #aFaildToParseTh@PAGEOFF ; "Faild to parse the device information w"...
+.text:0000000000003624                 B               loc_34A8
+.text:0000000000003628 ; ---------------------------------------------------------------------------
+.text:0000000000003628 loc_3628                                ; CODE XREF: getDeviceInfo+2F8↑j
+.text:0000000000003628                 CMP             W3, #3
+.text:000000000000362C                 B.CC            loc_372C
+.text:0000000000003630                 ADRP            X10, #unk_AE0@PAGE
+.text:0000000000003634                 ADRP            X13, #unk_6041@PAGE
+.text:0000000000003638                 ADRP            X14, #unk_6061@PAGE
+.text:000000000000363C                 MOV             W17, #3
+.text:0000000000003640                 ADD             X9, SP, #0x4060+s
+.text:0000000000003644                 ADD             X10, X10, #unk_AE0@PAGEOFF
+.text:0000000000003648                 ADRP            X11, #0x6000
+.text:000000000000364C                 MOV             W12, #1
+.text:0000000000003650                 ADD             X13, X13, #unk_6041@PAGEOFF
+.text:0000000000003654                 ADD             X14, X14, #unk_6061@PAGEOFF
+.text:0000000000003658 loc_3658                                ; CODE XREF: getDeviceInfo+448↓j
+.text:0000000000003658                 ADD             W15, W17, #1
+.text:000000000000365C                 ADD             W16, W17, #3
+.text:0000000000003660                 ADD             X15, X9, W15,UXTH
+.text:0000000000003664                 AND             W1, W16, #0xFFFF
+.text:0000000000003668                 LDRB            W2, [X15,#0xA]
+.text:000000000000366C                 LDRB            W0, [X15,#9]
+.text:0000000000003670                 BFI             W0, W2, #8, #8
+.text:0000000000003674                 ADD             W15, W0, W1
+.text:0000000000003678                 CMP             W15, W3
+.text:000000000000367C                 B.LS            loc_3688
+.text:0000000000003680                 MOV             W15, W16
+.text:0000000000003684                 B               loc_3720
+.text:0000000000003688 ; ---------------------------------------------------------------------------
+.text:0000000000003688 loc_3688                                ; CODE XREF: getDeviceInfo+39C↑j
+.text:0000000000003688                 ADD             X17, X9, W17,UXTH
+.text:000000000000368C                 LDRB            W17, [X17,#9]
+.text:0000000000003690                 SUB             W17, W17, #0x65 ; 'e'
+.text:0000000000003694                 CMP             W17, #7
+.text:0000000000003698                 B.HI            loc_371C
+.text:000000000000369C                 ADR             X1, loc_36AC
+.text:00000000000036A0                 LDRB            W2, [X10,X17]
+.text:00000000000036A4                 ADD             X1, X1, X2,LSL#2
+.text:00000000000036A8                 BR              X1
+.text:00000000000036AC ; ---------------------------------------------------------------------------
+.text:00000000000036AC loc_36AC                                ; DATA XREF: getDeviceInfo+3BC↑o
+.text:00000000000036AC                 CMP             W0, #1
+.text:00000000000036B0                 B.NE            loc_371C
+.text:00000000000036B4                 ADD             X16, X9, W16,UXTH
+.text:00000000000036B8                 LDRB            W16, [X16,#9]
+.text:00000000000036BC                 CMP             W16, #1
+.text:00000000000036C0                 B.NE            loc_371C
+.text:00000000000036C4                 STRB            W12, [X11,#0x81]
+.text:00000000000036C8                 B               loc_371C
+.text:00000000000036CC ; ---------------------------------------------------------------------------
+.text:00000000000036CC                 CMP             W0, #0x20 ; ' '
+.text:00000000000036D0                 B.NE            loc_371C
+.text:00000000000036D4                 ADD             X16, X9, W16,UXTH
+.text:00000000000036D8                 LDUR            Q0, [X16,#9]
+.text:00000000000036DC                 LDUR            Q1, [X16,#0x19]
+.text:00000000000036E0                 STP             Q0, Q1, [X13]
+.text:00000000000036E4                 B               loc_371C
+.text:00000000000036E8 ; ---------------------------------------------------------------------------
+.text:00000000000036E8                 CMP             W0, #0x20 ; ' '
+.text:00000000000036EC                 B.NE            loc_371C
+.text:00000000000036F0                 ADD             X16, X9, W16,UXTH
+.text:00000000000036F4                 LDUR            Q0, [X16,#9]
+.text:00000000000036F8                 LDUR            Q1, [X16,#0x19]
+.text:00000000000036FC                 STP             Q0, Q1, [X8]
+.text:0000000000003700                 B               loc_371C
+.text:0000000000003704 ; ---------------------------------------------------------------------------
+.text:0000000000003704                 CMP             W0, #0x20 ; ' '
+.text:0000000000003708                 B.NE            loc_371C
+.text:000000000000370C                 ADD             X16, X9, W16,UXTH
+.text:0000000000003710                 LDUR            Q0, [X16,#9]
+.text:0000000000003714                 LDUR            Q1, [X16,#0x19]
+.text:0000000000003718                 STP             Q0, Q1, [X14]
+.text:000000000000371C loc_371C                                ; CODE XREF: getDeviceInfo+3B8↑j
+.text:000000000000371C                                         ; getDeviceInfo+3D0↑j ...
+.text:000000000000371C                 AND             W1, W15, #0xFFFF
+.text:0000000000003720 loc_3720                                ; CODE XREF: getDeviceInfo+3A4↑j
+.text:0000000000003720                 MOV             W17, W15
+.text:0000000000003724                 CMP             W3, W1
+.text:0000000000003728                 B.CS            loc_3658
+.text:000000000000372C loc_372C                                ; CODE XREF: getDeviceInfo+34C↑j
+.text:000000000000372C                 MOV             W8, #1
+.text:0000000000003730                 STRB            W8, [X23,#byte_6020@PAGEOFF]
+.text:0000000000003734                 B               loc_3328
+.text:0000000000003738 ; ---------------------------------------------------------------------------
+.text:0000000000003738 loc_3738                                ; CODE XREF: getDeviceInfo+204↑j
+.text:0000000000003738                 BL              .__stack_chk_fail
+.text:0000000000003738 ; } // starts at 32E0
+.text:0000000000003738 ; End of function getDeviceInfo
+.text:0000000000003738 ; ---------------------------------------------------------------------------
+.text:000000000000373C                 ALIGN 0x20
+.text:0000000000003740 ; =============== S U B R O U T I N E =======================================
+.text:0000000000003740 ; Attributes: bp-based frame
+.text:0000000000003740                 EXPORT checkHwStatus
+.text:0000000000003740 checkHwStatus                           ; DATA XREF: LOAD:00000000000004C8↑o
+.text:0000000000003740 var_s0          =  0
+.text:0000000000003740 ; __unwind {
+.text:0000000000003740                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:0000000000003744                 MOV             X29, SP
+.text:0000000000003748                 BL              sub_3838
+.text:000000000000374C                 CBNZ            W0, loc_3774
+.text:0000000000003750                 ADRP            X8, #send_remote_cmd_ptr@PAGE
+.text:0000000000003754                 LDR             X8, [X8,#send_remote_cmd_ptr@PAGEOFF]
+.text:0000000000003758                 LDR             X3, [X8]
+.text:000000000000375C                 CBZ             X3, loc_3774
+.text:0000000000003760                 MOV             W0, #0x3304
+.text:0000000000003764                 MOV             X1, XZR
+.text:0000000000003768                 MOV             X2, XZR
+.text:000000000000376C                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:0000000000003770                 BR              X3
+.text:0000000000003774 ; ---------------------------------------------------------------------------
+.text:0000000000003774 loc_3774                                ; CODE XREF: checkHwStatus+C↑j
+.text:0000000000003774                                         ; checkHwStatus+1C↑j
+.text:0000000000003774                 MOV             W0, #0xFFFFFFF7
+.text:0000000000003778                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:000000000000377C                 RET
+.text:000000000000377C ; } // starts at 3740
+.text:000000000000377C ; End of function checkHwStatus
+.text:0000000000003780 ; =============== S U B R O U T I N E =======================================
+.text:0000000000003780 ; Attributes: bp-based frame
+.text:0000000000003780                 EXPORT readKmData
+.text:0000000000003780 readKmData                              ; DATA XREF: LOAD:0000000000000570↑o
+.text:0000000000003780 var_10          = -0x10
+.text:0000000000003780 var_s0          =  0
+.text:0000000000003780 ; __unwind {
+.text:0000000000003780                 STP             X20, X19, [SP,#-0x10+var_10]!
+.text:0000000000003784                 STP             X29, X30, [SP,#0x10+var_s0]
+.text:0000000000003788                 ADD             X29, SP, #0x10
+.text:000000000000378C                 MOV             X19, X1
+.text:0000000000003790                 MOV             X20, X0
+.text:0000000000003794                 BL              sub_3838
+.text:0000000000003798                 CBNZ            W0, loc_37C0
+.text:000000000000379C                 ADRP            X8, #read_remote_file_ptr@PAGE
+.text:00000000000037A0                 LDR             X8, [X8,#read_remote_file_ptr@PAGEOFF]
+.text:00000000000037A4                 LDR             X2, [X8]
+.text:00000000000037A8                 CBZ             X2, loc_37C0
+.text:00000000000037AC                 LDP             X29, X30, [SP,#0x10+var_s0]
+.text:00000000000037B0                 MOV             X0, X20
+.text:00000000000037B4                 MOV             X1, X19
+.text:00000000000037B8                 LDP             X20, X19, [SP+0x10+var_10],#0x20
+.text:00000000000037BC                 BR              X2
+.text:00000000000037C0 ; ---------------------------------------------------------------------------
+.text:00000000000037C0 loc_37C0                                ; CODE XREF: readKmData+18↑j
+.text:00000000000037C0                                         ; readKmData+28↑j
+.text:00000000000037C0                 LDP             X29, X30, [SP,#0x10+var_s0]
+.text:00000000000037C4                 MOV             W0, #0xFFFFFFF7
+.text:00000000000037C8                 LDP             X20, X19, [SP+0x10+var_10],#0x20
+.text:00000000000037CC                 RET
+.text:00000000000037CC ; } // starts at 3780
+.text:00000000000037CC ; End of function readKmData
+.text:00000000000037D0 ; =============== S U B R O U T I N E =======================================
+.text:00000000000037D0 ; Attributes: bp-based frame
+.text:00000000000037D0                 EXPORT writeKmData
+.text:00000000000037D0 writeKmData                             ; DATA XREF: LOAD:00000000000004E0↑o
+.text:00000000000037D0 var_20          = -0x20
+.text:00000000000037D0 var_10          = -0x10
+.text:00000000000037D0 var_s0          =  0
+.text:00000000000037D0 ; __unwind {
+.text:00000000000037D0                 STR             X21, [SP,#-0x10+var_20]!
+.text:00000000000037D4                 STP             X20, X19, [SP,#0x20+var_10]
+.text:00000000000037D8                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:00000000000037DC                 ADD             X29, SP, #0x20
+.text:00000000000037E0                 MOV             W19, W2
+.text:00000000000037E4                 MOV             X20, X1
+.text:00000000000037E8                 MOV             X21, X0
+.text:00000000000037EC                 BL              sub_3838
+.text:00000000000037F0                 CBNZ            W0, loc_3820
+.text:00000000000037F4                 ADRP            X8, #write_remote_file_ptr@PAGE
+.text:00000000000037F8                 LDR             X8, [X8,#write_remote_file_ptr@PAGEOFF]
+.text:00000000000037FC                 LDR             X3, [X8]
+.text:0000000000003800                 CBZ             X3, loc_3820
+.text:0000000000003804                 MOV             X1, X20
+.text:0000000000003808                 MOV             W2, W19
+.text:000000000000380C                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000003810                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000003814                 MOV             X0, X21
+.text:0000000000003818                 LDR             X21, [SP+0x20+var_20],#0x30
+.text:000000000000381C                 BR              X3
+.text:0000000000003820 ; ---------------------------------------------------------------------------
+.text:0000000000003820 loc_3820                                ; CODE XREF: writeKmData+20↑j
+.text:0000000000003820                                         ; writeKmData+30↑j
+.text:0000000000003820                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000003824                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000003828                 MOV             W0, #0xFFFFFFF7
+.text:000000000000382C                 LDR             X21, [SP+0x20+var_20],#0x30
+.text:0000000000003830                 RET
+.text:0000000000003830 ; } // starts at 37D0
+.text:0000000000003830 ; End of function writeKmData
+.text:0000000000003830 ; ---------------------------------------------------------------------------
+.text:0000000000003834                 ALIGN 8
+.text:0000000000003838 ; =============== S U B R O U T I N E =======================================
+.text:0000000000003838 ; Attributes: bp-based frame
+.text:0000000000003838 sub_3838                                ; CODE XREF: checkHwStatus+8↑p
+.text:0000000000003838                                         ; readKmData+14↑p ...
+.text:0000000000003838 var_20          = -0x20
+.text:0000000000003838 var_10          = -0x10
+.text:0000000000003838 var_s0          =  0
+.text:0000000000003838 ; __unwind {
+.text:0000000000003838                 STP             X22, X21, [SP,#-0x10+var_20]!
+.text:000000000000383C                 STP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000003840                 STP             X29, X30, [SP,#0x20+var_s0]
+.text:0000000000003844                 ADD             X29, SP, #0x20
+.text:0000000000003848                 ADRP            X22, #read_remote_file_ptr@PAGE
+.text:000000000000384C                 ADRP            X21, #write_remote_file_ptr@PAGE
+.text:0000000000003850                 ADRP            X20, #send_remote_cmd_ptr@PAGE
+.text:0000000000003854                 LDR             X22, [X22,#read_remote_file_ptr@PAGEOFF]
+.text:0000000000003858                 LDR             X21, [X21,#write_remote_file_ptr@PAGEOFF]
+.text:000000000000385C                 LDR             X8, [X22]
+.text:0000000000003860                 LDR             X20, [X20,#send_remote_cmd_ptr@PAGEOFF]
+.text:0000000000003864                 LDR             X9, [X21]
+.text:0000000000003868                 CMP             X8, #0
+.text:000000000000386C                 LDR             X10, [X20]
+.text:0000000000003870                 CCMP            X9, #0, #4, NE
+.text:0000000000003874                 CCMP            X10, #0, #4, NE
+.text:0000000000003878                 B.NE            loc_38E0
+.text:000000000000387C                 ADRP            X0, #aLibdkVndClient@PAGE ; "libdk_vnd_client.so"
+.text:0000000000003880                 ADD             X0, X0, #aLibdkVndClient@PAGEOFF ; "libdk_vnd_client.so"
+.text:0000000000003884                 MOV             W1, #2  ; mode
+.text:0000000000003888                 BL              .dlopen
+.text:000000000000388C                 ADRP            X19, #gl_dl_inst_ptr@PAGE
+.text:0000000000003890                 LDR             X19, [X19,#gl_dl_inst_ptr@PAGEOFF]
+.text:0000000000003894                 STR             X0, [X19]
+.text:0000000000003898                 CBZ             X0, loc_38E8
+.text:000000000000389C                 ADRP            X1, #aDrkapiReadVndF@PAGE ; "DRKAPI_read_vnd_file"
+.text:00000000000038A0                 ADD             X1, X1, #aDrkapiReadVndF@PAGEOFF ; "DRKAPI_read_vnd_file"
+.text:00000000000038A4                 BL              .dlsym
+.text:00000000000038A8                 STR             X0, [X22]
+.text:00000000000038AC                 CBZ             X0, loc_38FC
+.text:00000000000038B0                 LDR             X0, [X19] ; handle
+.text:00000000000038B4                 ADRP            X1, #aDrkapiWriteVnd@PAGE ; "DRKAPI_write_vnd_file"
+.text:00000000000038B8                 ADD             X1, X1, #aDrkapiWriteVnd@PAGEOFF ; "DRKAPI_write_vnd_file"
+.text:00000000000038BC                 BL              .dlsym
+.text:00000000000038C0                 STR             X0, [X21]
+.text:00000000000038C4                 CBZ             X0, loc_3910
+.text:00000000000038C8                 LDR             X0, [X19] ; handle
+.text:00000000000038CC                 ADRP            X1, #aDrkapiProcessP@PAGE ; "DRKAPI_process_pdp_cmd"
+.text:00000000000038D0                 ADD             X1, X1, #aDrkapiProcessP@PAGEOFF ; "DRKAPI_process_pdp_cmd"
+.text:00000000000038D4                 BL              .dlsym
+.text:00000000000038D8                 STR             X0, [X20]
+.text:00000000000038DC                 CBZ             X0, loc_3924
+.text:00000000000038E0 loc_38E0                                ; CODE XREF: sub_3838+40↑j
+.text:00000000000038E0                 MOV             W0, WZR
+.text:00000000000038E4                 B               loc_3958
+.text:00000000000038E8 ; ---------------------------------------------------------------------------
+.text:00000000000038E8 loc_38E8                                ; CODE XREF: sub_3838+60↑j
+.text:00000000000038E8                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:00000000000038EC                 ADRP            X2, #aDlopenFail@PAGE ; "dlopen fail"
+.text:00000000000038F0                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:00000000000038F4                 ADD             X2, X2, #aDlopenFail@PAGEOFF ; "dlopen fail"
+.text:00000000000038F8                 B               loc_3934
+.text:00000000000038FC ; ---------------------------------------------------------------------------
+.text:00000000000038FC loc_38FC                                ; CODE XREF: sub_3838+74↑j
+.text:00000000000038FC                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003900                 ADRP            X2, #aReadRemoteFile_0@PAGE ; "read_remote_file dlsym fail"
+.text:0000000000003904                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003908                 ADD             X2, X2, #aReadRemoteFile_0@PAGEOFF ; "read_remote_file dlsym fail"
+.text:000000000000390C                 B               loc_3934
+.text:0000000000003910 ; ---------------------------------------------------------------------------
+.text:0000000000003910 loc_3910                                ; CODE XREF: sub_3838+8C↑j
+.text:0000000000003910                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003914                 ADRP            X2, #aWriteRemoteFil_0@PAGE ; "write_remote_file dlsym fail"
+.text:0000000000003918                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:000000000000391C                 ADD             X2, X2, #aWriteRemoteFil_0@PAGEOFF ; "write_remote_file dlsym fail"
+.text:0000000000003920                 B               loc_3934
+.text:0000000000003924 ; ---------------------------------------------------------------------------
+.text:0000000000003924 loc_3924                                ; CODE XREF: sub_3838+A4↑j
+.text:0000000000003924                 ADRP            X1, #aDevrootClient@PAGE ; "DEVROOT#CLIENT"
+.text:0000000000003928                 ADRP            X2, #aSendRemoteCmdD@PAGE ; "send_remote_cmd dlsym fail"
+.text:000000000000392C                 ADD             X1, X1, #aDevrootClient@PAGEOFF ; "DEVROOT#CLIENT"
+.text:0000000000003930                 ADD             X2, X2, #aSendRemoteCmdD@PAGEOFF ; "send_remote_cmd dlsym fail"
+.text:0000000000003934 loc_3934                                ; CODE XREF: sub_3838+C0↑j
+.text:0000000000003934                                         ; sub_3838+D4↑j ...
+.text:0000000000003934                 MOV             W0, #6
+.text:0000000000003938                 BL              .__android_log_print
+.text:000000000000393C                 LDR             X0, [X19] ; handle
+.text:0000000000003940                 CBZ             X0, loc_3954
+.text:0000000000003944                 BL              .dlclose
+.text:0000000000003948                 MOV             W0, #0xFFFFFFF8
+.text:000000000000394C                 STR             XZR, [X19]
+.text:0000000000003950                 B               loc_3958
+.text:0000000000003954 ; ---------------------------------------------------------------------------
+.text:0000000000003954 loc_3954                                ; CODE XREF: sub_3838+108↑j
+.text:0000000000003954                 MOV             W0, #0xFFFFFFF8
+.text:0000000000003958 loc_3958                                ; CODE XREF: sub_3838+AC↑j
+.text:0000000000003958                                         ; sub_3838+118↑j
+.text:0000000000003958                 LDP             X29, X30, [SP,#0x20+var_s0]
+.text:000000000000395C                 LDP             X20, X19, [SP,#0x20+var_10]
+.text:0000000000003960                 LDP             X22, X21, [SP+0x20+var_20],#0x30
+.text:0000000000003964                 RET
+.text:0000000000003964 ; } // starts at 3838
+.text:0000000000003964 ; End of function sub_3838
+.text:0000000000003964 ; .text         ends

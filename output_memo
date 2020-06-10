@@ -1,0 +1,11 @@
+* adrp_info // 여기 3번째는 일단 다 1로 해놨음. data 있는지 확인은 adrp_data_target 또는 result.stat 확인.
+  adrp_instruction  adrp_target_instruction  data(0)/code(1)
+
+
+* adrp_data_target
+  adrp_target_instruction_with_datatype
+  
+
+* funcText
+  1. **Notice: ADRP instruction_noX
+  2. **Notice: ADRP 0(or 1)_target_noX

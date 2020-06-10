@@ -13,10 +13,10 @@ class Init():
 
     for i in range(0,len(example_data)):
         if('__unwind' in example_data[i]):
-            print(example_data[i][6:23])
+            #print(example_data[i][6:23])
             func_data = func_data + [example_data[i][6:23]+"\n"]
         elif('// starts' in example_data[i]):
-            print(example_data[i][6:23])
+            #print(example_data[i][6:23])
             func_data = func_data + [example_data[i][6:23]+"\n"]
 
 
@@ -32,7 +32,7 @@ class Init():
     for i in range(0,len(func_data)):
         f.write(func_data[i])
     f.close()
-    print("\n\n\n\n\n")
+    #print("\n\n\n\n\n")
  
     for i in range(0,len(example_data)):
         if('.text' in example_data[i] and(len(example_data[i])>23)):

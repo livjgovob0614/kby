@@ -7,3 +7,4 @@
 ./impl_sample/
 ./sample/
 ./**/*.so
+./output/

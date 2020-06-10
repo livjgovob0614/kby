@@ -1,0 +1,850 @@
+.text:0000000000000C50 ; ===========================================================================
+.text:0000000000000C50 ; Segment type: Pure code
+.text:0000000000000C50                 AREA .text, CODE
+.text:0000000000000C50                 ; ORG 0xC50
+.text:0000000000000C50                 CODE64
+.text:0000000000000C50 ; =============== S U B R O U T I N E =======================================
+.text:0000000000000C50                 EXPORT start
+.text:0000000000000C50 start                                   ; DATA XREF: LOAD:0000000000000018↑o
+.text:0000000000000C50                                         ; LOAD:00000000000002F0↑o ...
+.text:0000000000000C50                 ADRP            X0, #unk_12000@PAGE
+.text:0000000000000C54                 ADD             X0, X0, #unk_12000@PAGEOFF ; void *
+.text:0000000000000C58                 B               .__cxa_finalize
+.text:0000000000000C58 ; End of function start
+.text:0000000000000C5C ; =============== S U B R O U T I N E =======================================
+.text:0000000000000C5C ; Attributes: bp-based frame
+.text:0000000000000C5C sub_C5C                                 ; DATA XREF: .text:0000000000000C7C↓o
+.text:0000000000000C5C                                         ; .text:0000000000000C84↓o
+.text:0000000000000C5C var_s0          =  0
+.text:0000000000000C5C                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:0000000000000C60                 MOV             X29, SP
+.text:0000000000000C64                 CBZ             X0, loc_C6C
+.text:0000000000000C68                 BLR             X0
+.text:0000000000000C6C loc_C6C                                 ; CODE XREF: sub_C5C+8↑j
+.text:0000000000000C6C                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:0000000000000C70                 RET
+.text:0000000000000C70 ; End of function sub_C5C
+.text:0000000000000C74 ; ---------------------------------------------------------------------------
+.text:0000000000000C74                 MOV             X1, X0
+.text:0000000000000C78                 ADRP            X2, #unk_12000@PAGE
+.text:0000000000000C7C                 ADRP            X0, #sub_C5C@PAGE
+.text:0000000000000C80                 ADD             X2, X2, #unk_12000@PAGEOFF
+.text:0000000000000C84                 ADD             X0, X0, #sub_C5C@PAGEOFF
+.text:0000000000000C88                 B               .__cxa_atexit
+.text:0000000000000C8C ; =============== S U B R O U T I N E =======================================
+.text:0000000000000C8C ; Attributes: bp-based frame fpd=0x120
+.text:0000000000000C8C sub_C8C                                 ; CODE XREF: ems_set_persist_status+D8↓p
+.text:0000000000000C8C                                         ; ems_get_status+158↓p
+.text:0000000000000C8C var_120         = -0x120
+.text:0000000000000C8C var_110         = -0x110
+.text:0000000000000C8C var_100         = -0x100
+.text:0000000000000C8C var_F0          = -0xF0
+.text:0000000000000C8C var_E0          = -0xE0
+.text:0000000000000C8C var_D0          = -0xD0
+.text:0000000000000C8C var_B8          = -0xB8
+.text:0000000000000C8C var_A8          = -0xA8
+.text:0000000000000C8C var_A0          = -0xA0
+.text:0000000000000C8C var_98          = -0x98
+.text:0000000000000C8C var_90          = -0x90
+.text:0000000000000C8C var_18          = -0x18
+.text:0000000000000C8C var_10          = -0x10
+.text:0000000000000C8C var_C           = -0xC
+.text:0000000000000C8C var_8           = -8
+.text:0000000000000C8C ; __unwind {
+.text:0000000000000C8C                 STP             X29, X30, [SP,#var_120]!
+.text:0000000000000C90                 MOV             X29, SP
+.text:0000000000000C94                 STP             X19, X20, [SP,#0x120+var_110]
+.text:0000000000000C98                 ADD             X20, X29, #0xA8
+.text:0000000000000C9C                 STP             X21, X22, [SP,#0x120+var_100]
+.text:0000000000000CA0                 STP             X25, X26, [SP,#0x120+var_E0]
+.text:0000000000000CA4                 STP             X23, X24, [SP,#0x120+var_F0]
+.text:0000000000000CA8                 STP             X27, X28, [SP,#0x120+var_D0]
+.text:0000000000000CAC                 ADRP            X25, #__stack_chk_guard_ptr@PAGE
+.text:0000000000000CB0                 MOV             X21, X0
+.text:0000000000000CB4                 STP             XZR, XZR, [X20]
+.text:0000000000000CB8                 STP             XZR, XZR, [X20,#0x10]
+.text:0000000000000CBC                 STR             XZR, [X29,#0x120+var_18]
+.text:0000000000000CC0                 LDR             X0, [X25,#__stack_chk_guard_ptr@PAGEOFF]
+.text:0000000000000CC4                 STR             WZR, [X29,#0x120+var_10]
+.text:0000000000000CC8                 STP             XZR, XZR, [X20,#0x20]
+.text:0000000000000CCC                 LDR             X0, [X0]
+.text:0000000000000CD0                 STR             X0, [X29,#0x120+var_8]
+.text:0000000000000CD4                 MOV             X0, #5
+.text:0000000000000CD8                 STP             XZR, XZR, [X20,#0x30]
+.text:0000000000000CDC                 STP             XZR, XZR, [X20,#0x40]
+.text:0000000000000CE0                 STP             XZR, XZR, [X20,#0x50]
+.text:0000000000000CE4                 STRH            WZR, [X29,#0x120+var_C]
+.text:0000000000000CE8                 STR             X0, [X29,#0x120+var_A8]
+.text:0000000000000CEC                 STR             XZR, [X29,#0x120+var_A0]
+.text:0000000000000CF0                 CBZ             X21, loc_1034
+.text:0000000000000CF4                 MOV             W0, #1  ; domain
+.text:0000000000000CF8                 MOV             W2, #0  ; protocol
+.text:0000000000000CFC                 MOV             W1, W0  ; type
+.text:0000000000000D00                 BL              .socket
+.text:0000000000000D04                 CMN             W0, #1
+.text:0000000000000D08                 MOV             W19, W0
+.text:0000000000000D0C                 B.EQ            loc_F7C
+.text:0000000000000D10                 MOV             W1, #3  ; cmd
+.text:0000000000000D14                 MOV             W2, #0
+.text:0000000000000D18                 ADRP            X26, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000D1C                 ADRP            X24, #aSFailedToConne@PAGE ; "%s : Failed to connect[%d, %s]\n"
+.text:0000000000000D20                 BL              .fcntl
+.text:0000000000000D24                 ORR             W2, W0, #0x800
+.text:0000000000000D28                 MOV             W1, #4  ; cmd
+.text:0000000000000D2C                 MOV             W0, W19 ; fd
+.text:0000000000000D30                 ADRP            X23, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000000D34                 MOV             W22, #0
+.text:0000000000000D38                 BL              .fcntl
+.text:0000000000000D3C                 STRB            WZR, [X20,#2]
+.text:0000000000000D40                 ADRP            X5, #aEngineeringmod@PAGE ; "EngineeringModeServiceSocket"
+.text:0000000000000D44                 ADD             X6, X20, #3
+.text:0000000000000D48                 ADD             X5, X5, #aEngineeringmod@PAGEOFF ; "EngineeringModeServiceSocket"
+.text:0000000000000D4C                 MOV             W10, #1
+.text:0000000000000D50                 MOV             W0, W19 ; fd
+.text:0000000000000D54                 MOV             W1, #1  ; level
+.text:0000000000000D58                 MOV             W2, #0x14 ; optname
+.text:0000000000000D5C                 ADD             X3, X29, #0x78 ; 'x' ; optval
+.text:0000000000000D60                 LDP             X8, X9, [X5]
+.text:0000000000000D64                 LDR             X7, [X5,#(aEngineeringmod+0x10 - 0x1768)] ; "erviceSocket"
+.text:0000000000000D68                 MOV             W4, #0x10 ; optlen
+.text:0000000000000D6C                 STP             X8, X9, [X6]
+.text:0000000000000D70                 LDR             W5, [X5,#(aEngineeringmod+0x18 - 0x1768)] ; "cket"
+.text:0000000000000D74                 ADD             X26, X26, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000D78                 STUR            X7, [X20,#0x13]
+.text:0000000000000D7C                 ADD             X24, X24, #aSFailedToConne@PAGEOFF ; "%s : Failed to connect[%d, %s]\n"
+.text:0000000000000D80                 STUR            W5, [X20,#0x1B]
+.text:0000000000000D84                 ADD             X23, X23, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000000D88                 STRH            W10, [X20]
+.text:0000000000000D8C                 BL              .setsockopt
+.text:0000000000000D90 loc_D90                                 ; CODE XREF: sub_C8C+298↓j
+.text:0000000000000D90                 MOV             W0, W19 ; fd
+.text:0000000000000D94                 MOV             X1, X20 ; addr
+.text:0000000000000D98                 MOV             W2, #0x1F ; len
+.text:0000000000000D9C                 BL              .connect
+.text:0000000000000DA0                 MOV             W4, W0
+.text:0000000000000DA4                 CBNZ            W0, loc_EC4
+.text:0000000000000DA8                 MOV             W1, #3  ; cmd
+.text:0000000000000DAC                 MOV             W2, #0
+.text:0000000000000DB0                 MOV             W0, W19 ; fd
+.text:0000000000000DB4                 BL              .fcntl
+.text:0000000000000DB8                 AND             W2, W0, #0xFFFFF7FF
+.text:0000000000000DBC                 MOV             W1, #4  ; cmd
+.text:0000000000000DC0                 MOV             W0, W19 ; fd
+.text:0000000000000DC4                 BL              .fcntl
+.text:0000000000000DC8                 MOV             W0, W19 ; fd
+.text:0000000000000DCC                 MOV             X1, X21 ; buf
+.text:0000000000000DD0                 MOV             X2, #0x200 ; n
+.text:0000000000000DD4                 MOV             W3, #0  ; flags
+.text:0000000000000DD8                 BL              .send
+.text:0000000000000DDC                 CMP             X0, #0x200
+.text:0000000000000DE0                 MOV             X20, X0
+.text:0000000000000DE4                 B.NE            loc_F54
+.text:0000000000000DE8                 MOV             W0, #1  ; size
+.text:0000000000000DEC                 BL              .epoll_create
+.text:0000000000000DF0                 MOV             W22, W0
+.text:0000000000000DF4                 TBNZ            W0, #0x1F, loc_1060 ; epfd
+.text:0000000000000DF8                 ADD             X23, X29, #0x88
+.text:0000000000000DFC                 MOV             W4, #0x80000001
+.text:0000000000000E00                 MOV             W1, #1  ; op
+.text:0000000000000E04                 MOV             W2, W19 ; fd
+.text:0000000000000E08                 MOV             X3, X23 ; event
+.text:0000000000000E0C                 STR             W19, [X29,#0x120+var_90]
+.text:0000000000000E10                 STR             W4, [X29,#0x120+var_98]
+.text:0000000000000E14                 BL              .epoll_ctl
+.text:0000000000000E18                 TBNZ            W0, #0x1F, loc_1010
+.text:0000000000000E1C                 MOV             W0, W22 ; epfd
+.text:0000000000000E20                 ADD             X1, X29, #0x98 ; events
+.text:0000000000000E24                 MOV             W2, #1  ; maxevents
+.text:0000000000000E28                 MOV             W3, #0x1388 ; timeout
+.text:0000000000000E2C                 BL              .epoll_wait
+.text:0000000000000E30                 CMP             W0, WZR
+.text:0000000000000E34                 B.LE            loc_FEC
+.text:0000000000000E38                 MOV             W0, W22 ; epfd
+.text:0000000000000E3C                 MOV             W1, #2  ; op
+.text:0000000000000E40                 MOV             W2, W19 ; fd
+.text:0000000000000E44                 MOV             X3, X23 ; event
+.text:0000000000000E48                 BL              .epoll_ctl
+.text:0000000000000E4C                 TBNZ            W0, #0x1F, loc_FA4
+.text:0000000000000E50                 MOV             W0, W22 ; fd
+.text:0000000000000E54                 MOV             W22, #1
+.text:0000000000000E58                 BL              .close
+.text:0000000000000E5C                 MOV             W1, #0  ; c
+.text:0000000000000E60                 MOV             X2, X20 ; n
+.text:0000000000000E64                 MOV             X0, X21 ; s
+.text:0000000000000E68                 BL              .memset
+.text:0000000000000E6C                 MOV             W0, W19 ; fd
+.text:0000000000000E70                 MOV             X1, X21 ; buf
+.text:0000000000000E74                 MOV             X2, X20 ; n
+.text:0000000000000E78                 MOV             W3, #0  ; flags
+.text:0000000000000E7C                 BL              .recv
+.text:0000000000000E80                 MOV             X4, X0
+.text:0000000000000E84                 TBNZ            W4, #0x1F, loc_107C
+.text:0000000000000E88 loc_E88                                 ; CODE XREF: sub_C8C+2BC↓j
+.text:0000000000000E88                                         ; sub_C8C+2C4↓j ...
+.text:0000000000000E88                 MOV             W0, W19 ; fd
+.text:0000000000000E8C                 BL              .close
+.text:0000000000000E90 loc_E90                                 ; CODE XREF: sub_C8C+314↓j
+.text:0000000000000E90                                         ; sub_C8C+3D0↓j
+.text:0000000000000E90                 LDR             X25, [X25,#__stack_chk_guard_ptr@PAGEOFF]
+.text:0000000000000E94                 MOV             W0, W22
+.text:0000000000000E98                 LDR             X20, [X29,#0x120+var_8]
+.text:0000000000000E9C                 LDR             X1, [X25]
+.text:0000000000000EA0                 CMP             X20, X1
+.text:0000000000000EA4                 B.NE            loc_10A4
+.text:0000000000000EA8                 LDP             X19, X20, [SP,#0x120+var_110]
+.text:0000000000000EAC                 LDP             X21, X22, [SP,#0x120+var_100]
+.text:0000000000000EB0                 LDP             X23, X24, [SP,#0x120+var_F0]
+.text:0000000000000EB4                 LDP             X25, X26, [SP,#0x120+var_E0]
+.text:0000000000000EB8                 LDP             X27, X28, [SP,#0x120+var_D0]
+.text:0000000000000EBC                 LDP             X29, X30, [SP+0x120+var_120],#0x120
+.text:0000000000000EC0                 RET
+.text:0000000000000EC4 ; ---------------------------------------------------------------------------
+.text:0000000000000EC4 loc_EC4                                 ; CODE XREF: sub_C8C+118↑j
+.text:0000000000000EC4                 STR             X4, [X29,#0x120+var_B8]
+.text:0000000000000EC8                 BL              .__errno
+.text:0000000000000ECC                 MOV             X28, X0
+.text:0000000000000ED0                 LDR             W0, [X0] ; errnum
+.text:0000000000000ED4                 ADRP            X27, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000ED8                 BL              .strerror
+.text:0000000000000EDC                 MOV             X5, X0
+.text:0000000000000EE0                 LDR             X4, [X29,#0x120+var_B8]
+.text:0000000000000EE4                 MOV             X1, X26
+.text:0000000000000EE8                 MOV             W0, #6
+.text:0000000000000EEC                 MOV             X2, X24
+.text:0000000000000EF0                 MOV             X3, X23
+.text:0000000000000EF4                 BL              .__android_log_print
+.text:0000000000000EF8                 LDR             W0, [X28]
+.text:0000000000000EFC                 CMP             W0, #0xB
+.text:0000000000000F00                 B.EQ            loc_F10
+.text:0000000000000F04                 LDR             W0, [X28]
+.text:0000000000000F08                 CMP             W0, #0xB
+.text:0000000000000F0C                 B.NE            loc_F4C
+.text:0000000000000F10 loc_F10                                 ; CODE XREF: sub_C8C+274↑j
+.text:0000000000000F10                 MOV             W0, #0xD090
+.text:0000000000000F14                 ADD             W22, W22, #1
+.text:0000000000000F18                 MOVK            W0, #3,LSL#16 ; useconds
+.text:0000000000000F1C                 BL              .usleep
+.text:0000000000000F20                 CMP             W22, #7
+.text:0000000000000F24                 B.LE            loc_D90
+.text:0000000000000F28                 ADRP            X2, #aSTimeoutFailed@PAGE ; "%s : [TIMEOUT] Failed to connect\n"
+.text:0000000000000F2C                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000000F30                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000F34                 ADD             X2, X2, #aSTimeoutFailed@PAGEOFF ; "%s : [TIMEOUT] Failed to connect\n"
+.text:0000000000000F38                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000000F3C                 MOV             W0, #6
+.text:0000000000000F40                 MOV             W22, #0xF0000003
+.text:0000000000000F44                 BL              .__android_log_print
+.text:0000000000000F48                 B               loc_E88
+.text:0000000000000F4C ; ---------------------------------------------------------------------------
+.text:0000000000000F4C loc_F4C                                 ; CODE XREF: sub_C8C+280↑j
+.text:0000000000000F4C                 MOV             W22, #0xF0000003
+.text:0000000000000F50                 B               loc_E88
+.text:0000000000000F54 ; ---------------------------------------------------------------------------
+.text:0000000000000F54 loc_F54                                 ; CODE XREF: sub_C8C+158↑j
+.text:0000000000000F54                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000F58                 ADRP            X2, #aSSendFailed@PAGE ; "%s : send failed\n"
+.text:0000000000000F5C                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000000F60                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000F64                 ADD             X2, X2, #aSSendFailed@PAGEOFF ; "%s : send failed\n"
+.text:0000000000000F68                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000000F6C                 MOV             W0, #6
+.text:0000000000000F70                 MOV             W22, #0xF0000003
+.text:0000000000000F74                 BL              .__android_log_print
+.text:0000000000000F78                 B               loc_E88
+.text:0000000000000F7C ; ---------------------------------------------------------------------------
+.text:0000000000000F7C loc_F7C                                 ; CODE XREF: sub_C8C+80↑j
+.text:0000000000000F7C                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000F80                 ADRP            X2, #aSSocketFunctio@PAGE ; "%s : socket function failed\n"
+.text:0000000000000F84                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000000F88                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000F8C                 ADD             X2, X2, #aSSocketFunctio@PAGEOFF ; "%s : socket function failed\n"
+.text:0000000000000F90                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000000F94                 MOV             W0, #6
+.text:0000000000000F98                 MOV             W22, #0xF0000003
+.text:0000000000000F9C                 BL              .__android_log_print
+.text:0000000000000FA0                 B               loc_E90
+.text:0000000000000FA4 ; ---------------------------------------------------------------------------
+.text:0000000000000FA4 loc_FA4                                 ; CODE XREF: sub_C8C+1C0↑j
+.text:0000000000000FA4                 ADRP            X27, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000FA8                 ADRP            X2, #aEpollControlDe@PAGE ; "epoll control delete failed."
+.text:0000000000000FAC                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000FB0                 ADD             X2, X2, #aEpollControlDe@PAGEOFF ; "epoll control delete failed."
+.text:0000000000000FB4                 MOV             W0, #6
+.text:0000000000000FB8                 BL              .__android_log_print
+.text:0000000000000FBC                 MOV             W0, W22 ; fd
+.text:0000000000000FC0                 BL              .close
+.text:0000000000000FC4 loc_FC4                                 ; CODE XREF: sub_C8C+380↓j
+.text:0000000000000FC4                                         ; sub_C8C+3A4↓j ...
+.text:0000000000000FC4                 ADRP            X2, #aSFailedToWaitF@PAGE ; "%s : Failed to wait for select(%d)\n"
+.text:0000000000000FC8                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000000FCC                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000FD0                 ADD             X2, X2, #aSFailedToWaitF@PAGEOFF ; "%s : Failed to wait for select(%d)\n"
+.text:0000000000000FD4                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000000FD8                 MOV             W4, #0xF0000001
+.text:0000000000000FDC                 MOV             W0, #6
+.text:0000000000000FE0                 MOV             W22, #0xF0000003
+.text:0000000000000FE4                 BL              .__android_log_print
+.text:0000000000000FE8                 B               loc_E88
+.text:0000000000000FEC ; ---------------------------------------------------------------------------
+.text:0000000000000FEC loc_FEC                                 ; CODE XREF: sub_C8C+1A8↑j
+.text:0000000000000FEC                 ADRP            X27, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000000FF0                 ADRP            X2, #aWaitingTimeHas@PAGE ; "waiting time has expired. Close connect"...
+.text:0000000000000FF4                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000000FF8                 ADD             X2, X2, #aWaitingTimeHas@PAGEOFF ; "waiting time has expired. Close connect"...
+.text:0000000000000FFC                 MOV             W0, #6
+.text:0000000000001000                 BL              .__android_log_print
+.text:0000000000001004                 MOV             W0, W22 ; fd
+.text:0000000000001008                 BL              .close
+.text:000000000000100C                 B               loc_FC4
+.text:0000000000001010 ; ---------------------------------------------------------------------------
+.text:0000000000001010 loc_1010                                ; CODE XREF: sub_C8C+18C↑j
+.text:0000000000001010                 ADRP            X27, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001014                 ADRP            X2, #aEpollControlAd@PAGE ; "epoll control add failed."
+.text:0000000000001018                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:000000000000101C                 ADD             X2, X2, #aEpollControlAd@PAGEOFF ; "epoll control add failed."
+.text:0000000000001020                 MOV             W0, #6
+.text:0000000000001024                 BL              .__android_log_print
+.text:0000000000001028                 MOV             W0, W22 ; fd
+.text:000000000000102C                 BL              .close
+.text:0000000000001030                 B               loc_FC4
+.text:0000000000001034 ; ---------------------------------------------------------------------------
+.text:0000000000001034 loc_1034                                ; CODE XREF: sub_C8C+64↑j
+.text:0000000000001034                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001038                 ADRP            X2, #aSBufIsNull@PAGE ; "%s : buf is NULL\n"
+.text:000000000000103C                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000001040                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001044                 ADD             X2, X2, #aSBufIsNull@PAGEOFF ; "%s : buf is NULL\n"
+.text:0000000000001048                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:000000000000104C                 MOV             W0, #6
+.text:0000000000001050                 MOV             W22, #0xF0000002
+.text:0000000000001058                 BL              .__android_log_print
+.text:000000000000105C                 B               loc_E90
+.text:0000000000001060 ; ---------------------------------------------------------------------------
+.text:0000000000001060 loc_1060                                ; CODE XREF: sub_C8C+168↑j
+.text:0000000000001060                 ADRP            X27, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001064                 ADRP            X2, #aEpollCreateFai@PAGE ; "Epoll create fail."
+.text:0000000000001068                 ADD             X1, X27, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:000000000000106C                 ADD             X2, X2, #aEpollCreateFai@PAGEOFF ; "Epoll create fail."
+.text:0000000000001070                 MOV             W0, #6
+.text:0000000000001074                 BL              .__android_log_print
+.text:0000000000001078                 B               loc_FC4
+.text:000000000000107C ; ---------------------------------------------------------------------------
+.text:000000000000107C loc_107C                                ; CODE XREF: sub_C8C+1F8↑j
+.text:000000000000107C                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001080                 ADRP            X2, #aSRecvFailed08x@PAGE ; "%s : recv failed(%08x)\n"
+.text:0000000000001084                 ADRP            X3, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:0000000000001088                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:000000000000108C                 ADD             X2, X2, #aSRecvFailed08x@PAGEOFF ; "%s : recv failed(%08x)\n"
+.text:0000000000001090                 ADD             X3, X3, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:0000000000001094                 MOV             W0, #6
+.text:0000000000001098                 MOV             W22, #0xF0000003
+.text:000000000000109C                 BL              .__android_log_print
+.text:00000000000010A0                 B               loc_E88
+.text:00000000000010A4 ; ---------------------------------------------------------------------------
+.text:00000000000010A4 loc_10A4                                ; CODE XREF: sub_C8C+218↑j
+.text:00000000000010A4                 BL              .__stack_chk_fail
+.text:00000000000010A4 ; } // starts at C8C
+.text:00000000000010A4 ; End of function sub_C8C
+.text:00000000000010A8 ; =============== S U B R O U T I N E =======================================
+.text:00000000000010A8 ; Attributes: bp-based frame fpd=0x250
+.text:00000000000010A8                 EXPORT ems_set_persist_status
+.text:00000000000010A8 ems_set_persist_status                  ; DATA XREF: LOAD:0000000000000428↑o
+.text:00000000000010A8 var_250         = -0x250
+.text:00000000000010A8 var_240         = -0x240
+.text:00000000000010A8 var_230         = -0x230
+.text:00000000000010A8 var_220         = -0x220
+.text:00000000000010A8 var_8           = -8
+.text:00000000000010A8 ; __unwind {
+.text:00000000000010A8                 SUB             SP, SP, #0x210
+.text:00000000000010AC                 MOV             W1, #0  ; c
+.text:00000000000010B0                 MOV             X2, #0x1FE ; n
+.text:00000000000010B4                 STP             X29, X30, [SP,#0x210+var_250]!
+.text:00000000000010B8                 MOV             X29, SP
+.text:00000000000010BC                 STP             X19, X20, [SP,#0x250+var_240]
+.text:00000000000010C0                 ADRP            X20, #__stack_chk_guard_ptr@PAGE
+.text:00000000000010C4                 STR             X23, [SP,#0x250+var_220]
+.text:00000000000010C8                 STP             X21, X22, [SP,#0x250+var_230]
+.text:00000000000010CC                 ADD             X23, X29, #0x48 ; 'H'
+.text:00000000000010D0                 ADD             X22, X29, #0x44 ; 'D'
+.text:00000000000010D4                 LDR             X3, [X20,#__stack_chk_guard_ptr@PAGEOFF]
+.text:00000000000010D8                 MOV             X0, X23 ; s
+.text:00000000000010DC                 ADRP            X19, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:00000000000010E0                 STR             WZR, [X22]
+.text:00000000000010E4                 ADRP            X21, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:00000000000010E8                 ADD             X19, X19, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:00000000000010EC                 LDR             X3, [X3]
+.text:00000000000010F0                 ADD             X21, X21, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:00000000000010F4                 STR             X3, [X29,#0x250+var_8]
+.text:00000000000010F8                 ADD             X19, X19, #0x20 ; ' '
+.text:00000000000010FC                 BL              .memset
+.text:0000000000001100                 ADRP            X2, #aSEngmodeClient@PAGE ; "%s : ENGMODE client started version as "...
+.text:0000000000001104                 MOV             X1, X21
+.text:0000000000001108                 ADD             X2, X2, #aSEngmodeClient@PAGEOFF ; "%s : ENGMODE client started version as "...
+.text:000000000000110C                 MOV             X3, X19
+.text:0000000000001110                 MOV             W4, #3
+.text:0000000000001114                 MOV             W0, #4
+.text:0000000000001118                 BL              .__android_log_print
+.text:000000000000111C                 MOV             X0, X23
+.text:0000000000001120                 MOV             W1, #0
+.text:0000000000001124                 BL              ems_payload_init
+.text:0000000000001128                 CMP             W0, #1
+.text:000000000000112C                 B.EQ            loc_117C
+.text:0000000000001130                 ADRP            X2, #aSFailedToInitP@PAGE ; "%s : Failed to init payload(%08x)\n"
+.text:0000000000001134                 MOV             W4, W0
+.text:0000000000001138                 MOV             X1, X21
+.text:000000000000113C                 ADD             X2, X2, #aSFailedToInitP@PAGEOFF ; "%s : Failed to init payload(%08x)\n"
+.text:0000000000001140                 MOV             X3, X19
+.text:0000000000001144                 MOV             W0, #6
+.text:0000000000001148                 BL              .__android_log_print
+.text:000000000000114C loc_114C                                ; CODE XREF: ems_set_persist_status+100↓j
+.text:000000000000114C                                         ; ems_set_persist_status+138↓j ...
+.text:000000000000114C                 LDR             X1, [X20,#__stack_chk_guard_ptr@PAGEOFF]
+.text:0000000000001150                 LDR             X2, [X29,#0x250+var_8]
+.text:0000000000001154                 LDR             W0, [X22]
+.text:0000000000001158                 LDR             X1, [X1]
+.text:000000000000115C                 CMP             X2, X1
+.text:0000000000001160                 B.NE            loc_1204
+.text:0000000000001164                 LDP             X19, X20, [SP,#0x250+var_240]
+.text:0000000000001168                 LDP             X21, X22, [SP,#0x250+var_230]
+.text:000000000000116C                 LDR             X23, [SP,#0x250+var_220]
+.text:0000000000001170                 LDP             X29, X30, [SP+0x250+var_250],#0x40
+.text:0000000000001174                 ADD             SP, SP, #0x210
+.text:0000000000001178                 RET
+.text:000000000000117C ; ---------------------------------------------------------------------------
+.text:000000000000117C loc_117C                                ; CODE XREF: ems_set_persist_status+84↑j
+.text:000000000000117C                 MOV             X0, X23
+.text:0000000000001180                 BL              sub_C8C
+.text:0000000000001184                 CMP             W0, #1
+.text:0000000000001188                 B.EQ            loc_11AC
+.text:000000000000118C                 ADRP            X2, #aSSockeCommuFai@PAGE ; "%s : socke commu failed(%08x)\n"
+.text:0000000000001190                 MOV             W4, W0
+.text:0000000000001194                 MOV             X1, X21
+.text:0000000000001198                 ADD             X2, X2, #aSSockeCommuFai@PAGEOFF ; "%s : socke commu failed(%08x)\n"
+.text:000000000000119C                 MOV             X3, X19
+.text:00000000000011A0                 MOV             W0, #6
+.text:00000000000011A4                 BL              .__android_log_print
+.text:00000000000011A8                 B               loc_114C
+.text:00000000000011AC ; ---------------------------------------------------------------------------
+.text:00000000000011AC loc_11AC                                ; CODE XREF: ems_set_persist_status+E0↑j
+.text:00000000000011AC                 MOV             X0, X23
+.text:00000000000011B0                 MOV             W1, #0
+.text:00000000000011B4                 MOV             X2, X22
+.text:00000000000011B8                 BL              ems_payload_pop_item
+.text:00000000000011BC                 CMP             W0, #1
+.text:00000000000011C0                 B.EQ            loc_11E4
+.text:00000000000011C4                 ADRP            X2, #aSFailedToGetPo@PAGE ; "%s : Failed to get pop item(%08x)\n"
+.text:00000000000011C8                 MOV             W4, W0
+.text:00000000000011CC                 MOV             X1, X21
+.text:00000000000011D0                 ADD             X2, X2, #aSFailedToGetPo@PAGEOFF ; "%s : Failed to get pop item(%08x)\n"
+.text:00000000000011D4                 MOV             X3, X19
+.text:00000000000011D8                 MOV             W0, #6
+.text:00000000000011DC                 BL              .__android_log_print
+.text:00000000000011E0                 B               loc_114C
+.text:00000000000011E4 ; ---------------------------------------------------------------------------
+.text:00000000000011E4 loc_11E4                                ; CODE XREF: ems_set_persist_status+118↑j
+.text:00000000000011E4                 LDR             W4, [X22]
+.text:00000000000011E8                 ADRP            X2, #aSResultOfReque@PAGE ; "%s : Result of request to write modes :"...
+.text:00000000000011EC                 MOV             X1, X21
+.text:00000000000011F0                 ADD             X2, X2, #aSResultOfReque@PAGEOFF ; "%s : Result of request to write modes :"...
+.text:00000000000011F4                 MOV             X3, X19
+.text:00000000000011F8                 MOV             W0, #4
+.text:00000000000011FC                 BL              .__android_log_print
+.text:0000000000001200                 B               loc_114C
+.text:0000000000001204 ; ---------------------------------------------------------------------------
+.text:0000000000001204 loc_1204                                ; CODE XREF: ems_set_persist_status+B8↑j
+.text:0000000000001204                 BL              .__stack_chk_fail
+.text:0000000000001204 ; } // starts at 10A8
+.text:0000000000001204 ; End of function ems_set_persist_status
+.text:0000000000001208 ; =============== S U B R O U T I N E =======================================
+.text:0000000000001208 ; Attributes: bp-based frame fpd=0x270
+.text:0000000000001208                 EXPORT ems_get_status
+.text:0000000000001208 ems_get_status                          ; DATA XREF: LOAD:0000000000000368↑o
+.text:0000000000001208 var_270         = -0x270
+.text:0000000000001208 var_260         = -0x260
+.text:0000000000001208 var_250         = -0x250
+.text:0000000000001208 var_240         = -0x240
+.text:0000000000001208 var_228         = -0x228
+.text:0000000000001208 var_220         = -0x220
+.text:0000000000001208 var_8           = -8
+.text:0000000000001208 ; __unwind {
+.text:0000000000001208                 SUB             SP, SP, #0x230
+.text:000000000000120C                 MOV             W1, #0  ; c
+.text:0000000000001210                 MOV             X2, #0x1FE ; n
+.text:0000000000001214                 STP             X29, X30, [SP,#0x230+var_270]!
+.text:0000000000001218                 MOV             X29, SP
+.text:000000000000121C                 STP             X21, X22, [SP,#0x270+var_250]
+.text:0000000000001220                 ADRP            X21, #__stack_chk_guard_ptr@PAGE
+.text:0000000000001224                 ADD             X22, X29, #0x68 ; 'h'
+.text:0000000000001228                 STP             X23, X24, [SP,#0x270+var_240]
+.text:000000000000122C                 ADD             X24, X29, #0x5C ; '\'
+.text:0000000000001230                 ADD             X23, X29, #0x64 ; 'd'
+.text:0000000000001234                 LDR             X3, [X21,#__stack_chk_guard_ptr@PAGEOFF]
+.text:0000000000001238                 STR             W0, [X24]
+.text:000000000000123C                 MOV             X0, X22 ; s
+.text:0000000000001240                 STP             X19, X20, [SP,#0x270+var_260]
+.text:0000000000001244                 LDR             X3, [X3]
+.text:0000000000001248                 ADRP            X19, #aEmsConnectServ@PAGE ; "ems_connect_service"
+.text:000000000000124C                 STR             X3, [X29,#0x270+var_8]
+.text:0000000000001250                 ADRP            X20, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001254                 STR             WZR, [X23]
+.text:0000000000001258                 ADD             X19, X19, #aEmsConnectServ@PAGEOFF ; "ems_connect_service"
+.text:000000000000125C                 BL              .memset
+.text:0000000000001260                 ADD             X20, X20, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001264                 ADD             X19, X19, #0x40 ; '@'
+.text:0000000000001268                 ADRP            X2, #aSEngmodeClient@PAGE ; "%s : ENGMODE client started version as "...
+.text:000000000000126C                 MOV             X1, X20
+.text:0000000000001270                 ADD             X2, X2, #aSEngmodeClient@PAGEOFF ; "%s : ENGMODE client started version as "...
+.text:0000000000001274                 MOV             W4, #3
+.text:0000000000001278                 MOV             X3, X19
+.text:000000000000127C                 MOV             W0, #4
+.text:0000000000001280                 BL              .__android_log_print
+.text:0000000000001284                 ADRP            X0, #__progname_ptr@PAGE
+.text:0000000000001288                 LDR             X0, [X0,#__progname_ptr@PAGEOFF]
+.text:000000000000128C                 LDR             X3, [X0]
+.text:0000000000001290                 STR             X3, [X29,#0x270+var_228]
+.text:0000000000001294                 BL              .getuid
+.text:0000000000001298                 MOV             W4, W0
+.text:000000000000129C                 STR             X4, [X29,#0x270+var_220]
+.text:00000000000012A0                 BL              .geteuid
+.text:00000000000012A4                 MOV             W5, W0
+.text:00000000000012A8                 LDR             X4, [X29,#0x270+var_220]
+.text:00000000000012AC                 ADRP            X2, #aCInfSDD@PAGE ; "c_inf:%s:%d:%d\n"
+.text:00000000000012B0                 LDR             X3, [X29,#0x270+var_228]
+.text:00000000000012B4                 MOV             X1, X20
+.text:00000000000012B8                 ADD             X2, X2, #aCInfSDD@PAGEOFF ; "c_inf:%s:%d:%d\n"
+.text:00000000000012BC                 MOV             W0, #4
+.text:00000000000012C0                 BL              .__android_log_print
+.text:00000000000012C4                 MOV             X0, X22
+.text:00000000000012C8                 MOV             W1, #1
+.text:00000000000012CC                 BL              ems_payload_init
+.text:00000000000012D0                 CMP             W0, #1
+.text:00000000000012D4                 MOV             W4, W0
+.text:00000000000012D8                 B.EQ            loc_1324
+.text:00000000000012DC                 ADRP            X2, #aSFailedToInitP@PAGE ; "%s : Failed to init payload(%08x)\n"
+.text:00000000000012E0                 MOV             X1, X20
+.text:00000000000012E4                 ADD             X2, X2, #aSFailedToInitP@PAGEOFF ; "%s : Failed to init payload(%08x)\n"
+.text:00000000000012E8                 MOV             X3, X19
+.text:00000000000012EC                 MOV             W0, #6
+.text:00000000000012F0                 BL              .__android_log_print
+.text:00000000000012F4 loc_12F4                                ; CODE XREF: ems_get_status+150↓j
+.text:00000000000012F4                                         ; ems_get_status+180↓j ...
+.text:00000000000012F4                 LDR             X1, [X21,#__stack_chk_guard_ptr@PAGEOFF]
+.text:00000000000012F8                 LDR             X2, [X29,#0x270+var_8]
+.text:00000000000012FC                 LDR             W0, [X23]
+.text:0000000000001300                 LDR             X1, [X1]
+.text:0000000000001304                 CMP             X2, X1
+.text:0000000000001308                 B.NE            loc_13E4
+.text:000000000000130C                 LDP             X19, X20, [SP,#0x270+var_260]
+.text:0000000000001310                 LDP             X21, X22, [SP,#0x270+var_250]
+.text:0000000000001314                 LDP             X23, X24, [SP,#0x270+var_240]
+.text:0000000000001318                 LDP             X29, X30, [SP+0x270+var_270],#0x40
+.text:000000000000131C                 ADD             SP, SP, #0x230
+.text:0000000000001320                 RET
+.text:0000000000001324 ; ---------------------------------------------------------------------------
+.text:0000000000001324 loc_1324                                ; CODE XREF: ems_get_status+D0↑j
+.text:0000000000001324                 MOV             X0, X22
+.text:0000000000001328                 MOV             X1, X24
+.text:000000000000132C                 MOV             W2, W4
+.text:0000000000001330                 BL              ems_payload_push_item
+.text:0000000000001334                 CMP             W0, #1
+.text:0000000000001338                 B.EQ            loc_135C
+.text:000000000000133C                 ADRP            X2, #aSFailedToPushI@PAGE ; "%s : Failed to push item(%08x)\n"
+.text:0000000000001340                 MOV             W4, W0
+.text:0000000000001344                 MOV             X1, X20
+.text:0000000000001348                 ADD             X2, X2, #aSFailedToPushI@PAGEOFF ; "%s : Failed to push item(%08x)\n"
+.text:000000000000134C                 MOV             X3, X19
+.text:0000000000001350                 MOV             W0, #6
+.text:0000000000001354                 BL              .__android_log_print
+.text:0000000000001358                 B               loc_12F4
+.text:000000000000135C ; ---------------------------------------------------------------------------
+.text:000000000000135C loc_135C                                ; CODE XREF: ems_get_status+130↑j
+.text:000000000000135C                 MOV             X0, X22
+.text:0000000000001360                 BL              sub_C8C
+.text:0000000000001364                 CMP             W0, #1
+.text:0000000000001368                 B.EQ            loc_138C
+.text:000000000000136C                 ADRP            X2, #aSSockeCommuFai@PAGE ; "%s : socke commu failed(%08x)\n"
+.text:0000000000001370                 MOV             W4, W0
+.text:0000000000001374                 MOV             X1, X20
+.text:0000000000001378                 ADD             X2, X2, #aSSockeCommuFai@PAGEOFF ; "%s : socke commu failed(%08x)\n"
+.text:000000000000137C                 MOV             X3, X19
+.text:0000000000001380                 MOV             W0, #6
+.text:0000000000001384                 BL              .__android_log_print
+.text:0000000000001388                 B               loc_12F4
+.text:000000000000138C ; ---------------------------------------------------------------------------
+.text:000000000000138C loc_138C                                ; CODE XREF: ems_get_status+160↑j
+.text:000000000000138C                 MOV             X0, X22
+.text:0000000000001390                 MOV             W1, #2
+.text:0000000000001394                 MOV             X2, X23
+.text:0000000000001398                 BL              ems_payload_pop_item
+.text:000000000000139C                 CMP             W0, #1
+.text:00000000000013A0                 B.EQ            loc_13C4
+.text:00000000000013A4                 ADRP            X2, #aSFailedToGetPo@PAGE ; "%s : Failed to get pop item(%08x)\n"
+.text:00000000000013A8                 MOV             W4, W0
+.text:00000000000013AC                 MOV             X1, X20
+.text:00000000000013B0                 ADD             X2, X2, #aSFailedToGetPo@PAGEOFF ; "%s : Failed to get pop item(%08x)\n"
+.text:00000000000013B4                 MOV             X3, X19
+.text:00000000000013B8                 MOV             W0, #6
+.text:00000000000013BC                 BL              .__android_log_print
+.text:00000000000013C0                 B               loc_12F4
+.text:00000000000013C4 ; ---------------------------------------------------------------------------
+.text:00000000000013C4 loc_13C4                                ; CODE XREF: ems_get_status+198↑j
+.text:00000000000013C4                 LDR             W4, [X23]
+.text:00000000000013C8                 ADRP            X2, #aSResultOfGetst@PAGE ; "%s : Result of getstatus : %d\n"
+.text:00000000000013CC                 MOV             X1, X20
+.text:00000000000013D0                 ADD             X2, X2, #aSResultOfGetst@PAGEOFF ; "%s : Result of getstatus : %d\n"
+.text:00000000000013D4                 MOV             X3, X19
+.text:00000000000013D8                 MOV             W0, #4
+.text:00000000000013DC                 BL              .__android_log_print
+.text:00000000000013E0                 B               loc_12F4
+.text:00000000000013E4 ; ---------------------------------------------------------------------------
+.text:00000000000013E4 loc_13E4                                ; CODE XREF: ems_get_status+100↑j
+.text:00000000000013E4                 BL              .__stack_chk_fail
+.text:00000000000013E4 ; } // starts at 1208
+.text:00000000000013E4 ; End of function ems_get_status
+.text:00000000000013E8 ; =============== S U B R O U T I N E =======================================
+.text:00000000000013E8 ; Attributes: bp-based frame
+.text:00000000000013E8                 EXPORT ems_payload_init
+.text:00000000000013E8 ems_payload_init                        ; CODE XREF: ems_set_persist_status+7C↑p
+.text:00000000000013E8                                         ; ems_get_status+C4↑p
+.text:00000000000013E8                                         ; DATA XREF: ...
+.text:00000000000013E8 var_s0          =  0
+.text:00000000000013E8 ; __unwind {
+.text:00000000000013E8                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:00000000000013EC                 MOV             X29, SP
+.text:00000000000013F0                 CBZ             X0, loc_140C
+.text:00000000000013F4                 STURH           W1, [X0,#1]
+.text:00000000000013F8                 MOV             W1, #1
+.text:00000000000013FC                 STRB            W1, [X0]
+.text:0000000000001400                 MOV             W0, #1
+.text:0000000000001404 loc_1404                                ; CODE XREF: ems_payload_init+4C↓j
+.text:0000000000001404                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:0000000000001408                 RET
+.text:000000000000140C ; ---------------------------------------------------------------------------
+.text:000000000000140C loc_140C                                ; CODE XREF: ems_payload_init+8↑j
+.text:000000000000140C                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001410                 ADRP            X2, #aSBufIsNull@PAGE ; "%s : buf is NULL\n"
+.text:0000000000001414                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:0000000000001418                 MOV             W0, #6
+.text:000000000000141C                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001420                 ADD             X2, X2, #aSBufIsNull@PAGEOFF ; "%s : buf is NULL\n"
+.text:0000000000001424                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:0000000000001428                 BL              .__android_log_print
+.text:000000000000142C                 MOV             W0, #0xF0000002
+.text:0000000000001434                 B               loc_1404
+.text:0000000000001434 ; } // starts at 13E8
+.text:0000000000001434 ; End of function ems_payload_init
+.text:0000000000001438 ; =============== S U B R O U T I N E =======================================
+.text:0000000000001438 ; Attributes: bp-based frame
+.text:0000000000001438                 EXPORT ems_payload_push_item
+.text:0000000000001438 ems_payload_push_item                   ; CODE XREF: ems_get_status+128↑p
+.text:0000000000001438                                         ; DATA XREF: LOAD:0000000000000560↑o
+.text:0000000000001438 var_s0          =  0
+.text:0000000000001438 ; __unwind {
+.text:0000000000001438                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:000000000000143C                 UXTH            W7, W2
+.text:0000000000001440                 MOV             X29, SP
+.text:0000000000001444                 CBZ             X0, loc_1598
+.text:0000000000001448                 CBZ             X1, loc_1568
+.text:000000000000144C                 LDRB            W6, [X0,#3]
+.text:0000000000001450                 CBZ             W6, loc_1524
+.text:0000000000001454                 LDRH            W4, [X0,#4]
+.text:0000000000001458                 LDRH            W3, [X0,#6]
+.text:000000000000145C                 CMP             W4, #2
+.text:0000000000001460                 ADD             W3, W3, #5
+.text:0000000000001464                 B.HI            loc_14C8
+.text:0000000000001468                 MOV             W5, #0
+.text:000000000000146C                 B               loc_1488
+.text:0000000000001470 ; ---------------------------------------------------------------------------
+.text:0000000000001470 loc_1470                                ; CODE XREF: ems_payload_push_item+5C↓j
+.text:0000000000001470                 LDURH           W4, [X2,#3]
+.text:0000000000001474                 LDURH           W2, [X2,#5]
+.text:0000000000001478                 CMP             W4, #2
+.text:000000000000147C                 ADD             W2, W2, #4
+.text:0000000000001480                 ADD             W3, W3, W2
+.text:0000000000001484                 B.HI            loc_14C8
+.text:0000000000001488 loc_1488                                ; CODE XREF: ems_payload_push_item+34↑j
+.text:0000000000001488                 ADD             W5, W5, #1
+.text:000000000000148C                 ADD             X2, X0, W3,UXTW
+.text:0000000000001490                 CMP             W5, W6
+.text:0000000000001494                 B.NE            loc_1470
+.text:0000000000001498                 CMP             W7, #1
+.text:000000000000149C                 B.NE            loc_1534
+.text:00000000000014A0                 ADD             W2, W3, #4
+.text:00000000000014A4                 ADD             X4, X2, #4
+.text:00000000000014A8                 CMP             X4, #0x1FF
+.text:00000000000014AC                 B.LS            loc_1500
+.text:00000000000014B0 loc_14B0                                ; CODE XREF: ems_payload_push_item+E8↓j
+.text:00000000000014B0                 ADD             W6, W6, #1
+.text:00000000000014B4                 MOV             W1, #1
+.text:00000000000014B8                 STRB            W6, [X0,#3]
+.text:00000000000014BC loc_14BC                                ; CODE XREF: ems_payload_push_item+12C↓j
+.text:00000000000014BC                                         ; ems_payload_push_item+15C↓j
+.text:00000000000014BC                 MOV             W0, W1
+.text:00000000000014C0                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:00000000000014C4                 RET
+.text:00000000000014C8 ; ---------------------------------------------------------------------------
+.text:00000000000014C8 loc_14C8                                ; CODE XREF: ems_payload_push_item+2C↑j
+.text:00000000000014C8                                         ; ems_payload_push_item+4C↑j
+.text:00000000000014C8                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:00000000000014CC                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:00000000000014D0                 ADRP            X2, #aSFailedToParse@PAGE ; "%s : Failed to parse payload(%08x)\n"
+.text:00000000000014D4                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:00000000000014D8                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:00000000000014DC                 ADD             X2, X2, #aSFailedToParse@PAGEOFF ; "%s : Failed to parse payload(%08x)\n"
+.text:00000000000014E0                 ADD             X3, X3, #0x20 ; ' '
+.text:00000000000014E4                 MOV             W0, #6
+.text:00000000000014E8                 BL              .__android_log_print
+.text:00000000000014EC                 MOV             W1, #0xF0000004
+.text:00000000000014F4                 MOV             W0, W1
+.text:00000000000014F8                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:00000000000014FC                 RET
+.text:0000000000001500 ; ---------------------------------------------------------------------------
+.text:0000000000001500 loc_1500                                ; CODE XREF: ems_payload_push_item+74↑j
+.text:0000000000001500                                         ; ems_payload_push_item+F8↓j
+.text:0000000000001500                 ADD             X3, X0, X3
+.text:0000000000001504                 MOV             W4, #1
+.text:0000000000001508                 ADD             X2, X0, X2
+.text:000000000000150C                 STURH           W4, [X3,#3]
+.text:0000000000001510                 MOV             W4, #4
+.text:0000000000001514                 STURH           W4, [X3,#5]
+.text:0000000000001518                 LDR             W1, [X1]
+.text:000000000000151C                 STUR            W1, [X2,#3]
+.text:0000000000001520                 B               loc_14B0
+.text:0000000000001524 ; ---------------------------------------------------------------------------
+.text:0000000000001524 loc_1524                                ; CODE XREF: ems_payload_push_item+18↑j
+.text:0000000000001524                 CMP             W7, #1
+.text:0000000000001528                 MOV             X3, #1
+.text:000000000000152C                 MOV             X2, #5
+.text:0000000000001530                 B.EQ            loc_1500
+.text:0000000000001534 loc_1534                                ; CODE XREF: ems_payload_push_item+64↑j
+.text:0000000000001534                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:0000000000001538                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:000000000000153C                 ADRP            X2, #aSUnknownItemTy@PAGE ; "%s : Unknown item type(%08x)\n"
+.text:0000000000001540                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:0000000000001544                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001548                 MOV             W0, #6
+.text:000000000000154C                 ADD             X2, X2, #aSUnknownItemTy@PAGEOFF ; "%s : Unknown item type(%08x)\n"
+.text:0000000000001550                 ADD             X3, X3, #0x20 ; ' '
+.text:0000000000001554                 MOV             W4, W7
+.text:0000000000001558                 BL              .__android_log_print
+.text:000000000000155C                 MOV             W1, #0xF0000005
+.text:0000000000001564                 B               loc_14BC
+.text:0000000000001568 ; ---------------------------------------------------------------------------
+.text:0000000000001568 loc_1568                                ; CODE XREF: ems_payload_push_item+10↑j
+.text:0000000000001568                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:000000000000156C                 ADRP            X2, #aSItemIsNull@PAGE ; "%s : item is NULL\n"
+.text:0000000000001570                 MOV             W0, #6
+.text:0000000000001574                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001578                 ADD             X2, X2, #aSItemIsNull@PAGEOFF ; "%s : item is NULL\n"
+.text:000000000000157C loc_157C                                ; CODE XREF: ems_payload_push_item+174↓j
+.text:000000000000157C                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:0000000000001580                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:0000000000001584                 ADD             X3, X3, #0x20 ; ' '
+.text:0000000000001588                 BL              .__android_log_print
+.text:000000000000158C                 MOV             W1, #0xF0000002
+.text:0000000000001594                 B               loc_14BC
+.text:0000000000001598 ; ---------------------------------------------------------------------------
+.text:0000000000001598 loc_1598                                ; CODE XREF: ems_payload_push_item+C↑j
+.text:0000000000001598                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:000000000000159C                 ADRP            X2, #aSBufIsNull@PAGE ; "%s : buf is NULL\n"
+.text:00000000000015A0                 MOV             W0, #6
+.text:00000000000015A4                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:00000000000015A8                 ADD             X2, X2, #aSBufIsNull@PAGEOFF ; "%s : buf is NULL\n"
+.text:00000000000015AC                 B               loc_157C
+.text:00000000000015AC ; } // starts at 1438
+.text:00000000000015AC ; End of function ems_payload_push_item
+.text:00000000000015B0 ; =============== S U B R O U T I N E =======================================
+.text:00000000000015B0 ; Attributes: bp-based frame
+.text:00000000000015B0                 EXPORT ems_payload_pop_item
+.text:00000000000015B0 ems_payload_pop_item                    ; CODE XREF: ems_set_persist_status+110↑p
+.text:00000000000015B0                                         ; ems_get_status+190↑p
+.text:00000000000015B0                                         ; DATA XREF: ...
+.text:00000000000015B0 var_s0          =  0
+.text:00000000000015B0 ; __unwind {
+.text:00000000000015B0                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:00000000000015B4                 UXTH            W4, W1
+.text:00000000000015B8                 CMP             W4, #2
+.text:00000000000015BC                 MOV             X29, SP
+.text:00000000000015C0                 B.HI            loc_1670
+.text:00000000000015C4                 CBZ             X2, loc_16A0
+.text:00000000000015C8                 LDRB            W1, [X0,#3]
+.text:00000000000015CC                 CBZ             W1, loc_1610
+.text:00000000000015D0                 LDRH            W3, [X0,#4]
+.text:00000000000015D4                 LDRH            W6, [X0,#6]
+.text:00000000000015D8                 CMP             W3, W4
+.text:00000000000015DC                 B.EQ            loc_1668
+.text:00000000000015E0                 MOV             W3, #5
+.text:00000000000015E4                 MOV             W5, #0
+.text:00000000000015E8                 B               loc_15FC
+.text:00000000000015EC ; ---------------------------------------------------------------------------
+.text:00000000000015EC loc_15EC                                ; CODE XREF: ems_payload_pop_item+5C↓j
+.text:00000000000015EC                 LDURH           W7, [X6,#3]
+.text:00000000000015F0                 LDURH           W6, [X6,#5]
+.text:00000000000015F4                 CMP             W7, W4
+.text:00000000000015F8                 B.EQ            loc_1644
+.text:00000000000015FC loc_15FC                                ; CODE XREF: ems_payload_pop_item+38↑j
+.text:00000000000015FC                 ADD             W5, W5, #1
+.text:0000000000001600                 ADD             X6, X0, W3,SXTW
+.text:0000000000001604                 CMP             W1, W5
+.text:0000000000001608                 ADD             W3, W3, #4
+.text:000000000000160C                 B.NE            loc_15EC
+.text:0000000000001610 loc_1610                                ; CODE XREF: ems_payload_pop_item+1C↑j
+.text:0000000000001610                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:0000000000001614                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001618                 ADRP            X2, #aSFailedToFindI@PAGE ; "%s : Failed to find item\n"
+.text:000000000000161C                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:0000000000001620                 MOV             W0, #6
+.text:0000000000001624                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001628                 ADD             X2, X2, #aSFailedToFindI@PAGEOFF ; "%s : Failed to find item\n"
+.text:000000000000162C                 ADD             X3, X3, #0x40 ; '@'
+.text:0000000000001630                 BL              .__android_log_print
+.text:0000000000001634                 MOV             W0, #0xF0000006
+.text:000000000000163C loc_163C                                ; CODE XREF: ems_payload_pop_item+EC↓j
+.text:000000000000163C                                         ; ems_payload_pop_item+11C↓j
+.text:000000000000163C                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:0000000000001640                 RET
+.text:0000000000001644 ; ---------------------------------------------------------------------------
+.text:0000000000001644 loc_1644                                ; CODE XREF: ems_payload_pop_item+48↑j
+.text:0000000000001644                 SXTW            X3, W3
+.text:0000000000001648 loc_1648                                ; CODE XREF: ems_payload_pop_item+BC↓j
+.text:0000000000001648                 ADD             X1, X0, X3
+.text:000000000000164C                 MOV             X0, X2  ; dest
+.text:0000000000001650                 ADD             X1, X1, #3 ; src
+.text:0000000000001654                 UXTH            W2, W6  ; n
+.text:0000000000001658                 BL              .memcpy
+.text:000000000000165C                 MOV             W0, #1
+.text:0000000000001660                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:0000000000001664                 RET
+.text:0000000000001668 ; ---------------------------------------------------------------------------
+.text:0000000000001668 loc_1668                                ; CODE XREF: ems_payload_pop_item+2C↑j
+.text:0000000000001668                 MOV             X3, #5
+.text:000000000000166C                 B               loc_1648
+.text:0000000000001670 ; ---------------------------------------------------------------------------
+.text:0000000000001670 loc_1670                                ; CODE XREF: ems_payload_pop_item+10↑j
+.text:0000000000001670                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:0000000000001674                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:0000000000001678                 ADRP            X2, #aSUnknownItemTy@PAGE ; "%s : Unknown item type(%08x)\n"
+.text:000000000000167C                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:0000000000001680                 MOV             W0, #6
+.text:0000000000001684                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:0000000000001688                 ADD             X2, X2, #aSUnknownItemTy@PAGEOFF ; "%s : Unknown item type(%08x)\n"
+.text:000000000000168C                 ADD             X3, X3, #0x40 ; '@'
+.text:0000000000001690                 BL              .__android_log_print
+.text:0000000000001694                 MOV             W0, #0xF0000005
+.text:000000000000169C                 B               loc_163C
+.text:00000000000016A0 ; ---------------------------------------------------------------------------
+.text:00000000000016A0 loc_16A0                                ; CODE XREF: ems_payload_pop_item+14↑j
+.text:00000000000016A0                 ADRP            X3, #aEmsPayloadInit_0@PAGE ; "ems_payload_init"
+.text:00000000000016A4                 ADRP            X1, #aEngmodeClient@PAGE ; "ENGMODE_CLIENT"
+.text:00000000000016A8                 ADRP            X2, #aSBufIsNull@PAGE ; "%s : buf is NULL\n"
+.text:00000000000016AC                 ADD             X3, X3, #aEmsPayloadInit_0@PAGEOFF ; "ems_payload_init"
+.text:00000000000016B0                 MOV             W0, #6
+.text:00000000000016B4                 ADD             X1, X1, #aEngmodeClient@PAGEOFF ; "ENGMODE_CLIENT"
+.text:00000000000016B8                 ADD             X2, X2, #aSBufIsNull@PAGEOFF ; "%s : buf is NULL\n"
+.text:00000000000016BC                 ADD             X3, X3, #0x40 ; '@'
+.text:00000000000016C0                 BL              .__android_log_print
+.text:00000000000016C4                 MOV             W0, #0xF0000002
+.text:00000000000016CC                 B               loc_163C
+.text:00000000000016CC ; } // starts at 15B0
+.text:00000000000016CC ; End of function ems_payload_pop_item
+.text:00000000000016CC ; .text         ends

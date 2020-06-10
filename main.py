@@ -96,6 +96,7 @@ def main(argv):
           sys.exit()
 
 
+        """
         print("#" * 64)
         print("##" + " " * 23 + "KICKASS DISASS" + " " * 23 + "##")
         print("##" + " " * 60 + "##")
@@ -105,11 +106,13 @@ def main(argv):
                 CS_API_MAJOR,
                 CS_API_MINOR).rjust(62))
         print("#" * 64 + "\n")
+        """
 
         if len(argv) >= 3:
           anal = Analyzer(loader, exe, f, argv[2])
         else:
           anal = Analyzer(loader, exe, f)
+        anal.start()
 
 
 if __name__ == '__main__':

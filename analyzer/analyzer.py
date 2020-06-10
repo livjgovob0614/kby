@@ -25,6 +25,7 @@ class Analyzer():
     #def __init__(self, loader, exe, f, function_info_f=None, lst_f=None):
     def __init__(self, loader, exe, f, out_dir=None):
         self.exe = exe
+        self.in_file = f
 
         self.out_dir = out_dir
         self.f_info = "input/"+os.path.basename(f.name)+"/funcInfo"
@@ -48,6 +49,9 @@ class Analyzer():
 
         print("Successfully loaded", f.name,
             "using loader", loader_name(loader))
+
+
+    def start(self):
         print("Analyzing...")
         self.analyze()
         print("Analysis complete")
@@ -57,11 +61,19 @@ class Analyzer():
         # TODO
         self.classify_adrp_targets()
 
+        data_cnt = 0
         if self.adrp_list:
-          res_f = self.write_result(f)
-          print ("*** Results are in", res_f)
+          data_cnt, res_dir = self.write_result(self.in_file)
+          print ("*** Results are in", res_dir)
         else:
           print ("*** No adrp target in text section.")
+
+        if not self.out_dir is None:
+          with open(self.out_dir+"/result.stat", 'a+') as f:
+            write_str = os.path.basename(self.in_file.name)+"\t"+str(len(self.adrp_list))+"\t"+str(data_cnt)+"\n"
+            f.write(write_str)
+            print (write_str)
+
 
 
     def analyze(self):
@@ -69,7 +81,7 @@ class Analyzer():
         self.known_ends = []
         self.starts = []
         for addr in self.doc.proc_to_analyze:
-            print("Adding proc at address", hex(addr), "(found by loader), type:",type(addr))
+            # XXX XXX print("Adding proc at address", hex(addr), "(found by loader), type:",type(addr))
             self.queue.put(addr)
             self.starts.append(addr)
         self.doc.proc_to_analyze = None
@@ -92,17 +104,17 @@ class Analyzer():
           if symbol['st_info']['type'] == 'STT_FUNC' and symbol['st_shndx'] != 'SHN_UNDEF':
             addr = symbol['st_value']
             fname = symbol.name
-            print ("Adding funcion", fname, "from", sym.name ,"at", hex(addr))
+            # XXX XXX print ("Adding funcion", fname, "from", sym.name ,"at", hex(addr))
             self.queue.put(addr)
             self.starts.append(addr)
             # TODO why should symbol have size when adding function?
             if symbol['st_size']:
               self.known_ends.append(symbol['st_value']+symbol['st_size']-0x4)
-              print ("   size", symbol['st_size'])
+              # XXX XXX print ("   size", symbol['st_size'])
 
 
     def get_text_function_info(self):
-        print (self.f_info)
+        # print (self.f_info)
         #sys.exit()
         with open(self.f_info, 'r') as f:
           for i, line in enumerate(f):
@@ -111,7 +123,7 @@ class Analyzer():
             if i & 1:
               self.known_ends.append(target)
             else:
-              print ("Adding funcion from", os.path.basename(f.name) ,"at", hex(target))
+              # XXX XXX print ("Adding funcion from", os.path.basename(f.name) ,"at", hex(target))
               self.queue.put(target)
               self.starts.append(target)
 
@@ -132,7 +144,7 @@ class Analyzer():
             cur_section = self.exe.section_containing_vaddr(start_adr)
             #print ("current:",hex(start_adr))
             if cur_section == None:
-              print ("137 none type: current: ",hex(start_adr))
+              # XXX XXX print ("137 none type: current: ",hex(start_adr))
               continue
             section_end_vaddr = cur_section.vaddr + cur_section.size
             end_adr = min([addr for addr in self.starts if addr > start_adr] or ([section_end_vaddr] or [addr for addr in sorted(self.known_ends) if addr > start_adr]))
@@ -205,21 +217,21 @@ class Analyzer():
                 #print ("yes")
                 target = ops[2].imm + target
                 if ss <= target < ee:
-                  # XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                  # XXX XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
                   return ins.address, target, 1
                 break
             elif "ldr" in next_ins.mnemonic and (target_reg == ops[0].value.reg or target_reg == ops[1].value.mem.base):
                 #print ("yes2")
                 target = ops[1].value.mem.disp + target # TODO  adr x1, [x3] case ?
                 if ss <= target < ee:
-                  # XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
+                  # XXX XXX print ("adrp(", hex(ins.address), hex(target),") target in text**")
                   return ins.address, target, 1
                 break
             elif "str" in next_ins.mnemonic and (target_reg == ops[0].value.reg or target_reg == ops[1].value.mem.base):
                 break
           except StopIteration:
             # TODO write into log file
-            print ("StopIteration at", hex(next_ins.address),"when getting adrp(", hex(ins.address) ,") target")
+            # XXX XXX print ("StopIteration at", hex(next_ins.address),"when getting adrp(", hex(ins.address) ,") target")
             pass
           adr = adr + ins.size
 
@@ -266,7 +278,8 @@ class Analyzer():
           output_dir = t.strftime("%y")+t.strftime("%m")+t.strftime("%d")+"_"+t.strftime("%H")+t.strftime("%M")+t.strftime("%S")
           output_dir = os.path.join(result_dir, output_dir)
         else:
-          output_dir = os.path.join(os.path.join("./output/", self.out_dir), os.path.basename(binary.name))
+          #output_dir = os.path.join(os.path.join("./output/", self.out_dir), os.path.basename(binary.name))
+          output_dir = os.path.join(self.out_dir, os.path.basename(binary.name))
         if not os.path.isdir(output_dir):
           os.makedirs(output_dir)
         os.chdir(output_dir)
@@ -290,6 +303,7 @@ class Analyzer():
         size1 = len(self.adrp_list)
         size2 = len(self.adrp_target_list)
         
+        data_target_cnt = 0
         target_str = None
         is_code = 0
         not_code_target = []
@@ -298,7 +312,7 @@ class Analyzer():
           addr = line.split()[0]
 
           if not target_str == None:
-            if "COLLAPSED FUNCTION" in line or "sub"+target_str in line or "__unwind" in line:
+            if "COLLAPSED FUNCTION" in line or "sub"+target_str in line or "__unwind" in line or "bp-based frame" in line:
               is_code = 1
             if not target_str in addr:
               while j < size2 and str(hex(self.adrp_target_list[j][0]))[2:].upper() == target_str:
@@ -306,6 +320,7 @@ class Analyzer():
                 #print("\t\ttarget: ", hex(self.adrp_target_list[j][0])[2:].upper())
                 j += 1
               if not is_code:
+                data_target_cnt += 1
                 not_code_target.append(target_str)
 
               target_str = None
@@ -329,7 +344,7 @@ class Analyzer():
           for a in not_code_target:
             f.write(a+"\n")
 
-        return os.getcwd()
+        return len(not_code_target), os.getcwd()
 
 
       
